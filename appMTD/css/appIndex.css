@@ -112,4 +112,23 @@ body{
 .align-items-center{
     align-items: center!important;
 } */
+/* ========================Navegador ============== */
+.special-color-red{
+    background-color: #fe0000; 
+    border-radius: 18px;
+     margin-bottom: 10px;
+}
 
+.main-header  nav a{
+    /* color: white; */
+    margin-left: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    
+}
+
+/* 
+.navbar .mega-dropdown .dropdown-menu.mega-menu {
+
+    background: #333333 !important;
+} */
