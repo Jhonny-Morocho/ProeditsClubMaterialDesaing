@@ -224,3 +224,21 @@ h6 {
 }
 
 
+.playlist{
+    background: #333;
+}
+
+.playlist ul {
+  color: white;
+}
+.playlist span {
+    color: white;
+  }
+
+
+
+
+  .pagination .page-item .page-link {
+    color: #fff !important;
+
+}

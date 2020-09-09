@@ -12,8 +12,8 @@
             if($cont_2<15){
                 echo'
 
-                <div class="card-wrapper">
-                    <div id="card-2" class="card card-rotating text-center">
+                <div class="card-wrapper ">
+                    <div id="card-2" class="card card-rotating text-center ">
                         <!--Front Side-->
                         <div class="row">
                             <div class="col-lg-5">
@@ -34,7 +34,7 @@
                                 <!--Content-->
                                 <div class="card-body" style="background:#fff">
                                     <a class="rotate-btn float-right" data-card="card-2" href="'.(ControladorPlantillaInicio::url_producto()).$value['id_producto'].'"><i class="fas fa-share-alt fa-lg"></i></a>
-                                    <p class="card-text text topNombreTema">'.($value['url_directorio']).'</p>
+                                    <p class="card-text text topNombreTema" style="font-size:12px !important">'.($value['url_directorio']).'</p>
                                 </div>
 
                             </div>

@@ -24,7 +24,7 @@
 	<meta property="og:title" content="COCOMO 2" />
 </head>
 
-<body class="">
+<body class="black">
 
 
 <header class="">

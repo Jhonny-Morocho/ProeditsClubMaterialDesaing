@@ -268,3 +268,7 @@ background-image:('../img/payment.png') ;
 .disabled {
   pointer-events:none;
 }
+
+ul#playlist li:hover {
+    background-color: red !important;
+}

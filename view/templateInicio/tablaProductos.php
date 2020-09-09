@@ -38,10 +38,10 @@
 	<!-- =============================== STOCK ===================-->
 	<div class="">
 		<div class="row">
-			<div class="col-lg-3">
+			<div class="col-lg-2">
 				<?php require'view/templateInicio/listaGenero.php'; ?>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-7">
 				<nav class="nav flex-column blue lighten-5 py-4">
 					<a class="nav-link active" href="#">Nuevos Edits</a>
 				  </nav>
@@ -84,15 +84,6 @@
 											<span class="length"><?php echo $row['genero']?></span>
 											<span class="length"><?php echo $row['fecha_producto']?></span>
 										</div>
-										<!-- <div class="right">
-											<div class="dropdown">
-												<i class="fa fa-lg fa-ellipsis-v button song-menu" aria-hidden="true" data-toggle="dropdown"></i>
-												<ul class="dropdown-menu pull-right">
-												<li><a href="#"><i class="fa fa-fw fa-download" aria-hidden="true"></i> Download</a></li>
-												<li><a href="#"><i class="fa fa-fw fa-share" aria-hidden="true"></i> Share</a></li>
-												</ul>
-											</div>
-										</div> -->
 									</li>
 									<?php }else{
 										echo '<div class="alert alert-primary" role="alert">
@@ -103,10 +94,10 @@
 							<?php endforeach; ?>
 								</ul>
 					</div>
-								<div class="d-flex justify-content-center">
+								<div class="d-flex justify-content-center center-block">
 									<?php if( $banderaError==false){  // si no exite resultado osea marcar erro entonces no presentra paginacion?>
 										<nav aria-label="Page navigation example">
-											<ul class="pagination pg-blue">
+											<ul class="pagination pg-red">
 												<?php if ($data["actual-section"] != 1): ?> 		  			
 													<li class="page-item" ><a class="page-link" href="../../?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=1">Inicio</a></li>
 													<li class="page-item" ><a class="page-link"" href="../../?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=<?php echo $data['previous']; ?>">&laquo;</a></li>
