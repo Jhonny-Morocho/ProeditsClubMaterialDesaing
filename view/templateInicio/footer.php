@@ -91,6 +91,13 @@
 
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
+	<!-- //=================Reproductor wave================// -->
+
+	<link rel="stylesheet" href="../../waveSurfer/waveMain.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
+    <script src="../../waveSurfer/waveMain.js"></script>
+
+
 
 </body>
 
