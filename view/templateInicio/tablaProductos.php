@@ -63,6 +63,13 @@
 				</form>
 
 				<!-- list  productos -->
+
+				<div class="row" title="Add to car :Demo ">
+										<div class="col-lg-1">
+											<i class="fas fa-cart-plus agregar-carrito buy"  data-id="9" data-nombre="Este demo" data-precio="1.99" ></i>
+										</div>
+				</div>
+
 				<div id="playlistContainer" class="row playlist">
 					<div class="row center album-name">
 						
