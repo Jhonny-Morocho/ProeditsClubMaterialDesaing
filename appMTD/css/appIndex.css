@@ -114,7 +114,7 @@ body{
 } */
 /* ========================Navegador ============== */
 .special-color-red{
-    background-color: #fe0000; 
+    background-color: #FD0002; 
     border-radius: 18px;
      margin-bottom: 10px;
 }
@@ -132,3 +132,95 @@ body{
 
     background: #333333 !important;
 } */
+
+/* ========================== ESTILOS DEL LOGIN =====================
+========================== ESTILOS DEL LOGIN =====================
+========================== ESTILOS DEL LOGIN =====================
+========================== ESTILOS DEL LOGIN ===================== */
+html,
+body,
+
+.view {
+  height: 100%;
+}
+
+@media (max-width: 740px) {
+  html,
+  body,
+ 
+  .view {
+    height: 1000px;
+  }
+}
+@media (min-width: 800px) and (max-width: 850px) {
+  html,
+  body,
+
+  .view {
+    height: 650px;
+  }
+}
+
+.rgba-gradient {
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%);
+}
+
+.card {
+  background-color: rgba(126, 123, 215, 0.2);
+}
+
+.md-form label {
+  color: #ffffff;
+}
+
+h6 {
+  line-height: 1.7;
+}
+
+
+
+
+/* ========================= PANEL DEL CLIENTE =============== */
+/* ========================= PANEL DEL CLIENTE =============== */
+/* ========================= PANEL DEL CLIENTE =============== */
+.myaccount-tab-menu a {
+    border: 1px solid #ccc;
+    border-bottom: none;
+    color: #ffff;
+    font-weight: 500;
+    font-size: 13px;
+    display: block;
+    padding: 10px 15px;
+    text-transform: uppercase;
+}
+
+.myaccount-tab-menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.myaccount-tab-menu  .active{
+    background-color: #FD0002 ;
+}
+
+
+/* //======================ESTILOS DEL GENERO ===========================// */
+/* //======================ESTILOS DEL GENERO ===========================// */
+/* //======================ESTILOS DEL GENERO ===========================// */
+.blue.lighten-5 {
+    background-color: #333 !important;
+}
+
+.navGenero a{
+   color: white;
+   margin-top: 15px;
+}
+
+.navGenero a:hover{
+    background-color: #FD0002 !important;
+    border-radius: 16px !important;
+}
+
+
