@@ -19,7 +19,7 @@ $descripcionProducto="";
 
 
     //==========comprobar si exite un session o el cliente esta logiando==================//
-    if( isset($_SESSION['usuario']) and $_SESSION['tipo_usuario']=='cliente' and isset($_SESSION['id_cliente']) ){
+    if( isset($_SESSION['usuario']) and $_SESSION['tipo_usuario']=='Cliente' and isset($_SESSION['id_cliente']) ){
             //========OpcionPago
         switch (@$_POST['valueRadio']) {
             case 'paypal':

@@ -1,5 +1,5 @@
 
-//$(document).ready(function(){
+$(document).ready(function(){
         //localStorage.clear();
         //inicia el sistema  en car.php se imprime los datoscargando los datos del local store y definiendo la variables listaCarrito
         var  listaCarrito,precioUnitarioProducto;
@@ -25,8 +25,7 @@
             //escondo el total casillero
             $(".cart-calculator-wrapper").hide();
             $(".opcionPago").hide();
-            $('.BtnaplicarCupon').hide();
-            $('.cuponDescuento').hide();
+            $('.opciones_pago').hide();
           }
         }
 
@@ -80,10 +79,7 @@
         var nombreProducto=$(this).attr("data-nombre");
         var precio=$(this).attr("data-precio");
        //notificacion se agrego producto
-        bootoast.toast({
-          message: 'Se agrego '+nombreProducto,
-          type: 'success'
-        });
+        toastr.success('Se agrego '+nombreProducto);
        //si no tiene datos en local store , encones inicializo el array
        //console.log(localStorage.getItem("listProduct"));
        (localStorage.getItem("listProduct")==null)? listaCarrito=[]: listaCarrito.concat(localStorage.getItem("listProduct"));
@@ -280,3 +276,4 @@
        // nuevoTotal=(item.precio*0.50).toFixed(2)+nuevoTotal;
       }
 
+});

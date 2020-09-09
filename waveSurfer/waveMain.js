@@ -417,20 +417,36 @@ function mute() {
 }
 
 // Toggle mute on click
-document.getElementById('mute').addEventListener('click', function() {
-  mute();
-});
+try {
+  document.getElementById('mute').addEventListener('click', function() {
+    mute();
+  });
+  
+} catch (error) {
+  console.log(error);
+}
 
 var volumeControl = document.getElementById('volume-control');
 // Prevents volume bar from hiding itself (on mouseout) if user is actively click/dragging volume bar.
 var isDown = false;
 
-volumeControl.addEventListener('mousedown', function() {
-  isDown = true;
-});
-volumeControl.addEventListener('mouseup', function() {
-  isDown = false;
-});
+try {
+  volumeControl.addEventListener('mousedown', function() {
+    isDown = true;
+  });
+  
+} catch (error) {
+  console.log(error);
+}
+
+try {
+  volumeControl.addEventListener('mouseup', function() {
+    isDown = false;
+  });
+  
+} catch (error) {
+  console.log(error);
+}
 
 function showVolume(){
   document.querySelector('.volume').style.opacity = 1;
@@ -443,37 +459,54 @@ function hideVolume(){
 }
 
 // Show volume bar on hover
-volumeControl.addEventListener('mouseover', showVolume);
-volumeControl.addEventListener('mouseout', hideVolume);
+try {
+  volumeControl.addEventListener('mouseover', showVolume);
+  volumeControl.addEventListener('mouseout', hideVolume);
+  
+} catch (error) {
+  console.log(error);
+}
 
 // Prevents volume bar from showing on mobile tap (hopefully) and mutes
-volumeControl.addEventListener('touchstart', function(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  mute();
-});
+
+try {
+  volumeControl.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    mute();
+  });
+  
+} catch (error) {
+  console.log(error);
+}
 
 // Listen for scroll, call to adjust volume up or down
-if (volumeControl.addEventListener) {
-	// IE9, Chrome, Safari, Opera
-	volumeControl.addEventListener("mousewheel", MouseWheelHandler, false);
-	// Firefox
-	volumeControl.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
-}
-// IE 6/7/8
-else volumeControl.attachEvent("onmousewheel", MouseWheelHandler);
-function MouseWheelHandler(e) {
-  var e = window.event || e; // old IE support
-  var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-  if (delta > 0 /*|| e.detail < 0*/) {
-    scrollVolume(5);
-  }
-  else {
-    scrollVolume(-5);
-  }
 
-  // Prevent page from scrolling when controlling volume bar by mouse wheel
-  e.preventDefault();
+try {
+  if (volumeControl.addEventListener) {
+    // IE9, Chrome, Safari, Opera
+    volumeControl.addEventListener("mousewheel", MouseWheelHandler, false);
+    // Firefox
+    volumeControl.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
+  }
+  // IE 6/7/8
+  else volumeControl.attachEvent("onmousewheel", MouseWheelHandler);
+  function MouseWheelHandler(e) {
+    var e = window.event || e; // old IE support
+    var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+    if (delta > 0 /*|| e.detail < 0*/) {
+      scrollVolume(5);
+    }
+    else {
+      scrollVolume(-5);
+    }
+  
+    // Prevent page from scrolling when controlling volume bar by mouse wheel
+    e.preventDefault();
+  }
+  
+} catch (error) {
+  console.log(error);
 }
 
 function scrollVolume(amount) {
@@ -485,11 +518,16 @@ function scrollVolume(amount) {
 
 var volumeDrag = false;
 
-document.querySelector('.volume').addEventListener('mousedown', function (e) {
-  volumeDrag = true;
-  muted = false;
-  updateVolume(e.pageX);
-});
+try {
+  
+  document.querySelector('.volume').addEventListener('mousedown', function (e) {
+    volumeDrag = true;
+    muted = false;
+    updateVolume(e.pageX);
+  });
+} catch (error) {
+  console.log(error);
+}
 
 document.addEventListener('mouseup', function(e) {
   if (volumeDrag) {

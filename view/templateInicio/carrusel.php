@@ -20,7 +20,7 @@
 				<div class="mask rgba-black-light"></div>
 				</div>
 				<div class="carousel-caption">
-				<h3 class="h3-responsive">Light mask</h3>
+				<h3 class="h3-responsive oferta">Light mask</h3>
 				<p>First text</p>
 				</div>
 			</div>
@@ -32,7 +32,7 @@
 				<div class="mask rgba-black-strong"></div>
 				</div>
 				<div class="carousel-caption">
-				<h3 class="h3-responsive">Strong mask</h3>
+				<h3 class="h3-responsive oferta">Light mask</h3>
 				<p>Secondary text</p>
 				</div>
 			</div>
@@ -44,7 +44,7 @@
 				<div class="mask rgba-black-slight"></div>
 				</div>
 				<div class="carousel-caption">
-				<h3 class="h3-responsive">Slight mask</h3>
+				<h3 class="h3-responsive oferta">Light mask</h3>
 				<p>Third text</p>
 				</div>
 			</div>

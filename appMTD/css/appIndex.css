@@ -254,3 +254,28 @@ h6 {
 }
 
 
+footer.page-footer {
+    height: 320px !important;
+}
+
+
+/* ====================carrito de compras ============= */
+/* ====================carrito de compras =============
+====================carrito de compras ============= */
+
+.buy:hover{
+   cursor: pointer;
+}
+
+
+/* ====================OFERTA CARRUSEL ============= */
+/* ====================OFERTA CARRUSEL =============
+====================OFERTA CARRUSEL ============= */
+.oferta {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 32px;
+    text-transform: uppercase;
+    background-color: #fd0002;
+}

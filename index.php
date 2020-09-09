@@ -1,3 +1,4 @@
+<!-- Button trigger modal-->
 
 <?php
 
@@ -24,6 +25,5 @@ $plantilla->ctr_slider();
 $plantilla->ctr_tabla_productos();
 $plantilla->reproductorAudio();
 $plantilla->ctr_footer();
-
 ?>
 

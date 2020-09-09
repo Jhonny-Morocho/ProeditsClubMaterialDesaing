@@ -99,7 +99,9 @@ class ControladorPlantillaInicio{
             
             return "../../demo.php?id_producto=";
        
-    }
+        }
+
+        
 }
 
 

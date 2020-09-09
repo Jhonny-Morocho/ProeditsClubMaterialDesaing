@@ -16,10 +16,7 @@ var urlPasarelaPago="../../Paypal/ctrPasarelaPago.php";
 $("#idFormCarrito").on('submit',function(e){
     
     e.preventDefault();
-    //debo borrar el formulario del cupon para que me deje ejecutar el pago
-    $('.BtnaplicarCupon').remove();
-    $('.cuponDescuento').remove();
-    
+
     var inputOptionPago=$(this).serializeArray();//obtengo valores de radios
     //console.log(inputOptionPago);
     //selecionodo todos los datos de la tabla
@@ -64,7 +61,7 @@ function enviarDatosPasarelaPago(datos){
         cache:false,
         contentType:false,
         processData:false,
-        dataType:data_type,//json//data_type
+        dataType:'text',//json//data_type
         success:function(data){
             console.log(data);
 

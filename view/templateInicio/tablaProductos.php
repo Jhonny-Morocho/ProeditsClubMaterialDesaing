@@ -37,7 +37,7 @@
 	<!-- =============================== STOCK ===================-->
 	<!-- =============================== STOCK ===================-->
 	<div class="">
-		<div class="row">
+		<div class="row mt-3 mb-5">
 			<div class="col-lg-3">
 				<?php require'view/templateInicio/listaGenero.php'; ?>
 			</div>
@@ -71,7 +71,7 @@
 								<?php  $banderaError=false; if( $row['apodo']!== 'Error: vacío' ){ ?>
 									<div class="row" title="Add to car : <?php echo $row['url_directorio']?>">
 										<div class="col-lg-1">
-											<i class="fas fa-cart-plus"></i>
+											<i class="fas fa-cart-plus agregar-carrito buy"  data-id="<?php echo $row['id']?>" data-nombre="<?php echo $row['url_directorio']?>" data-precio="<?php echo $row['precio']?>" ></i>
 										</div>
 									</div>
 									<li data-src="../../biblioteca/<?php echo $row['url_directorio']?> " data-title="<?php echo $row['url_directorio']?>" data-length="194" class="song-row">

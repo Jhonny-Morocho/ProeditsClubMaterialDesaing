@@ -48,7 +48,7 @@
 <!-- =============================== STOCK ===================-->
 <!-- =============================== STOCK ===================-->
 <div class="">
-    <div class="row">
+    <div class="row  mt-3 mb-5">
         <div class="col-lg-3">
             <?php require'view/templateInicio/listaGenero.php'; ?>
         </div>

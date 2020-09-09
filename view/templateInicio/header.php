@@ -18,13 +18,13 @@
 	<link rel="stylesheet" href="css/mdb.min.css">
 	<!-- Your custom styles (optional) -->
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="icon" type="image/png" href="../../view/img/icono.png" />
+	<link rel="icon" type="image/png" href="../../img/iconoProedit.ico" />
 	<!-- =================== APP==================== -->
 	<link rel="stylesheet" href="../css/appIndex.css">
 	<meta property="og:title" content="COCOMO 2" />
 </head>
 
-<body class="black">
+<body class="">
 
 
 <header class="">
@@ -215,10 +215,15 @@
 				</ul>
 	
 				<!-- Navbar carrito -->
-				<a class="navbar-brand text-uppercase" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+				<a class="nav-link waves-effect navbar-brand text-uppercase"  href="../../car.php">
+					<span class="badge red z-depth-1 mr-1 cart-notification">0</span>
+					<i class="fas fa-shopping-cart"></i>
+					<span class="clearfix d-none d-sm-inline-block"> Cart </span>
+				</a>
+
 				</div>
 				<!-- Collapsible content -->
-			
+
 			</nav>
 		</div>
 		<!-- Navbar -->

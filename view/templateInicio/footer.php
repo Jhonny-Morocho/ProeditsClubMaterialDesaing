@@ -2,7 +2,7 @@
 	<!-- =============================== FOOTER ===================-->
 	<div class=" ">
 			<!-- Footer -->
-			<footer class="page-footer font-small teal pt-4 black">
+			<footer class="page-footer font-small teal pt-4 black ">
 
 				<!-- Footer Text -->
 				<div class="container-fluid text-center text-md-left">
