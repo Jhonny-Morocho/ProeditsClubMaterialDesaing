@@ -242,3 +242,15 @@ h6 {
     color: #fff !important;
 
 }
+
+.topDescripcionProducto{
+    background: #333;
+    color: white;
+}
+
+.topDescripcionProducto .topNombreTema{
+    color: white !important;
+    font-size:12px !important;
+}
+
+

@@ -49,14 +49,14 @@
 <!-- =============================== STOCK ===================-->
 <div class="">
     <div class="row">
-        <div class="col-lg-2">
+        <div class="col-lg-3">
             <?php require'view/templateInicio/listaGenero.php'; ?>
         </div>
-        <div class="col-lg-7">
+        <div class="col-lg-6">
             <nav class="nav flex-column blue lighten-5 py-4">
                 <a class="nav-link active" href="#">Nuevos Edits</a>
               </nav>
-            <!-- Search form -->
+            <!-- Search form BUSADOR -->
             <form class="form-inline d-flex justify-content-center md-form form-sm mt-0" method="get" action="../../">
                 <i class="fas fa-search" aria-hidden="true"></i>
                 <?php if(@$_GET['busqueda']) {?>

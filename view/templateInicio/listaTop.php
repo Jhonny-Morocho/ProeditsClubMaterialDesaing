@@ -32,9 +32,9 @@
                             
                             <div class="col-lg-7">
                                 <!--Content-->
-                                <div class="card-body" style="background:#fff">
+                                <div class="card-body topDescripcionProducto">
                                     <a class="rotate-btn float-right" data-card="card-2" href="'.(ControladorPlantillaInicio::url_producto()).$value['id_producto'].'"><i class="fas fa-share-alt fa-lg"></i></a>
-                                    <p class="card-text text topNombreTema" style="font-size:12px !important">'.($value['url_directorio']).'</p>
+                                    <p class="card-text text topNombreTema" >'.($value['url_directorio']).'</p>
                                 </div>
 
                             </div>

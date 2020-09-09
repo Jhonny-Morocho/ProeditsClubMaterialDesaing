@@ -38,10 +38,10 @@
 	<!-- =============================== STOCK ===================-->
 	<div class="">
 		<div class="row">
-			<div class="col-lg-2">
+			<div class="col-lg-3">
 				<?php require'view/templateInicio/listaGenero.php'; ?>
 			</div>
-			<div class="col-lg-7">
+			<div class="col-lg-6">
 				<nav class="nav flex-column blue lighten-5 py-4">
 					<a class="nav-link active" href="#">Nuevos Edits</a>
 				  </nav>
