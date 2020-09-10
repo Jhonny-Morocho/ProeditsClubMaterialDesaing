@@ -63,30 +63,25 @@ function enviarDatosPasarelaPago(datos){
         cache:false,
         contentType:false,
         processData:false,
-        dataType:'text',//json//data_type
+        dataType:'json',//json//data_type
         success:function(data){
             console.log(data);
 
             switch (data.respuesta) {
                 case 'noExiseLogin':
                     //no exites session
-                        bootoast.toast({
-                            message: '¡ Para realizar la compra debes iniciar sesion !',
-                            type: 'warning',
-                        });
+                    toastr.warning('Debe iniciar session en la pagina');
                     break;
-
-                case 'exito':
-                        bootoast.toast({
-                            message: 'Tu solicitud ha sido  procesada ',
-                            type: 'success'
-                        });
-                      
-                        setTimeout(function(){
-                            window.location.href=data.urlPaypal;
-                        },2000);//tiempo de espera
-                        break;
-                default:
+                    
+                    case 'exito':
+                        
+                        toastr.success('Solicitud Procesada con éxito');
+                    setTimeout(function(){
+                        window.location.href=data.urlPaypal;
+                    },2000);//tiempo de espera
+                    break;
+                    default:
+                        toastr.error('No se puede realizar su petición');
                     break;
             }
         }

@@ -8,6 +8,7 @@ require'model/mdlGenero.php';
 //paginacion
 require'controler/ctrPaginacion.php';
 include'model/mdlPaginacion.php';
+require'model/mdlClienteProducto.php';
 //validacion de campos
 require'controler/ctrValidacionCampos.php';
 

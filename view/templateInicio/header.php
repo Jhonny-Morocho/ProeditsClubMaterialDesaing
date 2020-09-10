@@ -70,7 +70,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-plus"></i>Mi cuenta</a>
-                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu dropdown-primary black" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="../../login.php">Login</a>
 						<a class="dropdown-item" href="#">Registrarme</a>
 						<a class="dropdown-item" href="../../loginAdmin.php">Administrador</a>
@@ -87,127 +87,72 @@
 							<div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-5 px-3 "
 								aria-labelledby="navbarDropdownMenuLink2">
 								<div class="row">
-								<div class="col-md-6 col-xl-3 sub-menu mb-xl-0 mb-4 ">
-									<h6 class="sub-title text-uppercase font-weight-bold white-text">Featured</h6>
-									<ul class="list-unstyled">
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Lorem ipsum dolor sit amet
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Consectetur adipiscing elit
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Sed do eiusmod tempor incididunt
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Ut labore et dolore magna
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Ut enim ad minim veniam
-										</a>
-									</li>
-									</ul>
+								<?php 
+										$biblioteca=ModeloGenero::sql_lisartar_genero();
+										$numTotalGenero=count($biblioteca);
+										$numColumaImprimir=$numTotalGenero/4;
+										$contGenero=0;
+										for($i=0; $i <4; $i++){
+											echo'<div class="col-md-6 col-xl-3 sub-menu mb-xl-0 mb-4 ">
+													<h6 class="sub-title text-uppercase font-weight-bold white-text"></h6>
+														<ul class="list-unstyled">';
+											for ($j=0; $j <=round($numColumaImprimir) ; $j++) { 
+												if($contGenero<$numTotalGenero){
+													
+													echo'<li>
+																<a class="menu-item pl-0" href="'.(ControladorPlantillaInicio::url_biblioteca_productos()).$biblioteca[$contGenero]['id'].'">
+																	<i class="fas fa-caret-right pl-1 pr-3"></i>'.$biblioteca[$contGenero]['genero'].'
+																</a>
+														</li>';
+													}
+													$contGenero++;
+											}
+													echo '	</ul>
+													</div>';
+										}
+									?>
+					
+			
 								</div>
-								<div class="col-md-6 col-xl-3 sub-menu mb-xl-0 mb-4">
-									<h6 class="sub-title text-uppercase font-weight-bold white-text">Related</h6>
-									<ul class="list-unstyled">
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Quis nostrud exercitation
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Duis aute irure dolor in
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Laboris nisi ut aliquip ex ea commodo consequat
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Reprehenderit in voluptate
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Esse cillum dolore eu fugiat nulla pariatur
-										</a>
-									</li>
-									</ul>
-								</div>
-								<div class="col-md-6 col-xl-3 sub-menu mb-md-0 mb-xl-0 mb-4">
-									<h6 class="sub-title text-uppercase font-weight-bold white-text">Design</h6>
-									<ul class="list-unstyled">
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Excepteur sint occaecat
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Sunt in culpa qui officia
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Sed ut perspiciatis unde omnis iste natus error
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Mollit anim id est laborum
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Accusantium doloremque laudantium
-										</a>
-									</li>
-									</ul>
-								</div>
-								<div class="col-md-6 col-xl-3 sub-menu mb-0">
-									<h6 class="sub-title text-uppercase font-weight-bold white-text">Programming</h6>
-									<ul class="list-unstyled">
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Totam rem aperiam eaque
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Beatae vitae dicta sun
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Quae ab illo inventore veritatis et quasi
-										architecto
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Nemo enim ipsam voluptatem
-										</a>
-									</li>
-									<li>
-										<a class="menu-item pl-0" href="#!">
-										<i class="fas fa-caret-right pl-1 pr-3"></i>Neque porro quisquam est
-										</a>
-									</li>
-									</ul>
-								</div>
+							</div>
+					</li>
+	
+						
+	
+						<!-- Features -->
+						<li class="nav-item dropdown mega-dropdown  active">
+						<a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false"><i class="fas fa-music"></i> Genero
+							<span class="sr-only">(current)</span>
+						</a>
+							<div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-5 px-3 "
+								aria-labelledby="navbarDropdownMenuLink2">
+								<div class="row">
+									<?php 
+										$biblioteca=ModeloGenero::sql_lisartar_genero();
+										$numTotalGenero=count($biblioteca);
+										$numColumaImprimir=$numTotalGenero/4;
+										$contGenero=0;
+										for($i=0; $i <4; $i++){
+											echo'<div class="col-md-6 col-xl-3 sub-menu mb-xl-0 mb-4 ">
+													<h6 class="sub-title text-uppercase font-weight-bold white-text"></h6>
+														<ul class="list-unstyled">';
+											for ($j=0; $j <=round($numColumaImprimir) ; $j++) { 
+												if($contGenero<$numTotalGenero){
+													
+													echo'<li>
+																<a class="menu-item pl-0" href="'.(ControladorPlantillaInicio::url_biblioteca_productos()).$biblioteca[$contGenero]['id'].'">
+																	<i class="fas fa-caret-right pl-1 pr-3"></i>'.$biblioteca[$contGenero]['genero'].'
+																</a>
+														</li>';
+													}
+													$contGenero++;
+											}
+													echo '	</ul>
+													</div>';
+										}
+									?>
+										
 								</div>
 							</div>
 					</li>

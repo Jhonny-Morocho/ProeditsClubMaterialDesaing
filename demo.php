@@ -8,6 +8,7 @@ session_start();
 require'model/conexion.php';
 require'model/mdlProveedor.php';
 require'model/mdlProducto.php';
+require'model/mdlGenero.php';
 
 //=============================creacion de objetos==========================
 //=============================creacion de objetos==========================
@@ -48,12 +49,12 @@ foreach($productos as $key=>$value){
                             <div class="p-4">
                   
                               <p class="lead">
-                                <span style="color:#fff">$'.$value['precio'].'</span>
+                                <span >$'.$value['precio'].'</span>
                               </p>
                   
-                              <p class="lead font-weight-bold" style="color:#fff">Track Name</p>
+                              <p class="lead font-weight-bold" >Track Name</p>
                   
-                              <p style="color:#fff">'.($value['url_directorio']).'</p>
+                              <p >'.($value['url_directorio']).'</p>
 
 
 

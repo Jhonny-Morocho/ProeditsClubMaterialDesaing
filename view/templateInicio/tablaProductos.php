@@ -42,33 +42,14 @@
 				<?php require'view/templateInicio/listaGenero.php'; ?>
 			</div>
 			<div class="col-lg-6">
-				<nav class="nav flex-column blue lighten-5 py-4">
-					<a class="nav-link active" href="#">Nuevos Edits</a>
-				  </nav>
-				<!-- Search form -->
-				<form class="form-inline d-flex justify-content-center md-form form-sm mt-0" method="get" action="../../">
-					<i class="fas fa-search" aria-hidden="true"></i>
-					<?php if(@$_GET['busqueda']) {?>
-						<input type="text" name="busqueda" class="form-control form-control-sm ml-3 w-75"  placeholder="Search" value="<?php echo $_GET['busqueda']  ?>">
-					<?php }else{ ?>
-						<input type="text" name="busqueda" class="form-control form-control-sm ml-3 w-75"  placeholder="Search" maxlength="100">
-					<?php }?>
-					<div class="row">
-						<div class="col-lg-2">
-							<div class="form-group">
-								<button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i></button>
-							</div>
-						</div>
-					</div>
-				</form>
-
-				<!-- list  productos -->
-
-				<div class="row" title="Add to car :Demo ">
-										<div class="col-lg-1">
-											<i class="fas fa-cart-plus agregar-carrito buy"  data-id="9" data-nombre="Este demo" data-precio="1.99" ></i>
-										</div>
+				<div class="descripcionNav">
+					<i class="fa fa-star" aria-hidden="true"></i>
+					Nuevo Edits
 				</div>
+
+				<!-- Search form -->
+				<?php require'view/templateInicio/buscador.php'; ?>
+				<!-- list  productos -->
 
 				<div id="playlistContainer" class="row playlist">
 					<div class="row center album-name">

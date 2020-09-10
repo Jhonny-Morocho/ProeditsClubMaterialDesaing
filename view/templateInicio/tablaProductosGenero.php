@@ -29,7 +29,7 @@
         if(@$_GET['busqueda'] && $respuestaValidacion['respuesta_validacion']=="TRUE"){
             
             $page = (isset($_GET["page"]) && is_numeric($_GET["page"])) ? $_GET["page"] : 1;
-            Pagination::config($page, 15, " productos , proveedor , biblioteca ", $where2, null , 10); 
+            Pagination::config($page, $numeroProducto, " productos , proveedor , biblioteca ", $where2, null , 10); 
             $data = Pagination::data(); 
             //print_r($data);
         }else{
@@ -39,7 +39,7 @@
             //echo  is_int(@$_GET['id_proveedor'])==TRUE ? 'TRUE' : 'FALSE'; // get TRUE
             
             $page = (isset($_GET["page"]) && is_numeric($_GET["id_genero"])) ? $_GET["page"] : 1;
-            Pagination::config($page, 15, " productos , proveedor , biblioteca ", $where1, null , 10); 
+            Pagination::config($page, $numeroProducto, " productos , proveedor , biblioteca ", $where1, null , 10); 
             $data = Pagination::data(); 
         }
         
@@ -53,25 +53,22 @@
             <?php require'view/templateInicio/listaGenero.php'; ?>
         </div>
         <div class="col-lg-6">
-            <nav class="nav flex-column blue lighten-5 py-4">
-                <a class="nav-link active" href="#">Nuevos Edits</a>
-              </nav>
+                <div class="descripcionNav">
+					<i class="fa fa-star" aria-hidden="true"></i>
+                    <?php 
+                        foreach($biblioteca as $key=>$value){ 
+
+                            if(@$_GET['id_genero']==$value['id']){
+                                echo $value['genero'];
+                                
+                            }
+                        }
+                    ?>
+				</div>
+
             <!-- Search form BUSADOR -->
-            <form class="form-inline d-flex justify-content-center md-form form-sm mt-0" method="get" action="../../">
-                <i class="fas fa-search" aria-hidden="true"></i>
-                <?php if(@$_GET['busqueda']) {?>
-                    <input type="text" name="busqueda" class="form-control form-control-sm ml-3 w-75"  placeholder="Search" value="<?php echo $_GET['busqueda']  ?>">
-                <?php }else{ ?>
-                    <input type="text" name="busqueda" class="form-control form-control-sm ml-3 w-75"  placeholder="Search" maxlength="100">
-                <?php }?>
-                <div class="row">
-                    <div class="col-lg-2">
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+			<?php require'view/templateInicio/buscador.php'; ?>
+		
 
             <!-- list  productos  music-->
             <div id="playlistContainer" class="row playlist">

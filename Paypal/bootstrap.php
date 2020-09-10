@@ -4,13 +4,12 @@
     use PayPal\Auth\OAuthTokenCredential;
    
 
-    
 
-    $modDev = true;//false para q este en modo real
+    $modDev = false;//false para q este en modo real
 
     if($modDev) {
 
-    	define('URL_SITIO','http://localhost/ProeditsClubMaterialDesaing');
+    	define('URL_SITIO','http://localhost/ProEditsClubEcommerNegro');
         
         $apiContext = new \PayPal\Rest\ApiContext(
             new \PayPal\Auth\OAuthTokenCredential(

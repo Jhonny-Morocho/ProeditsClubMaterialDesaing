@@ -91,11 +91,56 @@
 
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
-	<!-- //=================Reproductor wave================// -->
+	<script>
+			//  Category Menu
+	/*-- Variables --*/
+	var categoryToggleWrap = $('.category-toggle-wrap');
+	var categoryToggle = $('.category-toggle');
+	var categoryMenu = $('.category-menu');
 
-	<link rel="stylesheet" href="../../waveSurfer/waveMain.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
-    <script src="../../waveSurfer/waveMain.js"></script>
+	/*-- Category Menu Toggles --*/
+	function categorySubMenuToggle() {
+		var screenSize = $window.width();
+		if (screenSize <= 991) {
+			$('.category-menu .menu-item-has-children > a').prepend('<span class="expand menu-expand"></span>');
+			$('.category-menu .menu-item-has-children ul').slideUp();
+		} else {
+			$('.category-menu .menu-item-has-children > a .menu-expand').remove();
+			$('.category-menu .menu-item-has-children ul').slideDown();
+		}
+	}
+	
+	$(window).on({
+		load: function(){
+			categorySubMenuToggle();
+		},
+		resize: function(){
+			categorySubMenuToggle();
+		}
+	});
+
+	categoryToggle.on('click', function () {
+		categoryMenu.slideToggle();
+	});
+
+	// Category Sub Menu
+	$('.category-menu').on('click', 'li a, li a .menu-expand', function (e) {
+		var $a = $(this).hasClass('menu-expand') ? $(this).parent() : $(this);
+		if ($a.parent().hasClass('menu-item-has-children')) {
+			if ($a.attr('href') === '#' || $(this).hasClass('menu-expand')) {
+				if ($a.siblings('ul:visible').length > 0) $a.siblings('ul').slideUp();
+				else {
+					$(this).parents('li').siblings('li').find('ul:visible').slideUp();
+					$a.siblings('ul').slideDown();
+				}
+			}
+		}
+		if ($(this).hasClass('menu-expand') || $a.attr('href') === '#') {
+			e.preventDefault();
+			return false;
+		}
+	});
+	</script>
 
 
 

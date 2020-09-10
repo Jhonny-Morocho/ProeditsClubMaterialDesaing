@@ -3,7 +3,11 @@
     <!-- <link href="https://librien.github.io/wavesurfer-player.js/css/font-awesome.min.css" rel="stylesheet"> -->
      
     <!-- <script src="https://librien.github.io/wavesurfer-player.js/js/bootstrap.min.js"></script>  -->
-  
+  	<!-- //=================Reproductor wave================// -->
+
+	  <link rel="stylesheet" href="../../waveSurfer/waveMain.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
+    <script src="../../waveSurfer/waveMain.js"></script>
 
 
     <div id="wavesurfer-player" class="row main-content col-center-block music">

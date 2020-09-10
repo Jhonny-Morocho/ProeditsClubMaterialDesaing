@@ -41,7 +41,8 @@ $descripcionProducto="";
 
     //==========================PREPARA DATA PARA ENVIAR A PAYPAL================
     if($descripcionProducto!=""){
-
+        
+       
         $FiltroIdProducto=ModeloProductoItem::SeperacionDatos(@$_POST['idProducto'],'idProducto');
         $FiltroNombreProducto=ModeloProductoItem::SeperacionDatos(@$_POST['nombreProducto'],'nombreProducto');
         $FiltroPrecioProducto=ModeloProductoItem::SeperacionDatos(@$_POST['precioUnitarioProducto'],'idProducto');
@@ -72,13 +73,13 @@ $descripcionProducto="";
         $cantidad=new Amount();
         $cantidad->setCurrency('USD')
                 ->setTotal((double)$sumaTotalCancelar);//total a pagar con 3 producto(2 cancio9n y un boton)
-        //print_r($cantidad-> getTotal());
+       
     
         //=================caractersiticas de la trsaccion=============
         $transaccion= new Transaction();
         $transaccion->setAmount($cantidad)
                     ->setItemList($listaArticulos)
-                    ->setDescription('LatinEdit.com')
+                    ->setDescription('PreditsClub.com')
                     ->setInvoiceNumber(uniqid()); //registro numero unico de esa trasaccion
                     //echo "este es unico".$transaccion->getInvoiceNumber();
                     $ID_registro=$transaccion->getInvoiceNumber();
@@ -86,11 +87,11 @@ $descripcionProducto="";
         //print_r($transaccion);
     
         // =====================Redireccionar a la pagina de paypal o si cancelan no se ejcuta el pago===============
-        $idCliente=1;//solo temportal
         $redireccionar=new RedirectUrls();
         $redireccionar->setReturnUrl(URL_SITIO."/Paypal/pagoFinalizadoPaypal.php?idCliente=".$_SESSION['id_cliente'])//pago exitoso
                       ->setCancelUrl(URL_SITIO."/Paypal/pagoFinalizadoPaypal.php?exito=false&idpago{$ID_registro}");
     
+        
         $pago=new Payment();
         $pago->setIntent("sale")
             ->setPayer($compra)
@@ -102,11 +103,11 @@ $descripcionProducto="";
             }catch(PayPal\Exception\PayPalConnectionException $pce){
                 echo"<pre>";
                 print_r(json_decode($pce->getData()));
-                exit;
                 echo"</pre>";
+                exit;
                 
             }
-            
+
             $aprobado=$pago->getApprovalLink();
             //echo $aprobado;//imprimo la url de paypal para que el ajax de respuesta lo capte y me direccione a paypal
             //print_r($_POST);
