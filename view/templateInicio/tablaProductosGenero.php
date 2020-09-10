@@ -107,23 +107,23 @@
                         <nav aria-label="Page navigation example">
                             <ul class="pagination pg-red">
                                 <?php if ($data["actual-section"] != 1): ?> 		  			
-                                    <li class="page-item" ><a class="page-link" href="../../?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=1">Inicio</a></li>
-                                    <li class="page-item" ><a class="page-link"" href="../../?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=<?php echo $data['previous']; ?>">&laquo;</a></li>
+                                    <li class="page-item" ><a class="page-link" href="../../genero_productos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&id_genero=<?php echo $_GET['id_genero'] ?>&page=1">Inicio</a></li>
+                                    <li class="page-item" ><a class="page-link"" href="../../genero_productos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&id_genero=<?php echo $_GET['id_genero'] ?>&page=<?php echo $data['previous']; ?>">&laquo;</a></li>
                                 <?php endif; ?>
 
                                 <?php for ($i = $data["section-start"]; $i <= $data["section-end"]; $i++): ?>					
                                 <?php if ($i > $data["total-pages"]): break; endif; ?>
                                 <?php $active = ($i == $data["this-page"]) ? "active" : ""; ?>			    
                                     <li class="page-item <?php echo $active; ?>">
-                                    <a class="page-link" href="../../?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=<?php echo $i; ?>">
+                                    <a class="page-link" href="../../genero_productos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&id_genero=<?php echo $_GET['id_genero'] ?>&page=<?php echo $i; ?>">
                                         <?php echo $i; ?>			    		
                                     </a>
                                     </li>
                                     <?php endfor; ?>
                                 
                                 <?php if ($data["actual-section"] != $data["total-sections"]): ?>
-                                    <li  class="page-item"  ><a lass="page-link"  href="../../?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=<?php echo $data['next']; ?>">&raquo;</a></li>
-                                    <li  class="page-item"><a class="page-link"  href="../../?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=<?php echo $data['total-pages']; ?>">Final</a></li>
+                                    <li  class="page-item"  ><a lass="page-link"  href="../../genero_productos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&id_genero=<?php echo $_GET['id_genero'] ?>&page=<?php echo $data['next']; ?>">&raquo;</a></li>
+                                    <li  class="page-item"><a class="page-link"  href="../../genero_productos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&id_genero=<?php echo $_GET['id_genero'] ?>&page=<?php echo $data['total-pages']; ?>">Final</a></li>
                                     <?php endif; ?>
                             </ul>
                         </nav>

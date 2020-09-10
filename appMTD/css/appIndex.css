@@ -67,7 +67,7 @@ h6 {
 .myaccount-tab-menu a {
     border: 1px solid #ccc;
     border-bottom: none;
-    color: #ffff;
+    color:black;
     font-weight: 500;
     font-size: 13px;
     display: block;
@@ -190,4 +190,45 @@ footer.page-footer {
 
 .dropdown .dropdown-menu.dropdown-primary .dropdown-item:hover{
     background-color:  #fd0002 !important;
+}
+
+/* .navbar.navbar-dark .breadcrumb .nav-item.active>.nav-link, .navbar.navbar-dark .navbar-nav .nav-item.active>.nav-link {
+  background-color: #dc3545 !important;
+} */
+
+.navMenu a:hover{
+  background-color: black !important;
+}
+
+.btn-ins {
+
+  background-color: #fd668c !important;
+}
+
+/* .card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+} */
+
+
+.cardClienteLogin{
+background: #ff00007d!important;
+}
+
+.btn-indigo {
+
+  background-color: red !important;
+}
+
+.rgba-gradient {
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), #9f191e73 100%);
 }

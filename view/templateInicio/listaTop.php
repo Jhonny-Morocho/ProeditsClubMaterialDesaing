@@ -1,4 +1,6 @@
 
+
+
 <div class="descripcionNav card">
  Top 15 
 </div>
@@ -11,6 +13,7 @@
             foreach($top as $key=>$value){
                 if($cont_2<15){
                     echo'
+                    
 
                     <div class="card-wrapper ">
                         <div id="card-2" class="card card-rotating text-center ">

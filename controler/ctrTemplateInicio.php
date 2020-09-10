@@ -100,6 +100,28 @@ class ControladorPlantillaInicio{
             return "../../demo.php?id_producto=";
        
         }
+        public static function redesSociales(){
+   
+            
+            require_once 'socialNav/socialNetWork.php';
+            
+        }
+        public static function url_dj_productos(){
+          
+            return "../../dj_productos.php?id_proveedor=";
+           
+        }
+        public static function tablProductosDj(){
+          
+            require "view/templateInicio/tablaProductoDj.php";
+           
+        }
+
+        public static function listaMembresia(){
+          
+            require "view/templateInicio/listaMembresia.php";
+           
+        }
 
         
 }

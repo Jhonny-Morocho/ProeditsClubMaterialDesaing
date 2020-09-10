@@ -2,7 +2,7 @@
 
 
   <!-- Full Page Intro -->
-  <div class="view" style="background-image: url('http://mdbootstrap.com/img/Photos/Others/images/91.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+  <div class="view" style="background-image: url('../../img/fondo.png'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <!-- Mask & flexbox options-->
     <div class="mask rgba-gradient d-flex justify-content-center align-items-center">
       <!-- Content -->
@@ -22,20 +22,14 @@
           <!--Grid column-->
           <div class="col-md-6 col-xl-5 mb-4">
             <!--Form-->
-            <div class="card wow fadeInRight" data-wow-delay="0.3s">
+            <div class="card wow fadeInRight cardClienteLogin" data-wow-delay="0.3s">
               <div class="card-body">
                 <!--Header-->
                 <div class="text-center">
                   <h3 class="white-text font-weight-bold">
-                    <i class="fa fa-user white-text"></i> Register:</h3>
+                    <i class="fa fa-user white-text"></i> Login:</h3>
                   <hr class="hr-light">
                 </div>
-                <!--Body-->
-                <!-- <div class="md-form">
-                  <i class="fa fa-user prefix white-text active"></i>
-                  <input type="text" id="form3" class="white-text form-control">
-                  <label for="form3" class="active">Your name</label>
-                </div> -->
 
                 <form action="../../controler/ctrCliente.php" method="post" id="login-cliente">
                   <div class="md-form">

@@ -38,11 +38,11 @@
 	<!-- =============================== STOCK ===================-->
 	<div class="">
 		<div class="row mt-3 mb-5">
-			<div class="col-lg-3">
+			<div class="col-lg-3 card">
 				<?php require'view/templateInicio/listaGenero.php'; ?>
 			</div>
-			<div class="col-lg-6">
-				<div class="descripcionNav">
+			<div class="col-lg-6 card">
+				<div class="descripcionNav card">
 					<i class="fa fa-star" aria-hidden="true"></i>
 					Nuevo Edits
 				</div>
@@ -112,7 +112,7 @@
 				</div>
 			</div>
 
-			<div class="col-lg-3">
+			<div class="col-lg-3 card">
 				<?php require'view/templateInicio/listaTop.php'; ?>
 			</div>
 		</div>

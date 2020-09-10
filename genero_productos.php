@@ -5,6 +5,7 @@ ini_set('display_errors', 'On');
 session_start();
 require'model/conexion.php';
 require'model/mdlGenero.php';
+require'model/mdlProveedor.php';
 //paginacion
 require'controler/ctrPaginacion.php';
 include'model/mdlPaginacion.php';

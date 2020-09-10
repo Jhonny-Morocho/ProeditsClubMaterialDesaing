@@ -44,7 +44,8 @@
 			
 				<!-- Copyright -->
 				<div class="footer-copyright text-center py-3">© 2020 Copyright:
-				<a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+					<a href="https://wwww.proeditsclub.com"> www.proeditsclub.com</a>
+					
 				</div>
 				<!-- Copyright -->
 			
@@ -91,57 +92,11 @@
 
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
-	<script>
-			//  Category Menu
-	/*-- Variables --*/
-	var categoryToggleWrap = $('.category-toggle-wrap');
-	var categoryToggle = $('.category-toggle');
-	var categoryMenu = $('.category-menu');
 
-	/*-- Category Menu Toggles --*/
-	function categorySubMenuToggle() {
-		var screenSize = $window.width();
-		if (screenSize <= 991) {
-			$('.category-menu .menu-item-has-children > a').prepend('<span class="expand menu-expand"></span>');
-			$('.category-menu .menu-item-has-children ul').slideUp();
-		} else {
-			$('.category-menu .menu-item-has-children > a .menu-expand').remove();
-			$('.category-menu .menu-item-has-children ul').slideDown();
-		}
-	}
-	
-	$(window).on({
-		load: function(){
-			categorySubMenuToggle();
-		},
-		resize: function(){
-			categorySubMenuToggle();
-		}
-	});
 
-	categoryToggle.on('click', function () {
-		categoryMenu.slideToggle();
-	});
-
-	// Category Sub Menu
-	$('.category-menu').on('click', 'li a, li a .menu-expand', function (e) {
-		var $a = $(this).hasClass('menu-expand') ? $(this).parent() : $(this);
-		if ($a.parent().hasClass('menu-item-has-children')) {
-			if ($a.attr('href') === '#' || $(this).hasClass('menu-expand')) {
-				if ($a.siblings('ul:visible').length > 0) $a.siblings('ul').slideUp();
-				else {
-					$(this).parents('li').siblings('li').find('ul:visible').slideUp();
-					$a.siblings('ul').slideDown();
-				}
-			}
-		}
-		if ($(this).hasClass('menu-expand') || $a.attr('href') === '#') {
-			e.preventDefault();
-			return false;
-		}
-	});
-	</script>
-
+	<!-- ===================== REDES SOCIALES ======================== -->
+  <link rel="stylesheet" href="../../socialNav/social.css">
+  <script src="../../socialNav/social.js"></script>
 
 
 </body>

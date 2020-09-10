@@ -31,7 +31,8 @@
 	<div class=" ">
 		<div class="row ">
 		  <div class="col-lg-6 ">
-			<img src="../../view/img/LOGO CON COLOR.png" class="img-fluid" alt="Responsive image" width="60%">
+			  <a href="../../"><img src="../../img/logo-red-black.png" class="img-fluid" alt="Responsive image" width="60%"></a>
+			
 		  </div>
 		  <div class="col-lg-6  pt-3">
 			<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v5.0"></script>
@@ -42,9 +43,9 @@
 
 	<div class="">
 	<!-- Navbar -->
-		<div class="main-header">
+		<div class="main-header ">
 			
-			<nav class="navbar navbar-expand-lg navbar-dark special-color-red">
+			<nav class="navbar navbar-expand-lg navbar-dark special-color-red navMenu">
 	
 				<!-- Navbar brand -->
 				<a class="navbar-brand  text-uppercase" href="../../"><i class="fa fa-home" aria-hidden="true"></i> HOME</a>
@@ -62,7 +63,7 @@
 				<!-- Links -->
 				<ul class="navbar-nav mr-auto">
 			
-					<a class="navbar-brand text-uppercase" href="#"><i class="fas fa-suitcase"></i> Membresias</a>
+					<a class="navbar-brand text-uppercase" href="../../membresia.php"><i class="fas fa-suitcase"></i> Membresias</a>
 						<!-- Navbar membresiass -->
                     <!-- <a class="navbar-brand text-uppercase" href="#"><i class="fas fa-user-plus"></i> Mi cuenta</a> -->
                     
@@ -71,12 +72,31 @@
                         <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-plus"></i>Mi cuenta</a>
                         <div class="dropdown-menu dropdown-primary black" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="../../login.php">Login</a>
-						<a class="dropdown-item" href="#">Registrarme</a>
-						<a class="dropdown-item" href="../../loginAdmin.php">Administrador</a>
+							<?php 
+								if(isset($_SESSION['usuario'])){// si no existe session presentar esto admin_cliente
+									switch (@$_SESSION['tipo_usuario']) {
+										case 'Cliente':
+
+												echo '<a class="dropdown-item" href="../../adminCliente.php"">Hola: '.$_SESSION['usuario'].'</a>';
+											break;
+										case 'Proveedor':  
+												echo ' <a class="dropdown-item " href="../..view/admin/index_admin.php"> Bienvenido : '.$_SESSION['usuario'].'</a>';
+											break;
+										case 'Admin':
+												echo ' <div class="dropdown header-top-dropdown">
+															<a class="dropdown-item " href="../../view/admin/index_admin.php"> Hi  : '.$_SESSION['usuario'].'</a>
+															
+														</div> ';
+											break;
+									}
+								}else{
+									echo '<a class="dropdown-item" href="../../login.php">Login</a>
+									<a class="dropdown-item" href="#">Registrarme</a>
+									<a class="dropdown-item" href="../../loginAdmin.php">Administrador</a>';
+								}
+							?>
                         </div>
 					</li>
-					
 
 					<!-- Features -->
 					<li class="nav-item dropdown mega-dropdown  active">
@@ -88,31 +108,29 @@
 								aria-labelledby="navbarDropdownMenuLink2">
 								<div class="row">
 								<?php 
-										$biblioteca=ModeloGenero::sql_lisartar_genero();
-										$numTotalGenero=count($biblioteca);
-										$numColumaImprimir=$numTotalGenero/4;
-										$contGenero=0;
-										for($i=0; $i <4; $i++){
-											echo'<div class="col-md-6 col-xl-3 sub-menu mb-xl-0 mb-4 ">
-													<h6 class="sub-title text-uppercase font-weight-bold white-text"></h6>
-														<ul class="list-unstyled">';
-											for ($j=0; $j <=round($numColumaImprimir) ; $j++) { 
-												if($contGenero<$numTotalGenero){
-													
-													echo'<li>
-																<a class="menu-item pl-0" href="'.(ControladorPlantillaInicio::url_biblioteca_productos()).$biblioteca[$contGenero]['id'].'">
-																	<i class="fas fa-caret-right pl-1 pr-3"></i>'.$biblioteca[$contGenero]['genero'].'
-																</a>
-														</li>';
-													}
-													$contGenero++;
-											}
-													echo '	</ul>
-													</div>';
+									$proveedores=ModeloProveedor::sql_lisartar_proveedor();
+									$numTotalProveedor=count($proveedores);
+									$numColumaImprimirProveedor=$numTotalProveedor/4;
+									$contProveedor=0;
+									for($i=0; $i <4; $i++){
+										echo'<div class="col-md-6 col-xl-3 sub-menu mb-xl-0 mb-4 ">
+												<h6 class="sub-title text-uppercase font-weight-bold white-text"></h6>
+													<ul class="list-unstyled">';
+										for ($j=0; $j <=round($numColumaImprimirProveedor) ; $j++) { 
+											if($contProveedor<$numTotalProveedor){
+												
+												echo'<li>
+															<a class="menu-item pl-0" href="'.(ControladorPlantillaInicio::url_dj_productos()).$proveedores[$contProveedor]['id'].'">
+																<i class="fas fa-caret-right pl-1 pr-3"></i>'.$proveedores[$contProveedor]['apodo'].'
+															</a>
+													</li>';
+												}
+												$contProveedor++;
 										}
+												echo '	</ul>
+												</div>';
+									}
 									?>
-					
-			
 								</div>
 							</div>
 					</li>
