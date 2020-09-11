@@ -46,9 +46,6 @@ body,
   background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%);
 }
 
-.card {
-  background-color: rgba(126, 123, 215, 0.2);
-}
 
 .md-form label {
   color: #ffffff;
@@ -108,11 +105,13 @@ h6 {
 .navGenero a{
    color: white;
    margin-top: 15px;
+   padding: 15px;
 }
 
 .navGenero a:hover{
     background-color: #FD0002 !important;
     border-radius: 16px !important;
+    padding: 15px;
 }
 
 
@@ -133,6 +132,10 @@ h6 {
   .pagination .page-item .page-link {
     color: #fff !important;
 
+}
+
+.pagination .page-item .page-link:hover {
+  color: black !important;
 }
 
 .topDescripcionProducto{
@@ -176,7 +179,7 @@ footer.page-footer {
 /* ====================HEADER GENERO MUSICAL  =============
 ====================HEADER GENERO MUSICAL  ============= */
  .special-color {
-    background-color: black !important;
+    background-color: #252222  !important;
 } 
 
 .navbar .mega-dropdown .dropdown-menu.mega-menu .sub-menu ul li a:hover {
@@ -205,19 +208,6 @@ footer.page-footer {
   background-color: #fd668c !important;
 }
 
-/* .card {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-} */
 
 
 .cardClienteLogin{
@@ -232,3 +222,48 @@ background: #ff00007d!important;
 .rgba-gradient {
   background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), #9f191e73 100%);
 }
+
+
+.itemTop15:hover{
+  background-color: #FD0002 !important;
+    
+}
+.topSonf{
+  color:#fff;
+  font-size: 12px;
+}
+
+
+/* ============================= RESPONSIBE DISEÑO ==================================== */
+/* ============================= RESPONSIBE DISEÑO ==================================== */
+/* ============================= RESPONSIBE DISEÑO ==================================== */
+@media only screen and (max-width: 1920px) {
+
+}
+@media only screen and (max-width: 1366px) {
+ 
+}
+@media only screen and (max-width: 1024px) {
+ 
+  
+}
+
+@media only screen and (max-width: 768px) {
+  .contentGenero{
+    display: none;
+  }
+  
+  i.fas.fa-cart-plus.agregar-carrito.buy {
+    margin-left: 140px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .contentGenero{
+    display: none;
+  }
+  
+  i.fas.fa-cart-plus.agregar-carrito.buy {
+    margin-left: 140px;
+  }
+}
+

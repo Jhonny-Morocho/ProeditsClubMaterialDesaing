@@ -5,4 +5,5 @@ $(document).ready(function() {
 
     // Material Select Initialization
     $('.mdb-select').materialSelect();
+    // Tooltips Initialization
 });

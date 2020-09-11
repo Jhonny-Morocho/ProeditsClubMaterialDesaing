@@ -2,7 +2,7 @@
 
 
   <!-- Full Page Intro -->
-  <div class="view" style="background-image: url('http://mdbootstrap.com/img/Photos/Others/images/91.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+  <div class="view" style="background-image: url('../../img/fondo.png'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <!-- Mask & flexbox options-->
     <div class="mask rgba-gradient d-flex justify-content-center align-items-center">
       <!-- Content -->
@@ -11,23 +11,21 @@
         <div class="row mt-5">
           <!--Grid column-->
           <div class="col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left">
-            <h1 class="h1-responsive font-weight-bold wow fadeInLeft" data-wow-delay="0.3s">Sign up right now! </h1>
+            <h1 class="h1-responsive font-weight-bold wow fadeInLeft" data-wow-delay="0.3s">ADMIN LOGIN</h1>
             <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
-            <h6 class="mb-3 wow fadeInLeft" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga
-            nesciunt dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea
-            dolor molestiae, quisquam iste, maiores. Nulla.</h6>
-            <a class="btn btn-outline-white btn-rounded wow fadeInLeft" data-wow-delay="0.3s">Learn more</a>
+            <h6 class="mb-3 wow fadeInLeft" data-wow-delay="0.3s">www.PROEDITSCLUB.com  EDITS & REMIXES FOR DJ'S</h6>
+            <a class="btn btn-outline-white btn-rounded wow fadeInLeft" data-wow-delay="0.3s" href="../../">HOME</a>
           </div>
           <!--Grid column-->
           <!--Grid column-->
           <div class="col-md-6 col-xl-5 mb-4">
             <!--Form-->
-            <div class="card wow fadeInRight" data-wow-delay="0.3s">
+            <div class="card wow fadeInRight cardClienteLogin" data-wow-delay="0.3s">
               <div class="card-body">
                 <!--Header-->
                 <div class="text-center">
                   <h3 class="white-text font-weight-bold">
-                    <i class="fa fa-user white-text"></i> Register:</h3>
+                    <i class="fa fa-user white-text"></i> Admin:</h3>
                   <hr class="hr-light">
                 </div>
                 <!--Body-->

@@ -76,10 +76,8 @@
                     <ul class="list-group" id="playlist">
                         <?php foreach (Pagination::show_rows("id") as $row): ?>
                             <?php  $banderaError=false; if( $row['apodo']!== 'Error: vacío' ){ ?>
-                            <div class="row" title="Add to car : <?php echo $row['url_directorio']?>">
-                                <div class="col-lg-1">
-                                    <i class="fas fa-cart-plus"></i>
-                                </div>
+                            <div class="col-lg-1">
+                                <i class="fas fa-cart-plus agregar-carrito buy"  data-id="<?php echo $row['id']?>" data-nombre="<?php echo $row['url_directorio']?>" data-precio="<?php echo $row['precio']?>" ></i>
                             </div>
                             <li data-src="../../biblioteca/<?php echo $row['url_directorio']?> " data-title="<?php echo $row['url_directorio']?>" data-length="194" class="song-row">
                                 <div class="left">
@@ -122,7 +120,7 @@
                                     <?php endfor; ?>
                                 
                                 <?php if ($data["actual-section"] != $data["total-sections"]): ?>
-                                    <li  class="page-item"  ><a lass="page-link"  href="../../genero_productos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&id_genero=<?php echo $_GET['id_genero'] ?>&page=<?php echo $data['next']; ?>">&raquo;</a></li>
+                                    <li  class="page-item"  ><a class="page-link"  href="../../genero_productos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&id_genero=<?php echo $_GET['id_genero'] ?>&page=<?php echo $data['next']; ?>">&raquo;</a></li>
                                     <li  class="page-item"><a class="page-link"  href="../../genero_productos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&id_genero=<?php echo $_GET['id_genero'] ?>&page=<?php echo $data['total-pages']; ?>">Final</a></li>
                                     <?php endif; ?>
                             </ul>

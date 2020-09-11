@@ -152,6 +152,7 @@ $('#login-admin').on('submit',function(e){
             success:function(data){
                 console.log(data);//el usuario si existe
                 if(data.respuesta=='true_password'){
+                    toastr.success('Sucees');
                     $(".alertConfirmacion").html( 
                         '<div class="alert  alert-success alert-dismissible fade show" role="alert">  <strong> Bienvenido  </strong>'+
                         data.usuario+
@@ -159,11 +160,11 @@ $('#login-admin').on('submit',function(e){
                                 '<span aria-hidden="true">&times;</span>'+
                             '</button>'+
                         '</div>');
-                  
                     setTimeout(function(){
                         window.location.href='../../view/admin/index_admin.php';
                     },2000);//tiempo de espera
                 }else{
+                    toastr.warning('check your credentials');
                     $(".alertConfirmacion").html( 
                                                     '<div class="alert alert-warning alert-dismissible fade show" role="alert">'+
                                                     data.respuesta+

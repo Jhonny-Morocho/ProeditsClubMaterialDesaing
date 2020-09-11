@@ -120,8 +120,18 @@
        
         }
 
-	}
-
-
-
+    }
+    
+    switch (@$_POST['Membresia']) {
+        case 'edit':
+            require'../model/conexion.php';
+            require'../model/mdlMembresias.php';
+            $respuesta=ModeloMembresia::sqlEditarMembresia($_POST);
+            return die(json_encode($respuesta));
+            break;
+                
+            default:
+                die(json_encode('defecto en ctrMembresia'));
+            break;
+        }
  ?>

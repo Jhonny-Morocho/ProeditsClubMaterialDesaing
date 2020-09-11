@@ -1,52 +1,37 @@
 
 
 
-<div class="descripcionNav card">
- Top 15 
-</div>
-<nav class="nav flex-column blue lighten-5 py-4 ">
-    <!-- Rotating card -->
+
+<div class="contentTop">
+    <div class="descripcionNav card">
+     Top 15 
+    </div>
+    <nav class="nav flex-column blue lighten-5 py-4 ">
         <!-- Rotating card -->
-        <?php 
-            $top=ModeloClienteProducto::sqlListarTop();
-            $cont_2=0;
-            foreach($top as $key=>$value){
-                if($cont_2<15){
-                    echo'
-                    
-
-                    <div class="card-wrapper ">
-                        <div id="card-2" class="card card-rotating text-center ">
-                            <!--Front Side-->
-                            <div class="row">
-                                <div class="col-lg-5">
-                                    <div class="face front">
-                                        <!-- Image-->
-                                        <div class="view overlay">
-                                            <img class="card-img-top" src="../../img/proveedores/'.$value['img'].'" alt="Example photo" >
-                                            <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                            </a>
-                                        </div>
+            <!-- Rotating card -->
+            <?php 
+                $top=ModeloClienteProducto::sqlListarTop();
+                $cont_2=0;
+                foreach($top as $key=>$value){
+                    if($cont_2<15){
+                        echo'
                         
-                                    </div>
-                                    <!--Front Side-->
+                        <!--Section: Author Box-->
+                        <a href="'.(ControladorPlantillaInicio::url_producto()).$value['id_producto'].'"><div class="media mt-4 px-1 itemTop15">
+                                <img class="card-img-100 d-flex z-depth-1 mr-3" src="../../img/proveedores/'.$value['img'].'"
+                                alt="Generic placeholder image">
+                                <div class="media-body">
+                                <h5 class="font-weight-bold mt-0">
+                                    <span style="color:#fff">$'.($value['precio']).'</span>
+                                </h5>
+                                    <span class="topSonf">'.($value['url_directorio']).'</span>
                                 </div>
-                                
-                                <div class="col-lg-7">
-                                    <!--Content-->
-                                    <div class="card-body topDescripcionProducto">
-                                        <a class="rotate-btn float-right" data-card="card-2" href="'.(ControladorPlantillaInicio::url_producto()).$value['id_producto'].'"><i class="fas fa-share-alt fa-lg"></i></a>
-                                        <p class="card-text text topNombreTema" >'.($value['url_directorio']).'</p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>';
+                            </div></a>
+                        <!--Section: Author Box-->';
+                    }
+                    $cont_2++;
                 }
-                $cont_2++;
-            }
-        ?>
-</nav>
+            ?>
+    </nav>
+
+</div>

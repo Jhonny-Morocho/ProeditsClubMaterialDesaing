@@ -217,8 +217,8 @@
                     <th>Genero</th>
                     <th>Editor</th>
                     <th>Precio</th>
-                    <th>Acciones</th>
-                    <th>Archivo</th>
+                    <th>Descarga</th>
+                    <th>Play</th>
                     <th>Editar</th>
                   </tr>
                 </thead>
@@ -256,7 +256,7 @@
                 </tfoot>
               </table>
               <!-- ===================================Reproductor de Audio=================== -->
-                <?php require'../../jPlayer Flat Audio Theme/reproductor.php';  ?>
+                <?php require'../../jPlayer/reproductor.php';  ?>
                 <div class="row">
                     <div class="col-lg-12 ">
                         <div class="container text-cente">

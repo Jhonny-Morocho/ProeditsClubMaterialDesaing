@@ -111,7 +111,7 @@
 													<?php endfor; ?>
 												
 												<?php if ($data["actual-section"] != $data["total-sections"]): ?>
-													<li  class="page-item"  ><a lass="page-link"  href="../../dj_productos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&id_proveedor=<?php echo @$_GET['id_proveedor'] ?>&dj=<?php echo @$_GET['dj'] ?>&page=<?php echo $data['next']; ?>">&raquo;</a></li>
+													<li  class="page-item"  ><a class="page-link"  href="../../dj_productos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&id_proveedor=<?php echo @$_GET['id_proveedor'] ?>&dj=<?php echo @$_GET['dj'] ?>&page=<?php echo $data['next']; ?>">&raquo;</a></li>
 													<li  class="page-item"><a class="page-link"  href="../../dj_productos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&id_proveedor=<?php echo @$_GET['id_proveedor'] ?>&dj=<?php echo @$_GET['dj'] ?>&page=<?php echo $data['total-pages']; ?>">Final</a></li>
 													<?php endif; ?>
 											</ul>

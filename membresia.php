@@ -7,6 +7,8 @@ session_start();
 require'model/conexion.php';
 require'model/mdlProveedor.php';
 require'model/mdlGenero.php';
+require'model/mdlMembresias.php';
+
 
 
 
@@ -24,3 +26,5 @@ $plantilla->ctr_footer();
 
 
 ?>
+
+

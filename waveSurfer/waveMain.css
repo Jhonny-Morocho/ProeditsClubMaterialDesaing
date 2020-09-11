@@ -84,6 +84,7 @@ ul#playlist li div .button {
     background: none;
     border: none;
     padding: 15px;
+    margin-left: 20px;
 }
 
 ul#playlist li .middle {
@@ -125,7 +126,7 @@ ul#playlist li .right {
     right: 0px;
     bottom: 0px;
     color: #fff;
-    background: rgba(0, 0, 0, .35);
+    background: #f80018;
     padding-left: 5px;
     padding-right: 5px;
     z-index: 200;
@@ -136,7 +137,7 @@ ul#playlist li .right {
     left: 0px;
     bottom: 0px;
     color: #fff;
-    background: rgba(0, 0, 0, .35);
+    background:#f80018;
     padding-left: 5px;
     padding-right: 5px;
     z-index: 200;

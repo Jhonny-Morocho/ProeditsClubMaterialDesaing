@@ -238,6 +238,7 @@
 <script src="../controler/js/ajaxCliente.js"></script>
 <script src="../controler/js/ajaxCupon.js"></script>
 <script src="../controler/js/ajaxPagarProveedor.js"></script>
+<script src="../controler/js/ajaxMembresia.js"></script>
 
 <!-- //=======================TOSTADA=============================// -->
 <script src="../tostada/toast-alert-message-kk/jquery-kk-message/message.js"></script>
@@ -248,7 +249,7 @@
 <script src="../controler/js/dataTable.js"></script>
 
 <!-- //=======================SWIT ALERT=============================// -->
-<script src="../alert/sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
   <!-- ===================Animacion de espera============================== -->
   <script src="../controler/js/animacionEspera.js"></script>
