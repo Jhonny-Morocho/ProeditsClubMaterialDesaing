@@ -5,7 +5,7 @@
    
 
 
-    $modDev = false;//false para q este en modo real
+    $modDev = true;//false para q este en modo real
 
     if($modDev) {
 
@@ -13,8 +13,8 @@
         
         $apiContext = new \PayPal\Rest\ApiContext(
             new \PayPal\Auth\OAuthTokenCredential(
-                    'AU9i9nbVJv4j1pf-AytaMqSWw_5jXXpfKZSccADUMF5w86gHangspAt7vDmqG5sPECRhemYWRvNioxwP',
-                    'EHFOIpNnimC4lbSyhPMPe8MuUaRmmpoM27hjWY_5p4WLcFco-HkLuXgNZFH3neXL9snHF2ZsS0wNVsyN'
+                    'Acje8CUupESpC6VNzRxCmW1Y2QWelmpp0jIjZs7GEl7jyW_c4ecg93Ud30xnZNsm6jwGPK8ITTVIEWYT',
+                    'EHUFwQxRmGl8El00aAXQPN1N6kplSl0JHabEh9crO8Cjdd1RTHAx1m2lBe3wQen9Jx8H7QH46uRGKuYs'
                 )
         );
 

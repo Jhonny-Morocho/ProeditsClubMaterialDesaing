@@ -10,6 +10,9 @@ require'model/mdlClienteProducto.php';
 require'model/mdlFactura.php';
 require'model/mdlGenero.php';
 
+//membresias
+require'model/mdlMembresias.php';
+
 require_once 'controler/ctrTemplateInicio.php';
 $plantilla= new ControladorPlantillaInicio();
 $plantilla->usuario_autentificado();;

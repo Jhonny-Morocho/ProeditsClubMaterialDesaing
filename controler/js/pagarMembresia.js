@@ -1,6 +1,6 @@
 
 var url_transaccion_membresia="../Pay_Pal/paypal_controlador.php";
-var urlControlerPaypal="../../Pay_Pal/membresia_controlador.php";
+var urlControlerPaypal="../../Paypal/ctrPasarelaPago.php";
 var data_type="json";
 var membresia;
 
@@ -11,10 +11,11 @@ $(".pricing-action").on('click',function(e){
     var numDescargas=$(this).attr("data-numDescargas");
     var idMembresia=$(this).attr("data-numDescargas");
 	//envio de esta forma con la finalidad de q se adapte a la otra configurion
-    membresia = {   'idMembresia':idMembresia,
-                    'nombreMembresia':tipo,
+    membresia = {   'idProducto':idMembresia,
+                    'nombreProducto':tipo,
                     'numDescargas':numDescargas,
-                    'precio':precio
+                    'precioUnitarioProducto':precio,
+                    'valueRadio':'membresia'
                 };
 
     //1. Pregunta si la membresia q hizo clik es la q el desea
@@ -30,25 +31,24 @@ $(".pricing-action").on('click',function(e){
 		}).then((result) => {
 			if (result.value) {
 				animacion();
-				comprobar_membresia();//controles
+				prepararDatosApiPaypal();//controles
 		 	}
 		 })
 });
 
 
 
-function comprobar_membresia(){// controlar que no compre una nueva membresia mientras no haya terminado la actual
+function prepararDatosApiPaypal(){// controlar que no compre una nueva membresia mientras no haya terminado la actual
     //alert("xxx");
 
-    window.location=urlControlerPaypal;
+   // window.location=urlControlerPaypal;
 	$.ajax({
 		type:'post',
         data:membresia,
-        //dataType:'text',//json//data_type
 		url:urlControlerPaypal,
 		success:function(data){
 			console.log(data);
-			var resultado=JSON.parse(data)
+			var resultado=JSON.parse(data);
 
 			switch (resultado.respuesta) {
 				case 'true':
@@ -63,19 +63,10 @@ function comprobar_membresia(){// controlar que no compre una nueva membresia mi
 				  break;
 
 
-				case 'false':
-						
+				case 'noExiseLogin':
+                    toastr.warning('Debe iniciar su sesión ');
 				//si puede pagar_membresia_paypal
-				pagar_membresia_paypal(membresia);
-
-				  break;
-				case 'no_existe_session':
-						Swal.fire({
-							type: 'warning',
-							title: 'Oops...',
-							text: 'Debe iniciar su session en la pagina para poder adquirir la membresia',
-							footer: 'Si no tienes cuenta en nuestra pagina, puedes registrarte'
-						})
+				//pagar_membresia_paypal(membresia);
 				  break;
 
 			  }

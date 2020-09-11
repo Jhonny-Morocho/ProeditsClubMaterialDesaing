@@ -7,3 +7,12 @@ $(document).ready(function() {
     $('.mdb-select').materialSelect();
     // Tooltips Initialization
 });
+
+switch (key) {
+    case value:
+        
+        break;
+
+    default:
+        break;
+}

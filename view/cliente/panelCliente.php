@@ -14,6 +14,7 @@
 
         // obtenermos todas las facturas con el id del cliente, para luego realizar un filtro
         $facturas=ModeloFacura::sqlListarFacturas(@$_SESSION['id_cliente']);
+        $mebresiasCliente=ModeloMembresia::sqlListarMembresiasCliente(@$_SESSION['id_cliente']);
     ?>
 
 <!-- breadcrumb area start -->
@@ -22,7 +23,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="breadcrumb-wrap">
-                    <nav aria-label="breadcrumb">
+                    <nav aria-label="breadcrumb ">
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="../../adminCliente.php">Mi Cuenta</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><?php echo $_SESSION['usuario']." ".$_SESSION['apellido']?></li>
@@ -36,7 +37,7 @@
 <!-- breadcrumb area end -->
 
 <!-- my account wrapper start -->
-<div class="my-account-wrapper">
+<div class="my-account-wrapper mb-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -44,18 +45,19 @@
                 <div class="myaccount-page-wrapper">
                     <!-- My Account Tab Menu Start -->
                     <div class="row">
-                        <div class="col-lg-3 col-md-4">
-                            <div class="myaccount-tab-menu nav" role="tablist">
-                                <a href="#dashboad"  data-toggle="tab"><i class="fas fa-table"></i> Tablero</a>
-                                <a href="#download" data-toggle="tab" class="active"><i class="fa fa-cart-arrow-down" ></i> Productos Adquiridos</a>
-                                <a href="#account-info" data-toggle="tab"><i class="fa fa-user"></i> Detalles de Mi cuenta</a>
+                        <div class="col-lg-3 col-md-4 ">
+                            <div class="myaccount-tab-menu nav card" role="tablist">
+                                <a href="#dashboad"  data-toggle="tab"><i class="fas fa-table"></i> Dashboad</a>
+                                <a href="#dashboadMembresias"  data-toggle="tab"><i class="fas fa-suitcase"></i> Membresias BUY</a>
+                                <a href="#download" data-toggle="tab" class="active"><i class="fa fa-cart-arrow-down" ></i> Edits/Remixes buy</a>
+                                <a href="#account-info" data-toggle="tab"><i class="fa fa-user"></i> My account details</a>
                                 <a href="../../adminCliente.php?cerrar_session=true" ><i class="fas fa-sign-out-alt"></i> Cerrar Session</a>
                             </div>
                         </div>
                         <!-- My Account Tab Menu End -->
 
                         <!-- My Account Tab Content Start -->
-                        <div class="col-lg-9 col-md-8">
+                        <div class="col-lg-9 col-md-8 card">
                             <div class="tab-content" id="myaccountContent">
                                 <!-- Single Tab Content Start -->
                                 <div class="tab-pane fade " id="dashboad" role="tabpanel">
@@ -67,6 +69,55 @@
                                         <p class="mb-0">Desde el tablero de su cuenta, puede gestionar  su informacion y productos adquiridos, tambien editar sus datos personales</p>
                                     </div>
                                 </div>
+
+                                       <!-- Single Tab Content Start -->
+                                <div class="tab-pane fade " id="dashboadMembresias" role="tabpanel1">
+                                    <div class="myaccount-content">
+                                        <h3>Membresias</h3>
+                                        <div class="welcome">
+                                            <!-- Grid row -->
+                                            <div class="row">
+
+                                                <?php
+
+                                                if (count($mebresiasCliente)>0) {
+                                                    foreach ($mebresiasCliente as $key => $value) {
+                                                        # code...
+                                                        echo'<!-- Grid column -->
+                                                        <div class="col-lg-4 col-md-6 mb-4">
+                                                        <!--Panel-->
+                                                            <div class="card text-center"">
+                                                                <div class=" card-header success-color white-text">
+                                                                    Membresia
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">'.$value['tipo'].'</h4>
+                                                                    <p class="card-text">Fecha Adquisicion : '.$value['fecha_inicio'].'</p>
+                                                                    <p class="card-text">Fecha Expira : '.$value['fecha_culminacion'].'</p>
+                                                                </div>
+                                                                <div class="card-footer text-muted success-color white-text">
+                                                                    <p class="mb-0">Descargas : '.$value['rango'].'</p>
+                                                                </div>
+                                                            </div>
+                                                            <!--/.Panel-->
+                                                        </div>
+                                                        <!-- Grid column -->';
+                                                    }
+                                                    # code...
+                                                }else{
+                                                    echo '
+                                                        <div class="alert alert-warning" role="alert">
+                                                           NO CUENTA CON MEMBRESIAS
+                                                        </div>';
+                                                }
+                                                ?>
+                                            </div>
+                                            <!-- Grid row -->
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+
 
 
                                 <!-- Single Tab Content Start -->

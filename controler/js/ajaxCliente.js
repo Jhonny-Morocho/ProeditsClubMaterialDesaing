@@ -16,8 +16,9 @@ $('#login-cliente').on('submit',function(e){
             url:$(this).attr('action'),
             dataType:'json',//json
             success:function(data){
-                console.log(data);//el usuario si existe
+                //console.log(data);//el usuario si existe
                 if(data.respuesta=='true_password'){
+                    toastr.success('Bienvenido');
                     $(".smsEsperaLogin").html('<div class="alert alert-success alert-dismissible">'+
                     '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'+
                     '<h4><i class="icon fa fa-warning"></i> Hola , Bienvenido </h4> Bienvenido '+data.usuario+
@@ -27,6 +28,7 @@ $('#login-cliente').on('submit',function(e){
                         window.location.href='../../adminCliente.php';
                     },2000);//tiempo de espera
                 }else{
+                    toastr.warning('Credemciales incorrectas');
                     $(".smsEsperaLogin").html('<div class="alert alert-warning alert-dismissible">'+
                     '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'+
                     '<h4><i class="icon fa fa-warning"></i> Aviso !</h4>'+data.respuesta+
