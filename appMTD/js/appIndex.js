@@ -8,11 +8,3 @@ $(document).ready(function() {
     // Tooltips Initialization
 });
 
-switch (key) {
-    case value:
-        
-        break;
-
-    default:
-        break;
-}

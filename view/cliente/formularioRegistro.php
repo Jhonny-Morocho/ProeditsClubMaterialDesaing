@@ -11,10 +11,10 @@
         <div class="row mt-5">
           <!--Grid column-->
           <div class="col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left">
-            <h1 class="h1-responsive font-weight-bold wow fadeInLeft" data-wow-delay="0.3s">LOGIN </h1>
+            <h1 class="h1-responsive font-weight-bold wow fadeInLeft" data-wow-delay="0.3s">CREATE ACCOUNT </h1>
             <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
             <h6 class="mb-3 wow fadeInLeft" data-wow-delay="0.3s">www.PROEDITSCLUB.com EDITS & REMIXES FOR DJ'S</h6>
-            <a class="btn btn-outline-white btn-rounded wow fadeInLeft" data-wow-delay="0.3s" href="../../registro.php">CREATE ACCOUNT</a>
+            <a class="btn btn-outline-white btn-rounded wow fadeInLeft" data-wow-delay="0.3s" href="../../login.php">LOGIN</a>
           </div>
           <!--Grid column-->
           <!--Grid column-->
@@ -25,11 +25,24 @@
                 <!--Header-->
                 <div class="text-center">
                   <h3 class="white-text font-weight-bold">
-                    <i class="fa fa-user white-text"></i> Login:</h3>
+                    <i class="fa fa-user white-text"></i> CREATE ACCOUNT:</h3>
                   <hr class="hr-light">
                 </div>
 
-                <form action="../../controler/ctrCliente.php" method="post" id="login-cliente">
+                <form action="../../controler/ctrCliente.php" method="post" id="registro-cliente">
+
+                 <div class="md-form">
+                    <i class="fa fa-user prefix white-text active"></i>
+                    <input type="text" id="form3" class="white-text form-control">
+                    <label for="form2" class="active">Your name</label>
+                  </div>
+                  
+                  <div class="md-form">
+                    <i class="fa fa-user prefix white-text active"></i>
+                    <input type="text" id="form3" class="white-text form-control">
+                    <label for="form2" class="active">Last name</label>
+                  </div> 
+
                   <div class="md-form">
                     <i class="fa fa-envelope prefix white-text active"></i>
                     <input type="email" id="form2" class="white-text form-control" name="inputEmailCliente" >
@@ -41,11 +54,11 @@
                     <label for="form4">Your password</label>
                   </div>
                   <div class="text-center mt-4">
-                  <input type="hidden" name="Cliente" value="loginCliente">
+                    <input type="hidden" name="Cliente" value="addCliente">
                     <button class="btn btn-indigo btn-rounded">Sign up</button>
                     <hr class="hr-light mb-3 mt-4">
                     <div class="inline-ul text-center d-flex justify-content-center">
-                      <div class="smsEsperaLogin">
+                      <div class="smsEspera">
                       </div>
                     </div>
                   </div>

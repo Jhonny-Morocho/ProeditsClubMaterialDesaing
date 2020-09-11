@@ -137,6 +137,9 @@ h6 {
 .pagination .page-item .page-link:hover {
   color: black !important;
 }
+.pagination{
+  margin-left: 40px;
+}
 
 .topDescripcionProducto{
     background: black;

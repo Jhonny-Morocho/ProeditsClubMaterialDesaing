@@ -91,7 +91,7 @@
 									}
 								}else{
 									echo '<a class="dropdown-item" href="../../login.php">Login</a>
-									<a class="dropdown-item" href="#">Registrarme</a>
+									<a class="dropdown-item" href="../../registro.php">Registrarme</a>
 									<a class="dropdown-item" href="../../loginAdmin.php">Administrador</a>';
 								}
 							?>

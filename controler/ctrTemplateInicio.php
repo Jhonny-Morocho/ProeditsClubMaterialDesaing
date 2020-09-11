@@ -123,6 +123,10 @@ class ControladorPlantillaInicio{
            
         }
 
+        public static function formRegistroCliente(){
+            require "view/cliente/formularioRegistro.php";
+        }
+
 
         
 }
