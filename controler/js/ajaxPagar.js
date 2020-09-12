@@ -45,9 +45,9 @@ $("#idFormCarrito").on('submit',function(e){
     datos.append("totalCancelar",classTotalCancelar);
    
     enviarDatosPasarelaPago(datos);//enviaar Data a la pasarela de pagos
-    //  for (var pair of datos.entries()) {
-    //      console.log(pair[0]+ ', ' + pair[1]); 
-    //  }
+      for (var pair of datos.entries()) {
+          console.log(pair[0]+ ', ' + pair[1]); 
+      }
 
 });
 

@@ -157,7 +157,6 @@ footer.page-footer {
 .deleItemCar:hover{
   cursor: pointer;
   color: red;
-  font-size: 25px;
 }
 .deleItemCar{
   font-size: 22px;

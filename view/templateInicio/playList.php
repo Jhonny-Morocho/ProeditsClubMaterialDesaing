@@ -4,8 +4,8 @@
             <?php foreach (Pagination::show_rows("id") as $row): ?>
                 <?php  $banderaError=false; if( $row['apodo']!== 'Error: vacío' ){ ?>
                     <div class="row" title="Add to car : <?php echo $row['url_directorio']?>" >
-                        <div class="col-lg-1">
-                            <i class="fas fa-cart-plus agregar-carrito buy"  data-id="<?php echo $row['id']?>" data-nombre="<?php echo $row['url_directorio']?>" data-precio="<?php echo $row['precio']?>" ></i>
+                        <div class="col-lg-1 ">
+                            <i class="fas fa-cart-plus agregar-carrito buy "  data-id="<?php echo $row['id']?>" data-nombre="<?php echo $row['url_directorio']?>" data-precio="<?php echo $row['precio']?>" ></i>
                         </div>
                     </div>
                     <li data-src="../../biblioteca/<?php echo $row['url_directorio']?> " data-title="<?php echo $row['url_directorio']?>" data-length="194" class="song-row">
@@ -14,7 +14,7 @@
                         </div>
                         <div class="middle">            
                             <span class="song"><?php echo $row['url_directorio']?> </span>
-                            <span class="length">$<?php echo $row['precio']?></span>
+                            <span class="length badge badge-primary">$<?php echo $row['precio']?></span>
                             <span class="length"><?php echo $row['genero']?></span>
                         </div>
                     </li>

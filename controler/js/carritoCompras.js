@@ -52,8 +52,10 @@ $(document).ready(function(){
                 '<TD class="classPrecioCancion"><p>$<span>'+(((item.precio)-(item.precio)*descuento).toFixed(2))+'</span></p></TD>'+
                 '<TD class=""><p>$<span><del>'+item.precio+'</del></span></p></TD>'+
                 ' <TD>'+
-                    '<i  class="fa fa-trash deleItemCar btnCarrito"  aria-hidden="true"  data-precioCancion='+item.precio+' data-id-Producto='
-                    +item.idProducto+'></i>'
+                      '<button type="button" class="btn btn-teal btn-rounded btn-sm m-0 red">'
+                        + '<i  class="fa fa-trash deleItemCar btnCarrito"  aria-hidden="true"  data-precioCancion='+item.precio+' data-id-Producto='
+                        +item.idProducto+'></i>'+
+                      '</button>'
                 +'</TD>'+
                 '</tr>'
               );
@@ -67,8 +69,10 @@ $(document).ready(function(){
               '<TD class="classPrecioCancion"><p>$<span>'+(item.precio)+'</span></p></TD>'+
               '<TD class="">Not apply</p></TD>'+
               ' <TD>'+
-                  '<i  class="fa fa-trash deleItemCar btnCarrito"  aria-hidden="true"  data-precioCancion='+item.precio+' data-id-Producto='
-                  +item.idProducto+'></i>'
+                      '<button type="button" class="btn btn-teal btn-rounded btn-sm m-0 red">'
+                        + '<i  class="fa fa-trash deleItemCar btnCarrito"  aria-hidden="true"  data-precioCancion='+item.precio+' data-id-Producto='
+                      +item.idProducto+'></i>'+
+                    '</button>'
               +'</TD>'+
               '</tr>'
             );

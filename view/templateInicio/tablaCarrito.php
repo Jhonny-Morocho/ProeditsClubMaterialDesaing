@@ -3,19 +3,18 @@
 <!--Main Layout-->
 
 <div class="container card mb-5">
-  
-        <form action="" id="idFormCarrito ">
+        <form action="../../Paypal/ctrPasarelaPago.php" id="idFormCarrito" method="post">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-10 ml-auto animated fadeInLeftBig">
                     <div class="cart-table ">
-                        <table id="dtBasicExample" class="table  table-striped table-bordered table-sm " cellspacing="0" width="100%">
+                        <table id="dtBasicExample" class="table  table-hover table-bordered table-sm " cellspacing="0" width="100%">
                             <thead class="black white-text">
                                 <tr>
-                                <th >#</th>
-                                <th >Item Name</th>
-                                <th >Item Price</th>
-                                <th >Discount</th>
-                                <th >Action</th>
+                                    <th >#</th>
+                                    <th >Item Name</th>
+                                    <th >Item Price</th>
+                                    <th >Discount</th>
+                                    <th >Action</th>
                                 </tr>
                             </thead>
                             <tbody class="dataProductos">
@@ -26,14 +25,28 @@
             </div>
       
             <div class="row d-flex justify-content-center">
-                <div class="opcionPago">
-                    <h4>Option Payment</h4>
-                    <div class="col-lg-4 form-group">
-                        <label for="">
-                            <input type="radio" name="r1" class="minimal" checked value="paypal">
+                <div class="opciones_pago">
+                    <!-- Group of material radios - option 1 -->
+                        <div class="form-check ">
+                            <input type="radio" class="form-check-input" id="materialGroupExample1" name="r1" checked value="paypal">
+                            <label class="form-check-label" for="materialGroupExample1"></label>
                             <img src="../../img/payment.png" alt="">
-                        </label>
-                    </div>
+                        </div>
+    
+                        <!-- Group of material radios - option 2 -->
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="materialGroupExample2" name="r1" name="membresia" >
+                            <label class="form-check-label " for="materialGroupExample2">Membresia</label>
+                            <button type="button" class="btn btn-danger btn-sm btn-rounded" data-toggle="modal" data-target="#modalPushMembresias"><i class="fas fa-info"></i></button>
+                        </div>
+    
+                        <!-- Group of material radios - option 3 -->
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="materialGroupExample3" name="r1" name="monedero">
+                            <label class="form-check-label" for="materialGroupExample3">Monedero</label>
+                            <button type="button" class="btn btn-danger btn-sm btn-rounded" data-toggle="modal" data-target="#modalPushMonedero"><i class="fas fa-info"></i></button>
+
+                        </div>
                 </div>
             </div>
 
@@ -58,14 +71,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </form>
-      
-        
-
-      
-        
 </div> <!-- end container fluid -->
 
