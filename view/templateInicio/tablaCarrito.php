@@ -35,14 +35,14 @@
     
                         <!-- Group of material radios - option 2 -->
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" id="materialGroupExample2" name="r1" name="membresia" >
+                            <input type="radio" class="form-check-input" id="materialGroupExample2" name="r1" value="productoCompradoMembresia" >
                             <label class="form-check-label " for="materialGroupExample2">Membresia</label>
                             <button type="button" class="btn btn-danger btn-sm btn-rounded" data-toggle="modal" data-target="#modalPushMembresias"><i class="fas fa-info"></i></button>
                         </div>
     
                         <!-- Group of material radios - option 3 -->
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" id="materialGroupExample3" name="r1" name="monedero">
+                            <input type="radio" class="form-check-input" id="materialGroupExample3" name="r1" value="monedero">
                             <label class="form-check-label" for="materialGroupExample3">Monedero</label>
                             <button type="button" class="btn btn-danger btn-sm btn-rounded" data-toggle="modal" data-target="#modalPushMonedero"><i class="fas fa-info"></i></button>
 

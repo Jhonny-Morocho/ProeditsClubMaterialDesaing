@@ -12,6 +12,7 @@ var arrayIdProducto=[];
 var datos=new FormData();
 var data_type="json";
 var urlPasarelaPago="../../Paypal/ctrPasarelaPago.php";
+var urlPasarelaPagoCarMembresia="../../Paypal/ctrPasarelaPagoMembresiaCar.php";
 
 $("#idFormCarrito").on('submit',function(e){
     
@@ -44,26 +45,43 @@ $("#idFormCarrito").on('submit',function(e){
     datos.append("valueRadio",inputOptionPago[0].value);
     datos.append("totalCancelar",classTotalCancelar);
    
-    enviarDatosPasarelaPago(datos);//enviaar Data a la pasarela de pagos
-      for (var pair of datos.entries()) {
-          console.log(pair[0]+ ', ' + pair[1]); 
-      }
+  
+  
+       for (var pair of datos.entries()) {
+           console.log(pair[0]+ ', ' + pair[1]); 
+       }
+
+       switch (inputOptionPago[0].value) {
+
+        //aqui compran todo con paypal, productps y tambin el paquete de membresias
+           case 'paypal':
+               enviarDatosPasarelaPago(datos,urlPasarelaPago);//enviaar Data a la pasarela de pagos
+           break;
+
+           case 'productoCompradoMembresia':
+            
+                enviarDatosPasarelaPago(datos,urlPasarelaPagoCarMembresia);//enviaar Data a la pasarela de pagos
+               break;
+
+           default:
+               break;
+       }
 
 });
 
 
-function enviarDatosPasarelaPago(datos){
+function enviarDatosPasarelaPago(datos,urlPasarela){
     console.log(datos);
     animacion();
     $.ajax({
 
-        url:urlPasarelaPago,
+        url:urlPasarela,
         method:'post',
         data:datos,
         cache:false,
         contentType:false,
         processData:false,
-        dataType:'json',//json//data_type
+        dataType:'text',//json//data_type
         success:function(data){
             console.log(data);
 
@@ -87,4 +105,3 @@ function enviarDatosPasarelaPago(datos){
         }
     });
 }
-

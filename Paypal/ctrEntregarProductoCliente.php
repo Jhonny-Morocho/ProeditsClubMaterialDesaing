@@ -50,6 +50,41 @@ class ClassEntregarProductoCliente {
         echo '<script>window.location = "../adminCliente.php"; </script>';//direcciono al penel de administracion del cliente
         
     }
+
+    // aqui verifico si la membresia del cliente ahun esta activa o si cuenta con descargas disponibles
+    public static function comprobarEstadoMembresiaCliente($idCliente){
+        //listar todas las membresias y comparamos el id del cliente con el idCliente_Membresia
+        require'../model/mdlClienteMembresia.php';
+        $membresiaCliente =Modelo_Membresia::sqlListarMembresiasCliente($idCliente);
+
+        //recorro las membresias para ver cual de todas tiene decargas
+        $idMembresia=0;
+        $rangoDescargas=0;
+        $fechaCompra="";
+        $fechaExpira="";
+        $precioUnitario="";
+        $nombreMembresia="";
+        $banderaNumeroDescargas=false;
+
+        foreach ($membresiaCliente as $key => $value) {
+            #si el numero de descargas es mayor a cero etonces puede comprar
+            if($value['rango']>0){
+                $idMembresia=$value['id'];
+                $rangoDescargas=$value['rango'];
+                $fechaCompra=$value['fecha_inicio'];
+                $fechaExpira=$value['fecha_culminacion'];
+                $precioUnitario=$value['precio_unidad'];
+                $nombreMembresia=$value['tipo'];
+                $banderaNumeroDescargas=true;
+            }else{
+
+            }
+        }
+        return array('idMembresia'=>$idMembresia,'rangoDescargas'=>$rangoDescargas,
+                    'fechaCompra'=>$fechaCompra,'fechaExpira'=>$fechaExpira,'banderaNumDescargas'=>$banderaNumeroDescargas,
+                    'precioUnitario'=>$precioUnitario,'nombreMembresia'=>$nombreMembresia);
+        
+    }
     
 }
 

@@ -16,7 +16,7 @@ $('#login-cliente').on('submit',function(e){
             url:$(this).attr('action'),
             dataType:'json',//json
             success:function(data){
-                //console.log(data);//el usuario si existe
+                console.log(data);//el usuario si existe
                 if(data.respuesta=='true_password'){
                     toastr.success('Bienvenido');
                     $(".smsEsperaLogin").html('<div class="alert alert-success alert-dismissible">'+

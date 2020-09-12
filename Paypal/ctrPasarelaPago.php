@@ -17,7 +17,6 @@ include'ctrProductoItem.php';// para poder filtrar los datos
 @session_start();// simepre inicializo session par apoder hacr la compracion, si el cliente esta logado
 $descripcionProducto="";
 
-
     //==========comprobar si exite un session o el cliente esta logiando==================//
     if( isset($_SESSION['usuario']) and $_SESSION['tipo_usuario']=='Cliente' and isset($_SESSION['id_cliente']) ){
             //========OpcionPago
@@ -25,6 +24,7 @@ $descripcionProducto="";
             case 'paypal':
                 $descripcionProducto="Producto";
                 break;
+
             case 'membresia':
                 $descripcionProducto="Membresia";
                 break;
@@ -42,7 +42,6 @@ $descripcionProducto="";
     //==========================PREPARA DATA PARA ENVIAR A PAYPAL================
     if($descripcionProducto!=""){
         
-       
         $FiltroIdProducto=ModeloProductoItem::SeperacionDatos(@$_POST['idProducto'],'idProducto');
         $FiltroNombreProducto=ModeloProductoItem::SeperacionDatos(@$_POST['nombreProducto'],'nombreProducto');
         $FiltroPrecioProducto=ModeloProductoItem::SeperacionDatos(@$_POST['precioUnitarioProducto'],'idProducto');
@@ -56,7 +55,7 @@ $descripcionProducto="";
             ${"articulo$key"}=new Item();
             $arregloProductos[]=${"articulo$key"};
     
-            ${"articulo$key"}->setName($descripcionProducto.' : '.$FiltroNombreProducto[$key])//el i lleva el nombre de la cancion
+            ${"articulo$key"}->setName($descripcionProducto.'  '.$FiltroNombreProducto[$key])//el i lleva el nombre de la cancion
                             ->setCurrency('USD')//la moneda a cobrar
                             ->setQuantity((int)1)//siempre la cancion va hacer (1)
                             ->setSku($FiltroIdProducto[$key])
@@ -97,6 +96,7 @@ $descripcionProducto="";
                               ->setCancelUrl(URL_SITIO."/Paypal/pagoFinalizadoPaypal.php?exito=false&idpago{$ID_registro}");
                 break;
 
+    
             case 'Membresia':
                 $redireccionar=new RedirectUrls();
                 $redireccionar->setReturnUrl(URL_SITIO."/Paypal/pagoFinalizadoPaypalMembresia.php?numDescargas=".$_POST['numDescargas']."&idCliente=".$_SESSION['id_cliente'])//pago exitoso
@@ -106,7 +106,6 @@ $descripcionProducto="";
                 # code...
                 break;
         }
-    
         
         $pago=new Payment();
         $pago->setIntent("sale")

@@ -14,7 +14,7 @@
 
         // obtenermos todas las facturas con el id del cliente, para luego realizar un filtro
         $facturas=ModeloFacura::sqlListarFacturas(@$_SESSION['id_cliente']);
-        $mebresiasCliente=ModeloMembresia::sqlListarMembresiasCliente(@$_SESSION['id_cliente']);
+        $mebresiasCliente=Modelo_Membresia::sqlListarMembresiasCliente(@$_SESSION['id_cliente']);
     ?>
 
 <!-- breadcrumb area start -->

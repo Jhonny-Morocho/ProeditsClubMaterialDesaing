@@ -61,26 +61,26 @@ ini_set('display_errors', 'On');
     
             }
         // membresias adquiridas por el cliente
-        public static  function sqlListarMembresiasCliente($idCliente){
-            $db=new Conexion();
+    //     public static  function sqlListarMembresiasCliente($idCliente){
+    //         $db=new Conexion();
 
 
-            try {
-                    $stmt= $db->conectar()->prepare("SELECT * FROM  membresia_cliente where id_cliente='$idCliente' order by  id desc");
-            } catch (Exception $e) {
-                //echo "Error".$e->getMessage();
-                $respuesta=array(
-                    'respuesta'=>$e->getMessage()
-                    );
-            }
+    //         try {
+    //                 $stmt= $db->conectar()->prepare("SELECT * FROM  membresia_cliente where id_cliente='$idCliente' order by  id desc");
+    //         } catch (Exception $e) {
+    //             //echo "Error".$e->getMessage();
+    //             $respuesta=array(
+    //                 'respuesta'=>$e->getMessage()
+    //                 );
+    //         }
 
-            $stmt->execute();
+    //         $stmt->execute();
 
-            return $stmt->fetchAll();
-            $stmt->close();
+    //         return $stmt->fetchAll();
+    //         $stmt->close();
 
-        }    
-    }
+    //     }    
+    // }
     
 
 

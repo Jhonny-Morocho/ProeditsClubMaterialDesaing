@@ -81,13 +81,12 @@ ini_set('display_errors', 'On');
 			$stmt->close();
 
         }
-
-        public static  function sql_listar_membresia($tabla){
+        public static  function sqlListarMembresiasCliente($idCliente){
             $db=new Conexion();
 
 
             try {
-                    $stmt= $db->conectar()->prepare("SELECT * FROM  $tabla order by  id desc");
+                    $stmt= $db->conectar()->prepare("SELECT * FROM  membresia_cliente where id_cliente='$idCliente' order by  id desc");
             } catch (Exception $e) {
                 //echo "Error".$e->getMessage();
                 $respuesta=array(
@@ -98,9 +97,9 @@ ini_set('display_errors', 'On');
             $stmt->execute();
 
             return $stmt->fetchAll();
-			$stmt->close();
+            $stmt->close();
 
-        }
+        }   
         
         public static  function sql_actualizar_membresia($tabla,$id_membresia,$actualizar_descarga){// cuando adquiere productos se descuenta el numero de descargas
             $db=new Conexion();

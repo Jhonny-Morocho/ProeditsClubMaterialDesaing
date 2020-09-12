@@ -11,7 +11,7 @@ require'model/mdlFactura.php';
 require'model/mdlGenero.php';
 
 //membresias
-require'model/mdlMembresias.php';
+require'model/mdlClienteMembresia.php';
 
 require_once 'controler/ctrTemplateInicio.php';
 $plantilla= new ControladorPlantillaInicio();
