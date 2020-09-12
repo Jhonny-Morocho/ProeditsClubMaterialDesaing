@@ -9,7 +9,7 @@ $.ajax({
 		limite=respuesta[0].limite_productos;
 		console.log("descuento",descuento);
     console.log("limite",limite);
-    
+    alert("xxx");
   }
 });
 //$(document).ready(function(){

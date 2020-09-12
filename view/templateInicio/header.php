@@ -48,7 +48,7 @@
 			<nav class="navbar navbar-expand-lg navbar-dark special-color-red navMenu">
 	
 				<!-- Navbar brand -->
-				<a class="navbar-brand  text-uppercase" href="../../"><i class="fa fa-home" aria-hidden="true"></i> HOME</a>
+				<a class="navbar-brand  text-uppercase border-right" href="../../"><i class="fa fa-home " aria-hidden="true"></i> HOME</a>
 	
 			
 				<!-- Collapse button -->
@@ -61,15 +61,15 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent2">
 			
 				<!-- Links -->
-				<ul class="navbar-nav mr-auto">
+				<ul class="navbar-nav mr-auto ">
 			
-					<a class="navbar-brand text-uppercase" href="../../membresia.php"><i class="fas fa-suitcase"></i> Membresias</a>
+					<a class="navbar-brand text-uppercase border-right" href="../../membresia.php"><i class="fas fa-suitcase"></i> Membresias</a>
 						<!-- Navbar membresiass -->
                     <!-- <a class="navbar-brand text-uppercase" href="#"><i class="fas fa-user-plus"></i> Mi cuenta</a> -->
                     
                 	<!-- Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle text-uppercase border-right" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-plus"></i>Mi cuenta</a>
                         <div class="dropdown-menu dropdown-primary black" aria-labelledby="navbarDropdownMenuLink">
 							<?php 
@@ -100,7 +100,7 @@
 
 					<!-- Features -->
 					<li class="nav-item dropdown mega-dropdown  active">
-						<a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+						<a class="nav-link dropdown-toggle text-uppercase border-right" id="navbarDropdownMenuLink2" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false"><i class="fa fa-headphones" aria-hidden="true"></i> Editores
 							<span class="sr-only">(current)</span>
 						</a>
@@ -139,7 +139,7 @@
 	
 						<!-- Features -->
 						<li class="nav-item dropdown mega-dropdown  active">
-						<a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+						<a class="nav-link dropdown-toggle text-uppercase border-right" id="navbarDropdownMenuLink2" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false"><i class="fas fa-music"></i> Genero
 							<span class="sr-only">(current)</span>
 						</a>
@@ -178,7 +178,7 @@
 				</ul>
 	
 				<!-- Navbar carrito -->
-				<a class="nav-link waves-effect navbar-brand text-uppercase"  href="../../car.php">
+				<a class="nav-link waves-effect navbar-brand text-uppercase border-left"  href="../../car.php">
 					<span class="badge red z-depth-1 mr-1 cart-notification">0</span>
 					<i class="fas fa-shopping-cart"></i>
 					<span class="clearfix d-none d-sm-inline-block"> Cart </span>
