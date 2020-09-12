@@ -1,5 +1,4 @@
 
-var url_transaccion_membresia="../Pay_Pal/paypal_controlador.php";
 var urlControlerPaypal="../../Paypal/ctrPasarelaPago.php";
 var data_type="json";
 var membresia;
@@ -9,11 +8,13 @@ $(".pricing-action").on('click',function(e){
 	var precio=$(this).attr("data-precio");
 	var tipo=$(this).attr("data-tipo");
     var numDescargas=$(this).attr("data-numDescargas");
-    var idMembresia=$(this).attr("data-numDescargas");
+	var idMembresia=$(this).attr("data-id");
+	
 	//envio de esta forma con la finalidad de q se adapte a la otra configurion
     membresia = {   'idProducto':idMembresia,
                     'nombreProducto':tipo,
                     'numDescargas':numDescargas,
+                    'totalCancelar':precio,
                     'precioUnitarioProducto':precio,
                     'valueRadio':'membresia'
                 };
@@ -39,7 +40,6 @@ $(".pricing-action").on('click',function(e){
 
 
 function prepararDatosApiPaypal(){// controlar que no compre una nueva membresia mientras no haya terminado la actual
-    //alert("xxx");
 
    // window.location=urlControlerPaypal;
 	$.ajax({
@@ -49,58 +49,29 @@ function prepararDatosApiPaypal(){// controlar que no compre una nueva membresia
 		success:function(data){
 			console.log(data);
 			var resultado=JSON.parse(data);
+			console.log(resultado.respuesta);
 
-			switch (resultado.respuesta) {
-				case 'true':
-
-				//ya cuanta con una membresia activa
-							Swal.fire({
-								type: 'warning',
-								title: 'Oops...',
-								text: 'Usted ya cuenta con una membresia activa,por lo tanto no puede adquirir una nueva membresia mientras no se caduque la actual Gracias por su comprension !',
-								footer: '<br>Fecha de compra : '+resultado.fecha_inicio+"<br>Fecha caducidad :"+resultado.fecha_culminacion
-							})
-				  break;
-
-
-				case 'noExiseLogin':
-                    toastr.warning('Debe iniciar su sesión ');
-				//si puede pagar_membresia_paypal
-				//pagar_membresia_paypal(membresia);
-				  break;
-
-			  }
-
-			 
-
+				 switch (resultado.respuesta) {
+				 	case 'exito':
+						 toastr.success('solicitud aceptada');
+						 Swal.fire(
+							 'Solicitud Aceptada',
+							 'Un momento porfavor..',
+							 'success'
+						   )
+							 window.location=resultado.urlPaypal;
+				 		break;
+					case 'noExiseLogin':
+					
+						toastr.warning('Debe iniciar su sesión ');
+						break;
+					default:
+						toastr.danger('Error al ejecutar la petición');
+						break;
+				 }
+			
 		}
-	});
-}
 
-
-function pagar_membresia_paypal(membresia){
-	$.ajax({
-		type:'post',
-		data:membresia,
-		url:url_transaccion_membresia,
-
-		success:function(data){
-			console.log(data);
-			var resultado=JSON.parse(data)
-			if(resultado.respuesta=='exito'){
-				swal('Tu solicitud ha sido  procesada')
-					swal({
-					  position: 'center',
-					  type: 'success',
-					  title: 'Tu solicitud ha sido  procesada ',
-					  showConfirmButton: false,
-					  timer: 3000
-						})
-
-				window.location=resultado.url_paypal;
-			}
-
-		}
 	});
 }
 

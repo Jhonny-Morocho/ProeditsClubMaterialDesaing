@@ -121,7 +121,7 @@ ini_set('display_errors', 'On');
 
 		 public static  function sql_lisartar_proveedor(){
 			$db=new Conexion();
-			$stmt= $db->conectar()->prepare("SELECT  *FROM proveedor where estado ='1' ORDER by id desc ");
+			$stmt= $db->conectar()->prepare("SELECT  *FROM proveedor where estado ='1' ORDER by apodo ");
 
 			$stmt->execute();
 			return $stmt->fetchAll();

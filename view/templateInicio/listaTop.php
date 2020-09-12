@@ -24,12 +24,12 @@
                                 <h5 class="font-weight-bold mt-0">
                                     <span style="color:#fff">$'.($value['precio']).'</span>
                                 </h5>
-                                    <span class="topSonf">'.($value['url_directorio']).'</span>
+                                    <span class="topSonf article__content">'.($value['url_directorio']).'</span>
                                 </div>
                             </div></a>
                         <!--Section: Author Box-->';
                     }
-                    $cont_2++;
+                    $cont_2++; 
                 }
             ?>
     </nav>

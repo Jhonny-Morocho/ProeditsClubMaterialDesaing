@@ -4,14 +4,16 @@ ini_set('display_errors', 'On');
 
 //============Conexion a la base datos=============//
 require'../model/conexion.php';
-//============Traer  del producto de cliente producto para poder realizar la facturacion=============//
-require'../model/mdlFactura.php';
-//============Entregar los producots al cliente=============//
-require'../model/mdlClienteProducto.php';
+
+
 
 class ClassEntregarProductoCliente {
-
+    
     public static function comproMusica($idCliente,$montoCancelar,$arrayPrecio,$arrayIdProductos){
+        //============Traer  del producto de cliente producto para poder realizar la facturacion=============//
+        require'../model/mdlFactura.php';
+        //============Entregar los producots al cliente=============//
+        require'../model/mdlClienteProducto.php';
 
         //1. Generar la factura , para ellos guardo el id de cliente,monto que canelo , en la tabla factura
         $respustaFactura=ModeloFacura::sqlGerarFactura($idCliente,$montoCancelar);
@@ -35,6 +37,18 @@ class ClassEntregarProductoCliente {
         //============BORRO LA CESTA=================//
         echo '<script>localStorage.clear();</script>';
         echo '<script>window.location = "../adminCliente.php"; </script>';//direcciono al penel de administracion del cliente
+    }
+
+    public static function comproMembresia($arrayData){
+        //=================Entregar membresia al cliente====
+        require'../model/mdlClienteMembresia.php';
+        $precioTotal=floatval($arrayData['totalCancelado']);
+        $numeroDescargas=floatval($arrayData['get']['numDescargas']);
+        $comisionPaypal=floatval($arrayData['totalCancelado']*0.19);
+        $precioUnidad=$precioTotal-$comisionPaypal;
+        $respuesta=Modelo_Membresia::sqlAgregarMembresiaCliente($arrayData,'Paypal',$precioUnidad);
+        echo '<script>window.location = "../adminCliente.php"; </script>';//direcciono al penel de administracion del cliente
+        
     }
     
 }

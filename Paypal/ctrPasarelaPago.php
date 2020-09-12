@@ -26,7 +26,7 @@ $descripcionProducto="";
                 $descripcionProducto="Producto";
                 break;
             case 'membresia':
-                $descripcionProducto="Tipo Membresia";
+                $descripcionProducto="Membresia";
                 break;
             default:
                 # code...
@@ -40,8 +40,8 @@ $descripcionProducto="";
     }
 
     //==========================PREPARA DATA PARA ENVIAR A PAYPAL================
-    
     if($descripcionProducto!=""){
+        
        
         $FiltroIdProducto=ModeloProductoItem::SeperacionDatos(@$_POST['idProducto'],'idProducto');
         $FiltroNombreProducto=ModeloProductoItem::SeperacionDatos(@$_POST['nombreProducto'],'nombreProducto');
@@ -87,9 +87,25 @@ $descripcionProducto="";
         //print_r($transaccion);
     
         // =====================Redireccionar a la pagina de paypal o si cancelan no se ejcuta el pago===============
-        $redireccionar=new RedirectUrls();
-        $redireccionar->setReturnUrl(URL_SITIO."/Paypal/pagoFinalizadoPaypal.php?idCliente=".$_SESSION['id_cliente'])//pago exitoso
-                      ->setCancelUrl(URL_SITIO."/Paypal/pagoFinalizadoPaypal.php?exito=false&idpago{$ID_registro}");
+        
+        //se crea diferentes archivos para la ejecucion del pago tanto por unidad y membresias
+        switch ($descripcionProducto) {
+            case 'Producto':
+                # code...
+                $redireccionar=new RedirectUrls();
+                $redireccionar->setReturnUrl(URL_SITIO."/Paypal/pagoFinalizadoPaypal.php?idCliente=".$_SESSION['id_cliente'])//pago exitoso
+                              ->setCancelUrl(URL_SITIO."/Paypal/pagoFinalizadoPaypal.php?exito=false&idpago{$ID_registro}");
+                break;
+
+            case 'Membresia':
+                $redireccionar=new RedirectUrls();
+                $redireccionar->setReturnUrl(URL_SITIO."/Paypal/pagoFinalizadoPaypalMembresia.php?numDescargas=".$_POST['numDescargas']."&idCliente=".$_SESSION['id_cliente'])//pago exitoso
+                              ->setCancelUrl(URL_SITIO."/Paypal/pagoFinalizadoPaypalMembresia.php?exito=false&idpago{$ID_registro}");
+                break;
+            default:
+                # code...
+                break;
+        }
     
         
         $pago=new Payment();
@@ -103,7 +119,6 @@ $descripcionProducto="";
             }catch(PayPal\Exception\PayPalConnectionException $pce){
                 echo"<pre>";
                 print_r(json_decode($pce->getData()));
-                print_r($pce);
                 echo"</pre>";
                 exit;
                 
@@ -112,10 +127,11 @@ $descripcionProducto="";
             $aprobado=$pago->getApprovalLink();
             //echo $aprobado;//imprimo la url de paypal para que el ajax de respuesta lo capte y me direccione a paypal
             //print_r($_POST);
+       
             $respuesta=array('urlPaypal'=>$aprobado,
                              'respuesta'=>'exito',
                             'tipoRespuesta'=>'paypal',
-                            'totoal_cancelar'=>@$_POST['totalCancelar']);
+                            'total_cancelar'=>@$_POST['totalCancelar']);
              die(json_encode($respuesta));
     }
    

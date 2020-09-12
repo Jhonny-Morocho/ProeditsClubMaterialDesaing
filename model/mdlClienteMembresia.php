@@ -10,16 +10,16 @@ ini_set('display_errors', 'On');
 
 
 		//satic cuando recibo algo siempre van como static
-		 public static  function sql_agregar_membresia($tabla,$tipo_membresia,$rango,$id_cliente,$precio,$tipo_pago){
+		 public static  function sqlAgregarMembresiaCliente($arraDatosMembresia,$metodoPago,$precioUnidad){
             $db=new Conexion();
 
             //aplico los dias de promosion
-            $fecha = date('Y-m-j');
-            $nuevafecha = strtotime ( '+30 day' , strtotime ( $fecha ) ) ;
-            $nuevafecha = date ( 'Y-m-j' , $nuevafecha );
-
+            $fechaActual = date('Y-m-j');
+            $fechaAddDays = strtotime ( '+30 day' , strtotime ( $fechaActual ) ) ;
+            $fechaAddDays = date ( 'Y-m-j' , $fechaAddDays );
+  
             try {
-                    $stmt= $db->conectar()->prepare("INSERT INTO $tabla
+                    $stmt= $db->conectar()->prepare("INSERT INTO membresia_cliente
 
                                                     (tipo,
                                                     fecha_inicio,
@@ -27,19 +27,30 @@ ini_set('display_errors', 'On');
                                                     rango,
                                                     id_cliente,
                                                     precio,
-                                                    tipo_pago
+                                                    tipo_pago,
+                                                    precio_unidad
                                                     )
 
-                                                    VALUES('$tipo_membresia',
-                                                            '$fecha',
-                                                            '$nuevafecha',
-                                                            '$rango',
-                                                            '$id_cliente',
-                                                            '$precio',
-                                                            '$tipo_pago'
+                                                    VALUES(:nameMembresia,
+                                                            :dateCompra,
+                                                            :dateExperiracion,
+                                                            :numDescargas,
+                                                            :idCliente,
+                                                            :precio,
+                                                            :metodoPago,
+                                                            :precioUnidad
                                                             )
 
                                                     ");
+             $stmt->bindParam(':nameMembresia',$arraDatosMembresia['nombreMembresia'][0]);
+             $stmt->bindParam(':dateCompra',$fechaActual);
+             $stmt->bindParam(':dateExperiracion',$fechaAddDays);
+             $stmt->bindParam(':numDescargas',$arraDatosMembresia['get']['numDescargas']);
+             $stmt->bindParam(':idCliente',intval($arraDatosMembresia['get']['idCliente'])); 
+             $stmt->bindParam(':precio',floatval($arraDatosMembresia['precioProducto'][0])); 
+             $stmt->bindParam(':metodoPago',$metodoPago);
+             $stmt->bindParam(':precioUnidad',floatval($precioUnidad));
+             //settype($arraDatosMembresia['precioProducto'][0], 'float'); 
             } catch (Exception $e) {
                 //echo "Error".$e->getMessage();
                 $respuesta=array(
@@ -54,16 +65,11 @@ ini_set('display_errors', 'On');
 				//si se realizo la inserccion
 				$respuesta=array(
 					'respuesta'=>'exito',
-					'id_insertado_tabla_membresia'=>$id,
-                    'tipo_membresia'=>$tipo_membresia,
-                    'id_cliente'=>$id_cliente,
-                    'precio'=>$precio,
-                    'tipo_pago'=>$tipo_pago
 					);
 
 			}else{
 				$respuesta=array(
-					'respuesta'=>'no se inserto'
+					'respuesta'=>'fallo la insercion'
 					);
 
             }
