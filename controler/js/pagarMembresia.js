@@ -48,7 +48,7 @@ function prepararDatosApiPaypal(){// controlar que no compre una nueva membresia
 		url:urlControlerPaypal,
 		success:function(data){
 			console.log(data);
-			var resultado=JSON.parse(data);
+			var resultado=JSON.parse(data);// si da un error pre es q esta mal la respuesta del host
 			console.log(resultado.respuesta);
 
 				 switch (resultado.respuesta) {
@@ -76,3 +76,7 @@ function prepararDatosApiPaypal(){// controlar que no compre una nueva membresia
 }
 
 
+// $(".xxx").hover(function() {
+// 	console.log('xxx');
+// 	$('.xxx').addClass('animated pulse');
+//   });

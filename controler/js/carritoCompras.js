@@ -1,4 +1,17 @@
-
+$.ajax({
+	method: "POST",
+	url: "../../controler/mdlOferta.php",
+	dataType: "json",
+	data: { Oferta: "listar"},
+	success:function(respuesta){
+		console.log(respuesta);
+		descuento=(respuesta[0].descuento)/100;
+		limite=respuesta[0].limite_productos;
+		console.log("descuento",descuento);
+    console.log("limite",limite);
+    
+  }
+});
 //$(document).ready(function(){
         //localStorage.clear();
         //inicia el sistema  en car.php se imprime los datoscargando los datos del local store y definiendo la variables listaCarritoProductos
@@ -32,11 +45,12 @@
         }
 
         function ForEachImprimirdProductoTableCar(item,index){// imprimir datos en la tabla de car.php
+         
         $(".dataProductos").append(
     
             '<tr>'+'<td>'+(index+1)+'</td>'+
             
-            '<TD  class="classNomProducto" nombre_cancion='+item.nombreProducto+'><p>'+item.nombreProducto+'</p</TD>'+
+            '<TD  class="classNomProducto " nombre_cancion='+item.nombreProducto+'><p>'+item.nombreProducto+'</p</TD>'+
             '<TD class="classPrecioCancion"><p>$<span>'+item.precio+'</span></p></TD>'+
             ' <TD>'+
                 '<i  class="fa fa-trash deleItemCar btnCarrito"  aria-hidden="true"  data-precioCancion='+item.precio+' data-id-Producto='
@@ -114,11 +128,14 @@
 
       //
       function funcionRecorrerItemBorrar(){
+
         var idProducto=$(".btnCarrito");//caputuramos todos el botones
         var classNombreProducto=$(".classNomProducto");//todos los nodos
         listaCarritoProductos=[];// si ahun quedan productos actualizo el array
         var idProductoArray,nombreProductoArray,precioProductoArray,subTotalPagar;
         //console.log(idProducto.length);
+        toastr.info('Producto eliminado de la cesta');
+        
         if(idProducto.length!=0){
           for (let index = 0; index < idProducto.length; index++) {
             //console.log(index);

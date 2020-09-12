@@ -2,20 +2,11 @@
 
 <!--Main Layout-->
 
-<div class="container">
+<div class="container card mb-5">
   
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="alert alert-success smsIniciarSession" role="alert">
-                    Note: You need to be logged in to checkout. If the wallet option doesn’t show and you have funds, that means you need to add more funds to cover the total
-                </div>
-            </div>
-        </div>
-
-
-        <form action="" id="idFormCarrito">
+        <form action="" id="idFormCarrito ">
             <div class="row d-flex justify-content-center">
-                <div class="col-lg-10 ml-auto">
+                <div class="col-lg-10 ml-auto animated fadeInLeftBig">
                     <div class="cart-table ">
                         <table id="dtBasicExample" class="table  table-striped table-bordered table-sm " cellspacing="0" width="100%">
                             <thead class="black white-text">

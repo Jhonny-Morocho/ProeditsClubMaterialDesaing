@@ -71,6 +71,9 @@ h6 {
     padding: 10px 15px;
     text-transform: uppercase;
 }
+.myaccount-tab-menu a:hover {
+  background-color: #FD0002;
+}
 
 .myaccount-tab-menu {
     -webkit-box-orient: vertical;
@@ -126,21 +129,6 @@ h6 {
     color: white;
   }
 
-
-
-
-  .pagination .page-item .page-link {
-    color: #fff !important;
-
-}
-
-.pagination .page-item .page-link:hover {
-  color: black !important;
-}
-.pagination{
-  margin-left: 40px;
-}
-
 .topDescripcionProducto{
     background: black;
     color: white;
@@ -163,6 +151,14 @@ footer.page-footer {
 
 .buy:hover{
    cursor: pointer;
+}
+.deleItemCar:hover{
+  cursor: pointer;
+  color: red;
+  font-size: 18px;
+}
+tr td{
+  text-align: center;
 }
 
 

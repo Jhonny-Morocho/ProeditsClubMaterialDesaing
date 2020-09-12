@@ -31,7 +31,7 @@
 	<div class=" ">
 		<div class="row ">
 		  <div class="col-lg-6 ">
-			  <a href="../../"><img src="../../img/logo-red-black.png" class="img-fluid" alt="Responsive image" width="60%"></a>
+			  <a href="../../"><img src="../../img/logo-red-black.png" class="img-fluid animated bounce slower" alt="Responsive image" width="60%"></a>
 			
 		  </div>
 		  <div class="col-lg-6  pt-3">

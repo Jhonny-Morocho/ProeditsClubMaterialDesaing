@@ -113,12 +113,12 @@ $descripcionProducto="";
             ->setPayer($compra)
             ->setRedirectUrls($redireccionar)
             ->setTransactions(array($transaccion));
-    
+            
             try{
                 $pago->create($apiContext);
             }catch(PayPal\Exception\PayPalConnectionException $pce){
                 echo"<pre>";
-                print_r(json_decode($pce->getData()));
+                    print_r(json_decode($pce->getData()));
                 echo"</pre>";
                 exit;
                 

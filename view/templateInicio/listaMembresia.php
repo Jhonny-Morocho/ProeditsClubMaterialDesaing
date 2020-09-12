@@ -12,7 +12,7 @@
     <div class="row">
 
       <!-- Grid column -->
-      <div class="col-lg-4 col-md-12 mb-4">
+      <div class="col-lg-4 col-md-12 mb-4 animated pulse">
 
         <!-- Pricing card -->
         <div class="card pricing-card">
@@ -58,7 +58,7 @@
       <!-- Grid column -->
 
       <!-- Grid column -->
-      <div class="col-lg-4 col-md-6 mb-4">
+      <div class="col-lg-4 col-md-6 mb-4 animated pulse">
 
         <!-- Pricing card -->
         <div class="card pricing-card">
@@ -104,7 +104,7 @@
       <!-- Grid column -->
 
       <!-- Grid column -->
-      <div class="col-lg-4 col-md-6 mb-4">
+      <div class="col-lg-4 col-md-6 mb-4 animated pulse">
 
         <!-- Pricing card -->
         <div class="card pricing-card">

@@ -45,7 +45,7 @@ class ClassEntregarProductoCliente {
         $precioTotal=floatval($arrayData['totalCancelado']);
         $numeroDescargas=floatval($arrayData['get']['numDescargas']);
         $comisionPaypal=floatval($arrayData['totalCancelado']*0.19);
-        $precioUnidad=$precioTotal-$comisionPaypal;
+        $precioUnidad=floatval(($precioTotal-$comisionPaypal)/$numeroDescargas);
         $respuesta=Modelo_Membresia::sqlAgregarMembresiaCliente($arrayData,'Paypal',$precioUnidad);
         echo '<script>window.location = "../adminCliente.php"; </script>';//direcciono al penel de administracion del cliente
         
