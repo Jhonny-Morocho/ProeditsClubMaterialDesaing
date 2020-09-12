@@ -16,7 +16,6 @@
                             <span class="song"><?php echo $row['url_directorio']?> </span>
                             <span class="length">$<?php echo $row['precio']?></span>
                             <span class="length"><?php echo $row['genero']?></span>
-                            <span class="length"><?php echo $row['fecha_producto']?></span>
                         </div>
                     </li>
                     <?php }else{

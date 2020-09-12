@@ -1,24 +1,21 @@
-$.ajax({
-	method: "POST",
-	url: "../../controler/mdlOferta.php",
-	dataType: "json",
-	data: { Oferta: "listar"},
-	success:function(respuesta){
-		console.log(respuesta);
-		descuento=(respuesta[0].descuento)/100;
-		limite=respuesta[0].limite_productos;
-		console.log("descuento",descuento);
-    console.log("limite",limite);
-    alert("xxx");
-  }
-});
-//$(document).ready(function(){
-        //localStorage.clear();
-        //inicia el sistema  en car.php se imprime los datoscargando los datos del local store y definiendo la variables listaCarritoProductos
+$(document).ready(function(){
+    $.ajax({
+      method: "POST",
+      url: "../../controler/ctrOferta.php",
+      dataType: "json",
+      data: { Oferta: "listar"},
+      success:function(respuesta){
+        console.log(respuesta);
+        descuento=(respuesta[0].descuento)/100;
+        limite=respuesta[0].limite_productos;
+        console.log("descuento",descuento);
+        console.log("limite",limite);
+
+        //INICIALIZAR VARIABBLES GLOBALES
         var  listaCarritoProductos,precioUnitarioProducto;
         // localStorage.setItem('demo','cartuche');
         // alert(localStorage.getItem('demo'));
-
+        
         iniciarTabla();// tabla del carrito de compras
         // produce un error por que cuando voy al index de productos no hay los span del total por lo tanto controlo ese erro
         try {
@@ -26,7 +23,7 @@ $.ajax({
         } catch (error) {
           //console.log(error);
         }
-      
+        
         function iniciarTabla(){
           if(localStorage.getItem("listarProductosCliente")!=null){
             listaCarritoProductos=JSON.parse(localStorage.getItem("listarProductosCliente"));// obtengo todos los items del local sotarage
@@ -43,30 +40,48 @@ $.ajax({
             $('.opciones_pago').hide();
           }
         }
-
+        
         function ForEachImprimirdProductoTableCar(item,index){// imprimir datos en la tabla de car.php
-         
-        $(".dataProductos").append(
-    
-            '<tr>'+'<td>'+(index+1)+'</td>'+
-            
-            '<TD  class="classNomProducto " nombre_cancion='+item.nombreProducto+'><p>'+item.nombreProducto+'</p</TD>'+
-            '<TD class="classPrecioCancion"><p>$<span>'+item.precio+'</span></p></TD>'+
-            ' <TD>'+
-                '<i  class="fa fa-trash deleItemCar btnCarrito"  aria-hidden="true"  data-precioCancion='+item.precio+' data-id-Producto='
-                +item.idProducto+'></i>'
-            +'</TD>'+
-            '</tr>'
-          );
-
           
-      }
-
-      
-      function sumarProducto(){
+          if(listaCarritoProductos.length>=limite){
+            $(".dataProductos").append(
+            
+                '<tr>'+'<td>'+(index+1)+'</td>'+
+                
+                '<TD  class="classNomProducto " nombre_cancion='+item.nombreProducto+'><p>'+item.nombreProducto+'</p</TD>'+
+                '<TD class="classPrecioCancion"><p>$<span>'+(((item.precio)-(item.precio)*descuento).toFixed(2))+'</span></p></TD>'+
+                '<TD class=""><p>$<span><del>'+item.precio+'</del></span></p></TD>'+
+                ' <TD>'+
+                    '<i  class="fa fa-trash deleItemCar btnCarrito"  aria-hidden="true"  data-precioCancion='+item.precio+' data-id-Producto='
+                    +item.idProducto+'></i>'
+                +'</TD>'+
+                '</tr>'
+              );
+          
+          }else{
+            $(".dataProductos").append(
+            
+              '<tr>'+'<td>'+(index+1)+'</td>'+
+              
+              '<TD  class="classNomProducto " nombre_cancion='+item.nombreProducto+'><p>'+item.nombreProducto+'</p</TD>'+
+              '<TD class="classPrecioCancion"><p>$<span>'+(item.precio)+'</span></p></TD>'+
+              '<TD class="">Not apply</p></TD>'+
+              ' <TD>'+
+                  '<i  class="fa fa-trash deleItemCar btnCarrito"  aria-hidden="true"  data-precioCancion='+item.precio+' data-id-Producto='
+                  +item.idProducto+'></i>'
+              +'</TD>'+
+              '</tr>'
+            );
+          }
+        
+          
+        }
+        
+        
+        function sumarProducto(){
         var nodosPrecio,arrayPrecioProduct=[],nodoPrecioProduc,sumaTotal;
         nodosPrecio=$('.classPrecioCancion p span');
-       
+        
          for (let index = 0; index < nodosPrecio.length; index++) {
            //console.log(Number(nodosPrecio[index].innerText));
            nodoPrecioProduc=nodosPrecio[index].innerText;
@@ -74,7 +89,7 @@ $.ajax({
           
          }
         // obtengo la suma de los productos
-     
+        
         
         function sumaArraySubtotal(total,numero){//recibe dos parametros por default
           return total+numero;
@@ -83,26 +98,26 @@ $.ajax({
         
         $(".SpanTotalPagar").html(sumaTotal.toFixed(2));
         // sumo los valores guardados en el array
-      }
-
-      // ========================añadir productos al carrito================================//
-      // ========================añadir productos al carrito================================//
-      $('.buy').on('click',function(e){// 
+        }
+        
+        // ========================añadir productos al carrito================================//
+        // ========================añadir productos al carrito================================//
+        $('.buy').on('click',function(e){// 
         e.preventDefault();// 
-     
+        
         //1.//Añadir al carrito
         var idProducto=$(this).attr("data-id");
         var nombreProducto=$(this).attr("data-nombre");
         var precio=$(this).attr("data-precio");
-       //notificacion se agrego producto
+        //notificacion se agrego producto
         toastr.success('Se agrego '+nombreProducto);
-       //si no tiene datos en local store , encones inicializo el array
-       //console.log(localStorage.getItem("listarProductosCliente"));
-       (localStorage.getItem("listarProductosCliente")==null)? listaCarritoProductos=[]: listaCarritoProductos.concat(localStorage.getItem("listarProductosCliente"));
+        //si no tiene datos en local store , encones inicializo el array
+        //console.log(localStorage.getItem("listarProductosCliente"));
+        (localStorage.getItem("listarProductosCliente")==null)? listaCarritoProductos=[]: listaCarritoProductos.concat(localStorage.getItem("listarProductosCliente"));
         //console.log("listaCarritoProductos",listaCarritoProductos);
         listaCarritoProductos.push({"idProducto"     :idProducto,
-							"nombreProducto":nombreProducto,
-							"precio"        :precio});
+              "nombreProducto":nombreProducto,
+              "precio"        :precio});
         //pinta items en el carrito de compras
         $(".cart-notification").html(listaCarritoProductos.length);
         //guardo esos datos en el localstorage
@@ -111,30 +126,30 @@ $.ajax({
         //contar la cantidad de producots en la cesta
         var cantidadCesta= Number($(".cart-notification").html());//traigo lo q tiene la cesta
         //console.log(cantidadCesta);
-      });
-
-
-      //===================borrar producto carrito=====================
-      $(".deleItemCar").on('click',function(e){
+        });
+        
+        
+        //===================borrar producto carrito=====================
+        $(".deleItemCar").on('click',function(e){
         e.preventDefault();
         $(this).parent().parent().remove();//quitamos visualmente
         funcionRecorrerItemBorrar();
+        location.reload(); 
         //pintar cantidad de productos en el cesta
         $(".cart-notification").html(localStorage.getItem("cantidadCesta"));//no se que es
         //window.location.href = "../carrito_compras.php";
-      });
-
-//});
-
-      //
-      function funcionRecorrerItemBorrar(){
-
+        });
+        
+        //});
+        
+        //
+        function funcionRecorrerItemBorrar(){
+        
         var idProducto=$(".btnCarrito");//caputuramos todos el botones
         var classNombreProducto=$(".classNomProducto");//todos los nodos
         listaCarritoProductos=[];// si ahun quedan productos actualizo el array
         var idProductoArray,nombreProductoArray,precioProductoArray,subTotalPagar;
         //console.log(idProducto.length);
-        toastr.info('Producto eliminado de la cesta');
         
         if(idProducto.length!=0){
           for (let index = 0; index < idProducto.length; index++) {
@@ -162,9 +177,9 @@ $.ajax({
           localStorage.setItem("cantidadCesta","0");
           iniciarTabla();
         }
-      }
-
-      function cestaCarrito(cantidadProductos){
+        }
+        
+        function cestaCarrito(cantidadProductos){
         //////////////////preguntamoos si hay productos en el carrito/////////////
         if(cantidadProductos!=0){
           //console.log("cantidadProductos ",cantidadProductos);
@@ -175,7 +190,15 @@ $.ajax({
         }else{
           console.log("xxxxxx");
         }
-      }	
+        }	
+      }
+    });
+
+}); // end document
+
+//$(document).ready(function(){
+        //localStorage.clear();
+        //inicia el sistema  en car.php se imprime los datoscargando los datos del local store y definiendo la variables listaCarritoProductos
 
 
       // ============================ CUPON DE DESCUENTO=======================

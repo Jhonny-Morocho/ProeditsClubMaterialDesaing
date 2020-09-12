@@ -14,6 +14,7 @@
                                 <th >#</th>
                                 <th >Item Name</th>
                                 <th >Item Price</th>
+                                <th >Discount</th>
                                 <th >Action</th>
                                 </tr>
                             </thead>
