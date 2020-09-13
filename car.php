@@ -20,4 +20,5 @@ $plantilla->ctr_tabla_carritoCompras();
 $plantilla->redesSociales();
 require'view/templateInicio/infoMembresiasMonedero.php';
 $plantilla->ctr_footer();
+$plantilla->toTop();
 ?>

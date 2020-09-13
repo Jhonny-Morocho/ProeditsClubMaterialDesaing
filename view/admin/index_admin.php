@@ -16,4 +16,5 @@ $plantilla->cerrar_session(@$_GET['cerrar_session']);//aqui cieero la session
 $plantilla->ctr_header();
 $plantilla->ctr_navegador_Izquierda();
 $plantilla->ctr_footer();
+$plantilla->toTop();
 ?>

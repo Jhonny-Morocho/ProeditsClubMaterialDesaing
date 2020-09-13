@@ -109,6 +109,9 @@ ini_set('display_errors', 'On');
     public function tablaMembresias(){
         require"../../view/admin/tablas/tablaMembresia.php";
     }
+    public static function toTop(){
+        require "../../blackTotop/toTop.php";
+    }
 
 
 }

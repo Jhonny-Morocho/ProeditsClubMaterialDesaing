@@ -23,4 +23,5 @@ require'../../controler/ctrPaginacion.php';
  $plantilla->ctr_navegador_Izquierda();
  $plantilla->ctr_tabla_mis_productos();
  $plantilla->ctr_footer();
+ $plantilla->toTop();
 ?>

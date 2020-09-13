@@ -18,6 +18,7 @@ $plantilla->ctr_header();
 $plantilla->ctr_navegador_Izquierda();
 $plantilla->ctr_tabla_clientes();
 $plantilla->ctr_footer();
+$plantilla->toTop();
 ?>
 
 

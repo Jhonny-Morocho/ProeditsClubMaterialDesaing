@@ -127,6 +127,10 @@ class ControladorPlantillaInicio{
             require "view/cliente/formularioRegistro.php";
         }
 
+        public static function toTop(){
+            require "blackTotop/toTop.php";
+        }
+
 
         
 }

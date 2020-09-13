@@ -23,6 +23,7 @@ $plantilla->ctr_header();
 $plantilla->listaMembresia();
 $plantilla->redesSociales();
 $plantilla->ctr_footer();
+$plantilla->toTop();
 
 
 ?>

@@ -65,6 +65,7 @@ $('#login-cliente').on('submit',function(e){
             success:function(data){
                 console.log(data);
                 if(data.respuesta=='exito'){
+                        toastr.info('Hi! Welcome');
                         $(".smsEspera").html('<div class="alert alert-success alert-dismissible">'+
                         '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'+
                         '<h4><i class="icon fa fa-warning"></i> Registro Exitoso </h4> Bienvenido '+data.nombre+

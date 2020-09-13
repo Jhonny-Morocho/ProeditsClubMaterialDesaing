@@ -20,8 +20,11 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="icon" type="image/png" href="../../img/iconoProedit.ico" />
 	<!-- =================== APP==================== -->
+	<!-- =================== APP==================== -->
+	<!-- =================== APP==================== -->
 	<link rel="stylesheet" href="../css/appIndex.css">
-	<meta property="og:title" content="COCOMO 2" />
+	<link rel="stylesheet" href="../../socialNav/social.css">
+
 </head>
 
 <body class="">

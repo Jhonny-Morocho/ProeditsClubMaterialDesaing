@@ -50,5 +50,5 @@ $plantilla->ctr_navegador_Izquierda();
 <?php 
 
 $plantilla->ctr_footer();
-
+$plantilla->toTop();
 ?>

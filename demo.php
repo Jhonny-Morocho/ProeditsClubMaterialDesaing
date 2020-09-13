@@ -113,19 +113,11 @@ foreach($productos as $key=>$value){
 }
 
 
-
-?>
-
-<?php
-
-// $plantilla->ctr_categorias();
-// $plantilla->ctr_lista_update();
-// $plantilla->reproductor();
-// $plantilla->ctr_footer();
-// $plantilla->wassap();
-
 $plantilla->reproductorAudio();
 $plantilla->ctr_footer();
+$plantilla->toTop();
+
+
 ?>
 
 

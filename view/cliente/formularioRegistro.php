@@ -33,24 +33,24 @@
 
                  <div class="md-form">
                     <i class="fa fa-user prefix white-text active"></i>
-                    <input type="text" id="form3" class="white-text form-control">
+                    <input type="text" id="form1" class="white-text form-control" name="inpuNameCliente" required>
                     <label for="form2" class="active">Your name</label>
                   </div>
                   
                   <div class="md-form">
                     <i class="fa fa-user prefix white-text active"></i>
-                    <input type="text" id="form3" class="white-text form-control">
+                    <input type="text" id="form2" class="white-text form-control" name="inputApellidoCliente" required>
                     <label for="form2" class="active">Last name</label>
                   </div> 
 
                   <div class="md-form">
                     <i class="fa fa-envelope prefix white-text active"></i>
-                    <input type="email" id="form2" class="white-text form-control" name="inputEmailCliente" >
+                    <input type="email" id="form3" class="white-text form-control" name="inputEmailCliente" required>
                     <label for="form2" class="active">Your email</label>
                   </div>
                   <div class="md-form">
                     <i class="fa fa-lock prefix white-text active"></i>
-                    <input type="password" id="form4" class="white-text form-control" name="inputPasswordCliente" maxlength="20">
+                    <input type="password" id="form4" class="white-text form-control" name="inputPasswordCliente" maxlength="20" required>
                     <label for="form4">Your password</label>
                   </div>
                   <div class="text-center mt-4">

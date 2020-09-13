@@ -19,3 +19,4 @@ $plantilla->ctr_navegador_Izquierda();
 $plantilla->tablaMembresias();
 require'modales/editarMembresia.php';
 $plantilla->ctr_footer();
+$plantilla->toTop();

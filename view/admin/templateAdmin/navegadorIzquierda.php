@@ -105,7 +105,7 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="../view/admin/formProducto.php"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</a></li>
-              <?php if($_SESSION['tipo_usuario']=="admin"){?>
+              <?php if($_SESSION['tipo_usuario']=="Admin"){?>
               <li><a href="../view/admin/listarProductos.php"><i class="fa fa-list-ul" aria-hidden="true"></i> Listar Todos</a></li>
               <?php } ?>
               <li><a href="../view/admin/listarMisProductos.php"><i class="fa fa-list-ul" aria-hidden="true"></i> Listar mis Edits</a></li>

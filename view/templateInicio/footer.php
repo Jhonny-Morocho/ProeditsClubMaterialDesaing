@@ -89,12 +89,9 @@
     <script type="text/javascript" src="../../controler/js/carritoCompras.js?v=1.0.1"></script>
     <script type="text/javascript" src="../../controler/js/ajaxPagar.js?v=1.0.1"></script>
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
-
-
 	<!-- ===================== REDES SOCIALES ======================== -->
-  <link rel="stylesheet" href="../../socialNav/social.css">
-  <script src="../../socialNav/social.js"></script>
+	  <script src="../../socialNav/social.js"></script>
+
 
 
 </body>

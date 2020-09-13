@@ -32,6 +32,7 @@ ini_set('display_errors', 'On');
 		$apellidoCliente=$arrayCliente['inputApellidoCliente'];
 		$correoCliente=$arrayCliente['inputEmailCliente'];
 		$passwordCliente=$arrayCliente['inputPasswordCliente'];
+		$tipoUsuario="Cliente";
 		//encriptar el password
 		$opciones=array('cost'=>12);
 		$password_hashed=password_hash($passwordCliente,PASSWORD_BCRYPT,$opciones);
@@ -50,21 +51,35 @@ ini_set('display_errors', 'On');
 					//2. Guardamos los datos del Proveedor en la tabla
 					date_default_timezone_set('America/Guayaquil');
 					$fecha_actual=date("Y-m-d");
-			
+					$saldo=0;
+
+					try {
+						//code...
 					$stmt= $db->conectar()->prepare("INSERT INTO cliente 
-															(nombre, apellido,
-															correo,	password, rol,fechaRegistro
+															(nombre, 	
+															apellido,
+															correo,		
+															password,
+															tipo_usuario,
+															saldo_actual
 															) 
 		
 														VALUES(
-															'$nombreCliente','$apellidoCliente',
-															'$correoCliente','$password_hashed',
-												        	'cliente','$fecha_actual'
+															'$nombreCliente',	
+															'$apellidoCliente',
+															'$correoCliente',	
+															'$password_hashed',
+												        	'$tipoUsuario',	
+															'$saldo'
 			
 															) 
 													");
-			
-						$stmt->execute();
+					$stmt->execute();
+					} catch (\Throwable $th) {
+						//echo $th;
+					}
+
+				
 						$id=$db->lastInsertId();
 						if ( $stmt->rowCount() > 0) {
 							//Se grabo bien en la base de datos
@@ -77,7 +92,7 @@ ini_set('display_errors', 'On');
                                 @session_start();//inicio la sesion
                                 $_SESSION['id_cliente']=$id;
                                 $_SESSION['usuario']=$nombreCliente;
-                                $_SESSION['tipo_usuario']='cliente';
+                                $_SESSION['tipo_usuario']=$tipoUsuario;
                                 $_SESSION['apellido']=$apellidoCliente;
                                 return $respuesta;//regrso la respuesta 
 						

@@ -20,6 +20,7 @@ $plantilla->cerrar_session(@$_GET['cerrar_session']);//aqui cierro la session
 $plantilla->ctr_header();
 $plantilla->panelCliente();
 $plantilla->ctr_footer();
+$plantilla->toTop();
 
 ?>
 

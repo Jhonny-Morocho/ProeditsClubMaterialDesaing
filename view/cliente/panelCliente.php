@@ -64,7 +64,7 @@
                                     <div class="myaccount-content">
                                         <h3>Tablero</h3>
                                         <div class="welcome">
-                                             <p>Hello, <strong><?php echo $_SESSION['usuario']." ".$_SESSION['apellido']?></strong></p>
+                                             <p>Hi, <strong><?php echo $_SESSION['usuario']." ".$_SESSION['apellido']?></strong></p>
                                         </div>
                                         <p class="mb-0">Desde el tablero de su cuenta, puede gestionar  su informacion y productos adquiridos, tambien editar sus datos personales</p>
                                     </div>
@@ -123,6 +123,14 @@
                                 <!-- Single Tab Content Start -->
                                 <div class="tab-pane fade show active " id="download" role="tabpanel">
                                     <div class="myaccount-content ">
+                                        <?php  if (!count($facturas)>0) {
+                                             echo '
+                                             <div class="alert alert-warning" role="alert">
+                                        
+                                                    DOES NOT HAVE PURCHASED PRODUCTS
+                                             </div>';
+                                            }
+                                        ?>
                                         <?php $cont=1; foreach($facturas as $key=>$value){?>
                                             <p> <br> Fecha de compra: <?php echo $value['fecha_factura'] ?> </p>
                                             <p>Total :$ <?php echo $value['total'] ?></p>
