@@ -146,7 +146,7 @@
                                                     foreach($clienteProductos as $key=>$value){
                                                         echo'<tr>   
                                                                 <th scope="row">'.$cont_2.'</th>
-                                                                <td><a download   href="'.$value['url_descarga'].'" class="bontIconosProducto"><i class="fas fa-cloud-download-alt"></i></a></td>      
+                                                                <td><a  target="alt" href="'.$value['url_descarga'].'" class="bontIconosProducto btn btn-teal btn-rounded btn-sm m-0 "><i class="fas fa-cloud-download-alt"></i></a></td>      
                                                                 <td>'.$value['apodo'].'</td>
                                                                 <td>'.$value['url_directorio'].'</td>
                                                                 <td>$ '.$value['precio_compra'].'</td>

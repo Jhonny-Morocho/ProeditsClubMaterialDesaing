@@ -223,11 +223,11 @@ class ModeloClienteProducto {
         $metodoPago=$arrayInfoFactura['metodoPago'];
         try {
             $stmt= $db->conectar()->prepare("INSERT INTO cliente_producto
-                                                        (idCliente,idProducto,fechaCompra,
-                                                        metodoCompra,precioCompra,idFactura
+                                                        (id_cliente,id_producto,fecha_compra,
+                                                        metodo_compra,	precio_compra,id_factura,estado_pago_proveedor
                                                         )
                                                 VALUES('$idCliente','$idProducto','$fecha_actual',
-                                                        '$metodoPago','$precioUnidadProducto','$idFactura') 
+                                                        '$metodoPago','$precioUnidadProducto','$idFactura',0) 
                                             ");
 
 

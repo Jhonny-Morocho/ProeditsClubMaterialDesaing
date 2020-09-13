@@ -49,15 +49,18 @@ class ModeloFacura {
         $fechaActual=date("Y-m-d H:i:s");
         try {
             $stmt= $db->conectar()->prepare("INSERT INTO  detalle_factura
-                                                        (totalCancelar,
-                                                        idCliente,
-                                                        fechaFacturacion
+                                                        (total,
+                                                        id_cliente,
+                                                        fecha_factura
                                                         )
-                                                VALUES('$total',
-                                                        '$idCliente',
-                                                        '$fechaActual') ");
+                                                VALUES(:totalCancelar,
+                                                        :idCLiente,
+                                                        :fechaFactura) ");
 
-
+                $stmt->bindParam(':totalCancelar',$total);
+                $stmt->bindParam(':idCLiente',$idCliente);
+                $stmt->bindParam(':fechaFactura',$fechaActual);
+                
                 $stmt->execute();
                 $id=$db->lastInsertId();
 

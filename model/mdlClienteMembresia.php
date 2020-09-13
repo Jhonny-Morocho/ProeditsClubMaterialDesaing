@@ -101,13 +101,13 @@ ini_set('display_errors', 'On');
 
         }   
         
-        public static  function sql_actualizar_membresia($tabla,$id_membresia,$actualizar_descarga){// cuando adquiere productos se descuenta el numero de descargas
+        public static  function sqlActualizarMembresiaCliente($idMembresia,$numDescargas){// cuando adquiere productos se descuenta el numero de descargas
             $db=new Conexion();
 
             try {
-                    $stmt= $db->conectar()->prepare("UPDATE $tabla SET
-                    rango='$actualizar_descarga'
-                WHERE id='$id_membresia' ");
+                    $stmt= $db->conectar()->prepare("UPDATE membresia_cliente SET
+                    rango='$numDescargas'
+                WHERE id='$idMembresia' ");
 
             } catch (Exception $e) {
                 //echo "Error".$e->getMessage();
@@ -122,8 +122,7 @@ ini_set('display_errors', 'On');
 				//si se realizo la inserccion
 				$respuesta=array(
 					'respuesta'=>'exito',
-                    'id_cliente'=>$id,
-                    'cantidad_descargas'=>$actualizar_descarga
+                    'id_cliente'=>$id
 				
 					);
 
@@ -136,7 +135,8 @@ ini_set('display_errors', 'On');
             return $respuesta;
 			$stmt->close();
 
-		}
+        }
+        
 	}
 
 

@@ -60,14 +60,14 @@
                                     <tr class="trTotalPagar">
                                             <td>Total </td>
                                             <h4>
-                                                <td class="total-amount"> <strong>$ <span class="SpanTotalPagar">0</span></strong></td>
+                                                <td class="total-amount"> <strong>$ <span class="SpanTotalPagar ">0</span></strong></td>
                                             </h4>
                                     </tr>
                                 </table>
                             </div>
                             
                         </div>
-                        <input type="submit" name="btnPagar" value="pagar" class="btn btn-success">
+                        <input type="submit" name="btnPagar" value="pagar" class="btn btn-success btnPagar">
                     </div>
                 </div>
             </div>
