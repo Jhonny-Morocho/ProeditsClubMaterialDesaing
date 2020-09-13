@@ -144,7 +144,7 @@
             //code...
             $data = Pagination::data();// si exite un error q reenvie al index
           } catch (\Throwable $th) {
-            //header('Location: ./');
+            header('Location: ./');
           }
           
       ?> 
@@ -342,8 +342,8 @@
                                               <?php endfor; ?>
                                           
                                           <?php if ($data["actual-section"] != $data["total-sections"]): ?>
-                                              <li  class="page-item"  ><a lass="page-link"  href="../view/admin/listarProductoss.php?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=<?php echo $data['next']; ?>">&raquo;</a></li>
-                                              <li  class="page-item"><a class="page-link"  href="../view/admin/listarProductoss.php?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=<?php echo $data['total-pages']; ?>">Final</a></li>
+                                              <li  class="page-item"  ><a lass="page-link"  href="../view/admin/listarProductos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=<?php echo $data['next']; ?>">&raquo;</a></li>
+                                              <li  class="page-item"><a class="page-link"  href="../view/admin/listarProductos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=<?php echo $data['total-pages']; ?>">Final</a></li>
                                               <?php endif; ?>
                                       </ul>
                                   </nav>

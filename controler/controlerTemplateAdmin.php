@@ -113,6 +113,10 @@ ini_set('display_errors', 'On');
         require "../../blackTotop/toTop.php";
     }
 
+    public static function tablaMembresiasCliente(){
+        require"../../view/admin/tablas/tablaMembresiaCliente.php";
+    }
+
 
 }
 
