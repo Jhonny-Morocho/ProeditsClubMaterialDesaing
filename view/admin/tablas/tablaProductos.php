@@ -6,49 +6,49 @@
           $respuestaValidacionBuscador=Pagination::validarCamposBuscador(@$_GET['busqueda']);
           
 
-          $where1="  where producto.idProveedor=proveedor.id and
-                      producto.idGenero=genero.id and 
-                      producto.estado=1 
+          $where1="  where productos.id_proveedor=proveedor.id and
+                      productos.id_biblioteca=biblioteca.id and 
+                      productos.activo=1 
 
                           "; 
 
-          $where2=" where producto.idProveedor=proveedor.id and
-          producto.idGenero=genero.id and 
-          producto.estado=1  and 
-                                   producto.demo LIKE '%".@$_GET['busqueda']."%'
+          $where2=" where productos.id_proveedor=proveedor.id and
+          productos.id_biblioteca=biblioteca.id and 
+          productos.activo=1  and 
+                                   productos.url_directorio LIKE '%".@$_GET['busqueda']."%'
                                  ";
                                  
           
 
-          $whereRemixer=" where producto.idProveedor=proveedor.id and
-          producto.idGenero=genero.id and 
-          producto.estado=1  and 
+          $whereRemixer=" where productos.id_proveedor=proveedor.id and
+          productos.id_biblioteca=biblioteca.id and 
+          productos.activo=1  and 
                                   proveedor.id=".intval(@$_GET['remixer']);
         // 1.Caso solo filtros de genero y remixer sin buscador
-        $whereGenero=" where producto.idProveedor=proveedor.id and
-             producto.idGenero=genero.id and 
-             producto.estado=1  and 
-                           genero.id=".intval(@$_GET['genero']);// conviuerrto en numero
+        $whereGenero=" where productos.id_proveedor=proveedor.id and
+             productos.id_biblioteca=biblioteca.id and 
+             productos.activo=1  and 
+                           biblioteca.id=".intval(@$_GET['genero']);// conviuerrto en numero
           
         // 2.Caso solo filtros de genero y remixer sin buscado    
-        $whereRemixerGenero=" where producto.idProveedor=proveedor.id and
-        producto.idGenero=genero.id and 
-        producto.estado=1  and 
-                                proveedor.id=".intval(@$_GET['remixer'])." and  genero.id=".intval(@$_GET['genero']);
+        $whereRemixerGenero=" where productos.id_proveedor=proveedor.id and
+        productos.id_biblioteca=biblioteca.id and 
+        productos.activo=1  and 
+                                proveedor.id=".intval(@$_GET['remixer'])." and  biblioteca.id=".intval(@$_GET['genero']);
 
-        $whereDemoGenero=" where producto.idProveedor=proveedor.id and
-        producto.idGenero=genero.id and 
-        producto.estado=1  and 
-                                genero.id=".intval(@$_GET['genero'])." and   producto.demo LIKE '%".@$_GET['busqueda']."%'   ";
+        $whereDemoGenero=" where productos.id_proveedor=proveedor.id and
+        productos.id_biblioteca=biblioteca.id and 
+        productos.activo=1  and 
+                                biblioteca.id=".intval(@$_GET['genero'])." and   productos.url_directorio LIKE '%".@$_GET['busqueda']."%'   ";
                                 
-        $whereDemoGeneroRemixer=" where producto.idProveedor=proveedor.id and
-        producto.idGenero=genero.id and 
-        producto.estado=1  and 
-                                genero.id=".intval(@$_GET['genero'])." and   proveedor.id=".intval(@$_GET['remixer'])." and   producto.demo LIKE '%".@$_GET['busqueda']."%'   ";
-        $whereDemoRemixer=" where producto.idProveedor=proveedor.id and
-        producto.idGenero=genero.id and 
-        producto.estado=1  and 
-                             proveedor.id=".intval(@$_GET['remixer'])." and   producto.demo LIKE '%".@$_GET['busqueda']."%'   ";
+        $whereDemoGeneroRemixer=" where productos.id_proveedor=proveedor.id and
+        productos.id_biblioteca=biblioteca.id and 
+        productos.activo=1  and 
+                                biblioteca.id=".intval(@$_GET['genero'])." and   proveedor.id=".intval(@$_GET['remixer'])." and   productos.url_directorio LIKE '%".@$_GET['busqueda']."%'   ";
+        $whereDemoRemixer=" where productos.id_proveedor=proveedor.id and
+        productos.id_biblioteca=biblioteca.id and 
+        productos.activo=1  and 
+                             proveedor.id=".intval(@$_GET['remixer'])." and   productos.url_directorio LIKE '%".@$_GET['busqueda']."%'   ";
 
 
         $numeroFilas=30;
@@ -81,70 +81,70 @@
 
         $data="";
 
-        
+        $tablas='productos , proveedor , biblioteca ';
         //1. Caso//  buscador= vacio; genero=vacio; remixer=vacio
         if(!@$_GET['busqueda'] && !@$_GET['genero'] && !@$_GET['remixer'] ){// primer caso// no necesita validaciion x q la data es vacia
-          Pagination::config($page,$numeroFilas, " producto , proveedor , genero ", $where1, null , 30,'inicio');
+          Pagination::config($page,$numeroFilas, $tablas, $where1, null , 30,'inicio');
           //echo "caso 1";
         }
 
         //2.Caso// buscador=data; genero=vacio; remixer=vacio
           if(@$_GET['busqueda'] && !@$_GET['genero'] && !@$_GET['remixer'] && $respuestaValidacionBuscador['respuesta_validacion']=="TRUE"){
             //echo "caso 2";
-          Pagination::config($page,$numeroFilas, " producto , proveedor , genero ", $where2, null , 30,'todo');
+          Pagination::config($page,$numeroFilas, $tablas, $where2, null , 30,'todo');
           }
 
         //3.Caso// buscador=data; genero=data; remixer=vacio;
         if(@$_GET['busqueda'] && @$_GET['genero'] && !@$_GET['remixer'] && $respuestaValidacionBuscador['respuesta_validacion']=="TRUE" && validarNumeros(@$_GET['genero'])=="TRUE" ){
           //echo "caso 3";
-          Pagination::config($page,$numeroFilas, " producto , proveedor , genero ", $whereDemoGenero, null , 30,'todo');
+          Pagination::config($page,$numeroFilas, $tablas, $whereDemoGenero, null , 30,'todo');
           }
 
         //4.Caso// buscador=data; genero=data; remixer=data;
         if(@$_GET['busqueda'] && @$_GET['genero'] && @$_GET['remixer'] && $respuestaValidacionBuscador['respuesta_validacion']=="TRUE" && validarNumeros(@$_GET['genero'])=="TRUE" && validarNumeros(@$_GET['remixer'])=="TRUE" ){
           //echo "caso 4";
-          Pagination::config($page,$numeroFilas, " producto , proveedor , genero ", $whereDemoGeneroRemixer, null , 30,'todo');
+          Pagination::config($page,$numeroFilas, $tablas, $whereDemoGeneroRemixer, null , 30,'todo');
           }
         //5.Caso// buscador=data;genero=vacio; remixer=data;
         if(@$_GET['busqueda'] && !@$_GET['genero'] && @$_GET['remixer'] && $respuestaValidacionBuscador['respuesta_validacion']=="TRUE"  && validarNumeros(@$_GET['remixer'])=="TRUE"){
           //echo "caso 5";
-          Pagination::config($page,$numeroFilas, " producto , proveedor , genero ", $whereDemoRemixer, null , 30,'todo');
+          Pagination::config($page,$numeroFilas, $tablas, $whereDemoRemixer, null , 30,'todo');
         }
 
         //6.Caso// buscador=vacio;genero=data; remixer=data;
         if(!@$_GET['busqueda'] && @$_GET['genero'] && @$_GET['remixer'] && validarNumeros(@$_GET['genero'])=="true" && validarNumeros(@$_GET['remixer'])=="true"){
           echo "caso 6";
-          Pagination::config($page,$numeroFilas, " producto , proveedor , genero ", $whereRemixerGenero, null , 30,'todo');
+          Pagination::config($page,$numeroFilas, $tablas, $whereRemixerGenero, null , 30,'todo');
         }
 
         //7.Caso// buscador=vacio;genero=vacio; remixer=data;
           if(!@$_GET['busqueda'] && !@$_GET['genero'] && @$_GET['remixer']  && validarNumeros(@$_GET['remixer'])=="TRUE"){
             //echo "caso 7";
-            Pagination::config($page,$numeroFilas, " producto , proveedor , genero ", $whereRemixer, null , 30,'todo');
+            Pagination::config($page,$numeroFilas, $tablas, $whereRemixer, null , 30,'todo');
         }
 
         //8.Caso// buscador=vacio;genero=data; remixer=vacio;
           if(!@$_GET['busqueda'] && @$_GET['genero'] && !@$_GET['remixer'] && validarNumeros(@$_GET['genero'])=="TRUE"){
             //echo "caso 8";
-            Pagination::config($page,$numeroFilas, " producto , proveedor , genero ", $whereGenero, null , 30,'todo');
+            Pagination::config($page,$numeroFilas, $tablas, $whereGenero, null , 30,'todo');
         }
-         //(@$_GET['busqueda'] && $respuestaValidacionBuscador['respuesta_validacion']=="TRUE" )?  Pagination::config($page, $numeroFilas, " producto , proveedor , genero  ", $where2, null , 10,'todo'): Pagination::config($page,$numeroFilas, " producto , proveedor , genero ", $where1, null , 10,'inicio'); 
+         //(@$_GET['busqueda'] && $respuestaValidacionBuscador['respuesta_validacion']=="TRUE" )?  Pagination::config($page, $numeroFilas, " productos , proveedor , genero  ", $where2, null , 10,'todo'): Pagination::config($page,$numeroFilas, $tablas, $where1, null , 10,'inicio'); 
           
           //2. Caso// select con el genero musical // en esta busqueda solo se buscara todos los resultados con el genero de coincidencia, validamos si no es entero entonces se va  la pagina de inicio
           // convierto el idGenero a entero , ya que siempre vienen en formato string
           //$idGenero=intval($_GET['genero']);// convierto en entero
-          //(is_int($idGenero)=="TRUE" && !$_GET['remixer']) ? Pagination::config($page, $numeroFilas, " producto , proveedor , genero  ", $whereGenero, null , 10,'todo'): Pagination::config($page,$numeroFilas, " producto , proveedor , genero ", $where1, null , 10,'inicio'); 
+          //(is_int($idGenero)=="TRUE" && !$_GET['remixer']) ? Pagination::config($page, $numeroFilas, " productos , proveedor , genero  ", $whereGenero, null , 10,'todo'): Pagination::config($page,$numeroFilas, $tablas, $where1, null , 10,'inicio'); 
 
           //3. Caso// select con el genero remixer // en esta busqueda solo se buscara todos los resultados con el remixer de coincidencia, validamos si no es entero entonces se va  la pagina de inicio
           // convierto el idGenero a entero , ya que siempre vienen en formato string
           //$idRemixer=intval($_GET['remixer']);// convierto en entero
-          //(is_int($idRemixer)=="TRUE" && !$_GET['genero']) ? Pagination::config($page, $numeroFilas, " producto , proveedor , genero  ", $whereRemixer, null , 10,'todo'): Pagination::config($page,$numeroFilas, " producto , proveedor , genero ", $where1, null , 10,'inicio'); 
+          //(is_int($idRemixer)=="TRUE" && !$_GET['genero']) ? Pagination::config($page, $numeroFilas, " productos , proveedor , genero  ", $whereRemixer, null , 10,'todo'): Pagination::config($page,$numeroFilas, $tablas, $where1, null , 10,'inicio'); 
 
           try {
             //code...
             $data = Pagination::data();// si exite un error q reenvie al index
           } catch (\Throwable $th) {
-            header('Location: ./');
+            //header('Location: ./');
           }
           
       ?> 
@@ -267,9 +267,7 @@
             <tr>
               <th>Fecha</th>
               <th>Titulo</th>
-              <th>Artista</th>
               <th>Genero</th>
-              <th>Bpm</th>
               <th>Editor</th>
               <th>Precio</th>
               <th>Archivo</th>
@@ -283,31 +281,29 @@
             <?php foreach (Pagination::show_rows("id") as $row): ?>
                     <?php  $banderaError=false; if( $row['apodo']!== 'Error: vacío' ){ ?>
                         <tr>
-                          <th><?php echo $row['fecha']?></th>
-                          <td><?php echo $row['nombrePista']?></td>
-                          <td><?php echo $row['artista']?></td>
+                          <th><?php echo $row['fecha_producto']?></th>
+                          <td><?php echo $row['url_directorio']?></td>
                           <td ><?php echo $row['genero']?></td>
-                          <td><?php echo $row['bpm']?></td>
                           <td><?php echo $row['apodo']?></td>
                           <td><span>$<?php echo $row['precio']?></span></td>
-                          <td><a download  href="../editCompletos/<?php echo $row['remixCompleto']?>" class="bontIconosProducto"><i class="fa fa-fw fa-cloud-download"></i></a></td>
+                          <td><a  target="_blank" href="<?php echo $row['url_descarga']?>" class="bontIconosProductos"><i class="fa fa-fw fa-cloud-download"></i></a></td>
                           <td>
-                              <div class="bontIconosProducto reproducirContenedor" data-demo="../editDemos/<?php echo $row ['demo'] ?>" ><i class="fa fa-fw fa-play-circle"></i></div>
+                              <div class="bontIconosProductos reproducirContenedor" data-demo="../biblioteca/<?php echo $row ['url_directorio'] ?>" ><i class="fa fa-fw fa-play-circle"></i></div>
                           </td>
                           <td>
-                              <div class="bontIconosProducto editProducto"  data-toggle="modal" data-target="#modalEditarProducto"  
-                                  data-idProducto="<?php echo $row['id'] ?>"  data-idProveedor="<?php echo $row['idProveedor'] ?>"  
-                                  data-idGenero="<?php echo $row['idGenero'] ?>"   data-bpm="<?php echo $row['bpm'] ?>"  
-                                  data-precio="<?php echo $row['precio'] ?>" data-titulo="<?php echo $row['nombrePista'] ?>" data-artista="<?php echo $row['artista']?>"  >
+                              <div class="bontIconosProductos editProducto"  data-toggle="modal" data-target="#modalEditarProducto"  
+                                  data-idProductos="<?php echo $row['id'] ?>"  data-idProveedor="<?php echo $row['id_proveedor'] ?>"  
+                                  data-idGenero="<?php echo $row['id_biblioteca'] ?>"    
+                                  data-precio="<?php echo $row['precio'] ?>" data-titulo="<?php echo $row['url_directorio'] ?>"  >
 
                                   <i class="fa fa-fw fa-pencil">
                                   </i>
                               </div>
                           </td>
 
-                          <td><div class="bontIconosProducto deleteProducto"  data-id="<?php echo $row['id'] ?>"   
-                                                                data-demo="<?php echo $row['demo']?> "   
-                                                                data-remixCompleto="<?php echo  $row['remixCompleto'] ?> " >
+                          <td><div class="bontIconosProductos deleteProductos"  data-id="<?php echo $row['id'] ?>"   
+                                                                data-demo="<?php echo $row['url_directorio']?> "   
+                                                                data-remixCompleto="<?php echo  $row['url_descarga'] ?> " >
                                   <i class="fa fa-fw fa-trash"></i>
                               </div>
                           </td>
@@ -319,44 +315,10 @@
                       } ?>	
                   <?php endforeach; ?>
 
-
-                    <?php
-                    //function descargar($ubicacionArchivo){
-                      if (isset($_GET['download_csv'])) {
-                        $file_example = $_GET['download_csv'];
-                        if (file_exists($file_example)) {
-                            header('Content-Description: File Transfer');
-                            header('Content-Type: text/html; charset=iso-8859-1');
-                            header('Content-Type: text/html; charset=utf-8');
-                            header('Content-Type: text/plain'); // plain text file
-                            header('Content-Type: image/jpeg'); // JPG picture
-                            header('Content-Type: application/zip'); // ZIP file
-                            header('Content-Type: application/pdf'); // PDF file
-                            header('Content-Type: audio/wav'); // Audio MPEG (MP3,...) file
-                            header('Content-Type: audio/mp3'); // Audio MPEG (MP3,...) file
-                            header('Content-Type: application/x-shockwave-flash'); // Flash animation
-                            header('Content-Disposition: attachment; filename='.basename($file_example));
-                            header('Content-Transfer-Encoding: binary');
-                            header('Expires: 0');
-                            header('Cache-Control: must-revalidate');
-                            header('Pragma: public');
-                            header('Content-Length: ' . filesize($file_example));
-                            ob_clean();
-                            flush();
-                            //readfile($file_example);
-                            exit;
-                        }
-                        else {
-                            echo 'Archivo no disponible.';
-                        }
-                      }
-                    //}
-                    
-                    ?>
                     </tfoot>
                   </table>
-                    <!-- ===================================Reproductor de Audio=================== -->
-                    <?php require'../../jPlayer Flat Audio Theme/reproductor.php';  ?>
+                    <!-- ===================================Reproductosr de Audio=================== -->
+                    <?php require'../../jPlayer/reproductor.php';  ?>
                <!-- end div audio-->
                <div class="row">
                   <div class="col-lg-12 ">
@@ -380,8 +342,8 @@
                                               <?php endfor; ?>
                                           
                                           <?php if ($data["actual-section"] != $data["total-sections"]): ?>
-                                              <li  class="page-item"  ><a lass="page-link"  href="../view/admin/listarProductos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=<?php echo $data['next']; ?>">&raquo;</a></li>
-                                              <li  class="page-item"><a class="page-link"  href="../view/admin/listarProductos.php?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=<?php echo $data['total-pages']; ?>">Final</a></li>
+                                              <li  class="page-item"  ><a lass="page-link"  href="../view/admin/listarProductoss.php?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=<?php echo $data['next']; ?>">&raquo;</a></li>
+                                              <li  class="page-item"><a class="page-link"  href="../view/admin/listarProductoss.php?busqueda=<?php echo @$_GET['busqueda'] ?>&genero=<?php echo @$_GET['genero'] ?>&remixer=<?php echo @$_GET['remixer'] ?>&page=<?php echo $data['total-pages']; ?>">Final</a></li>
                                               <?php endif; ?>
                                       </ul>
                                   </nav>

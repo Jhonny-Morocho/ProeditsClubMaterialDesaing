@@ -255,8 +255,8 @@
   <script src="../controler/js/animacionEspera.js"></script>
 
 <!-- =============================REPRODUCTOR DE AUDIO=============================== -->
-<link rel="stylesheet" type="text/css" href="../jPlayer Flat Audio Theme/css/jplayer-flat-audio-theme.css" />
-<script type="text/javascript" src="../jPlayer Flat Audio Theme/js/jquery.jplayer.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="../jPlayer/css/jplayer-flat-audio-theme.css" />
+<script type="text/javascript" src="../jPlayer/js/jquery.jplayer.min.js"></script> 
 <script type="text/javascript" src="../controler/js/jPlayerPersonalizado.js"></script>
 
 

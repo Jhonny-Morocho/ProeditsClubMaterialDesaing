@@ -5,6 +5,7 @@
  require'../../model/conexion.php';
  require'../../model/mdlProducto.php';
  require'../../model/mdlProveedor.php';
+ require'../../model/mdlGenero.php';
 
  //===========================Paginacion ================================
  require'../../controler/ctrValidarCampos.php';
@@ -23,10 +24,10 @@
  $plantilla->usuario_autentificado();
  $plantilla->ctr_header();
  $plantilla->ctr_navegador_Izquierda();
- // $plantilla->ctr_tabla_productos();
+ $plantilla->ctr_tabla_productos();
   $plantilla->ctr_footer();
  require'modales/editarProducto.php';
- $plantilla->toTop();
+$plantilla->toTop();
 ?>
 
 

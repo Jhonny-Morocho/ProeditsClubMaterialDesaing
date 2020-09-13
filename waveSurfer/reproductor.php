@@ -10,7 +10,7 @@
     <script src="../../waveSurfer/waveMain.js"></script>
 
 
-    <div id="wavesurfer-player" class="row main-content col-center-block music">
+    <div id="wavesurfer-player" class="row main-content col-center-block music animated  fadeInLeftBig">
       <div class="col-sm-12 col-center-block">
         <div class="row audio-control">
           <div class="left">
