@@ -11,7 +11,7 @@ var arrayPrecioProducto=[];
 var arrayIdProducto=[];
 var datos=new FormData();
 var data_type="json";
-var urlPasarelaPago="../../Paypal/ctrPasarelaPago.php";
+var urlPasarelaPagoPayPal="../../Paypal/ctrPasarelaPago.php";
 var urlPasarelaPagoMonedero="../../Paypal/ctrPasarelaPagoMonedero.php";
 var urlPasarelaPagoCarMembresia="../../Paypal/ctrPasarelaPagoMembresiaCar.php";
 
@@ -48,9 +48,9 @@ $("#idFormCarrito").on('submit',function(e){
    
   
   
-        // for (var pair of datos.entries()) {
-        //     console.log(pair[0]+ ', ' + pair[1]); 
-        // }
+         for (var pair of datos.entries()) {
+             console.log(pair[0]+ ', ' + pair[1]); 
+         }
 
        switch (inputOptionPago[0].value) {
 
@@ -72,21 +72,21 @@ $("#idFormCarrito").on('submit',function(e){
 
 });
 
-// ==================== ENVIAR DATOS A PASARELA DE PAGO COMPRA CON MEMBRESIAS PRODUCTOS CAR ===========
-// ==================== ENVIAR DATOS A PASARELA DE PAGO COMPRA CON MEMBRESIAS PRODUCTOS CAR ===========
-// ==================== ENVIAR DATOS A PASARELA DE PAGO COMPRA CON MEMBRESIAS PRODUCTOS CAR ===========
+// ==================== ENVIAR DATOS A PASARELA DE PAGO PAYPAL COMPRA CON MEMBRESIAS PRODUCTOS CAR ===========
+// ==================== ENVIAR DATOS A PASARELA DE PAGO PAYPAL COMPRA CON MEMBRESIAS PRODUCTOS CAR ===========
+// ==================== ENVIAR DATOS A PASARELA DE PAGO PAYPAL COMPRA CON MEMBRESIAS PRODUCTOS CAR ===========
 function enviarDatosPasarelaPago(datos){
     console.log(datos);
     animacion();
     $.ajax({
 
-        url:urlPasarelaPago,
+        url:urlPasarelaPagoPayPal,
         method:'post',
         data:datos,
         cache:false,
         contentType:false,
         processData:false,
-        dataType:'text',//json//data_type
+        dataType:'json',//json//data_type
         success:function(data){
             console.log(data);
 
@@ -98,7 +98,8 @@ function enviarDatosPasarelaPago(datos){
                     
                     case 'exito':
                         
-                        toastr.success('Solicitud Procesada con éxito');
+                    toastr.success('Solicitud Procesada con éxito');
+                    $('.btnPagar').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
                     setTimeout(function(){
                         window.location.href=data.urlPaypal;
                     },2000);//tiempo de espera
