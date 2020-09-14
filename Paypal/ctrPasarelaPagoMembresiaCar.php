@@ -41,8 +41,6 @@ $descripcionProducto="";
                 $precioUnitario=$value['precio_unidad'];
                 $nombreMembresia=$value['tipo'];
                 $banderaNumeroDescargas=true;
-            }else{
-                $banderaNumeroDescargas=false;
             }
         }
     

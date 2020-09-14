@@ -1,5 +1,5 @@
 
-    <div class="row reproducir">
+    <div class="row reproducir card">
       <div class="container">
           <div class="col-lg-12">
               <!-- ===================================Reproductor de Audio=================== -->

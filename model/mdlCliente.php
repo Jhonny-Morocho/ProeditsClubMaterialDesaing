@@ -190,47 +190,82 @@ ini_set('display_errors', 'On');
 				$stmt->close();
 		}
 
-		//============================ELIMINAR LOGICAMENTE  AL PROVEEDOR PROVEEDOR========================================//
-	public static function sql_individual_eliminar($arrayProveedorImg){
+		//============00000actualizar saldo del cliente =======================//
+		public static function sqlEditarSaldoMeonedero($saldoActaulizar,$idClente){
 			$db=new Conexion();
-			//1. Debo borrar el archivo anterior antes de actulizar el nuevo
-			$dir='../img/proveedores/'.$arrayProveedorImg['img'];
-			$bandera_borrar=false;
-			if(file_exists($dir)){
-				if(unlink($dir)){
-					$bandera_borrar=true; 
+				
+				try {
+					
+					$stmt=$db->conectar()->prepare(" UPDATE cliente  SET 
+															saldo_actual='$saldoActaulizar'
+													WHERE id='$idClente' ");
+						
+				} catch (Exception $e) {
+					echo "Error".$e->getMessage();
 				}
-			}
-			 	
-			try {
-			$idProveedor=$arrayProveedorImg['id'];
-			$stmt= $db->conectar()->prepare("UPDATE proveedor SET 
-													estado='0'
-												WHERE id='$idProveedor' ");
+			
+				$stmt->execute();
 
-			} catch (Exception $e) {
-				echo "Error".$e->getMessage();
-			}
+				if($stmt){
+					//si se realizo la inserccion
+					$respuesta=array(
+						'respuesta'=>'exito'
+						);
+						return $respuesta;
+				}else{
+					$respuesta=array(
+						'respuesta'=>'false'
+						);
+						return $respuesta;
+				}
+			
+
+				//si alguna fila se modifico entonces si se edito
+
+				$stmt->close();
+		}
+
+		//============================ELIMINAR LOGICAMENTE  AL PROVEEDOR PROVEEDOR========================================//
+	// public static function sql_individual_eliminar($arrayProveedorImg){
+	// 		$db=new Conexion();
+	// 		//1. Debo borrar el archivo anterior antes de actulizar el nuevo
+	// 		$dir='../img/proveedores/'.$arrayProveedorImg['img'];
+	// 		$bandera_borrar=false;
+	// 		if(file_exists($dir)){
+	// 			if(unlink($dir)){
+	// 				$bandera_borrar=true; 
+	// 			}
+	// 		}
+			 	
+	// 		try {
+	// 		$idProveedor=$arrayProveedorImg['id'];
+	// 		$stmt= $db->conectar()->prepare("UPDATE proveedor SET 
+	// 												estado='0'
+	// 											WHERE id='$idProveedor' ");
+
+	// 		} catch (Exception $e) {
+	// 			echo "Error".$e->getMessage();
+	// 		}
 		
 			
-			$stmt->execute();
+	// 		$stmt->execute();
 
-			if($stmt){
-				//si se realizo la inserccion
-				$respuesta=array(
-					'respuesta'=>'exito'
-					);
-					return $respuesta;
-			}else{
-				$respuesta=array(
-					'respuesta'=>'false'
-					);
-					return $respuesta;
-			}
+	// 		if($stmt){
+	// 			//si se realizo la inserccion
+	// 			$respuesta=array(
+	// 				'respuesta'=>'exito'
+	// 				);
+	// 				return $respuesta;
+	// 		}else{
+	// 			$respuesta=array(
+	// 				'respuesta'=>'false'
+	// 				);
+	// 				return $respuesta;
+	// 		}
 		
-			//si alguna fila se modifico entonces si se edito
-			$stmt->close();
-		}
+	// 		//si alguna fila se modifico entonces si se edito
+	// 		$stmt->close();
+	// 	}
 
 	}
 

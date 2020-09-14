@@ -62,11 +62,33 @@
                                 <!-- Single Tab Content Start -->
                                 <div class="tab-pane fade " id="dashboad" role="tabpanel">
                                     <div class="myaccount-content">
-                                        <h3>Tablero</h3>
-                                        <div class="welcome">
-                                             <p>Hi, <strong><?php echo $_SESSION['usuario']." ".$_SESSION['apellido']?></strong></p>
-                                        </div>
-                                        <p class="mb-0">Desde el tablero de su cuenta, puede gestionar  su informacion y productos adquiridos, tambien editar sus datos personales</p>
+                                        <div class="row">
+                                                <div class="col-md-8 col-6">
+                                                    <h3>Tablero</h3>
+                                                    <div class="welcome">
+                                                        <p>Hi, <strong><?php echo $_SESSION['usuario']." ".$_SESSION['apellido']?></strong></p>
+                                                    </div>
+                                                    <p class="mb-0">Desde el tablero de su cuenta, puede gestionar  su informacion y productos adquiridos, tambien editar sus datos personales</p>
+                                                </div>
+                                                <div class="col-md-4 col-6">
+                                                    <div id="draggable-snap-1" class="card">
+                                                        <h5 class="card-header primary-color white-text">Monedero</h5>
+                                                        <div class="card-body">
+                                                        <?php
+                                                        $saldo=ModeloCliente::sqlListarClientes();
+                                                        foreach($saldo as $key=>$value){
+                                                            if(@$_SESSION['id_cliente']==$value['id']){
+                                                                echo'   <div class="middle">            
+                                                                            <span class="length badge badge-primary" style="font-size: 28px;">$ '.$value['saldo_actual'].'</span>
+                                                                        </div>';
+                                                            }
+                                                        }
+                                                        ?>
+                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
 
@@ -117,9 +139,6 @@
                                        
                                     </div>
                                 </div>
-
-
-
                                 <!-- Single Tab Content Start -->
                                 <div class="tab-pane fade show active " id="download" role="tabpanel">
                                     <div class="myaccount-content ">

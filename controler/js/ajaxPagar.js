@@ -12,6 +12,7 @@ var arrayIdProducto=[];
 var datos=new FormData();
 var data_type="json";
 var urlPasarelaPago="../../Paypal/ctrPasarelaPago.php";
+var urlPasarelaPagoMonedero="../../Paypal/ctrPasarelaPagoMonedero.php";
 var urlPasarelaPagoCarMembresia="../../Paypal/ctrPasarelaPagoMembresiaCar.php";
 
 $("#idFormCarrito").on('submit',function(e){
@@ -47,9 +48,9 @@ $("#idFormCarrito").on('submit',function(e){
    
   
   
-    //    for (var pair of datos.entries()) {
-    //        console.log(pair[0]+ ', ' + pair[1]); 
-    //    }
+        // for (var pair of datos.entries()) {
+        //     console.log(pair[0]+ ', ' + pair[1]); 
+        // }
 
        switch (inputOptionPago[0].value) {
 
@@ -61,6 +62,9 @@ $("#idFormCarrito").on('submit',function(e){
            case 'productoCompradoMembresia':
             enviarDatosPasarelaPagoCarMembresia(datos);//enviaar Data a la pasarela de pagos
                break;
+            case 'monedero':
+            enviarDatosPasarelaPagoMonedero(datos);//enviaar Data a la pasarela de pagos
+                break;
 
            default:
                break;
@@ -133,6 +137,58 @@ function enviarDatosPasarelaPagoCarMembresia(datos){
                 case 'numInferiorDescargas':
                     //no exites session
                     toastr.info('El numero de productos selecionados es inferior al numero de descargas disponibles');
+                    break;
+                case 'fall':
+                    //no exites session
+                    toastr.warning('Su limite de descargas es '+data.numDescargasActual);
+                    break;
+                    
+                case 'exito':
+                    
+                toastr.success('Solicitud Procesada con éxito');
+                $('.btnPagar').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
+                setTimeout(function(){
+                      
+                    localStorage.clear();
+                    window.location.href=data.urlPanel;
+                },2000);//tiempo de espera
+                break;
+
+                default:
+                    toastr.error('No se puede realizar su petición');
+                break;
+            }
+        }
+    });
+}
+
+
+// ==================== ENVIAR DATOS A PASARELA DE PAGO PARA PAYPAL COMPRA MEDIANTE MONEDERO ===========
+// ==================== ENVIAR DATOS A PASARELA DE PAGO PARA PAYPAL COMPRA MEDIANTE MONEDERO ===========
+// ==================== ENVIAR DATOS A PASARELA DE PAGO PARA PAYPAL COMPRA MEDIANTE MONEDERO ===========
+function enviarDatosPasarelaPagoMonedero(datos){
+    console.log(datos);
+    animacion();
+    $.ajax({
+
+        url:urlPasarelaPagoMonedero,
+        method:'post',
+        data:datos,
+        cache:false,
+        contentType:false,
+        processData:false,
+        dataType:'json',//json//data_type
+        success:function(data){
+            console.log(data);
+
+            switch (data.respuesta) {
+                case 'noExiseLogin':
+                    //no exites session
+                    toastr.warning('Debe iniciar session en la pagina');
+                    break;
+                case 'saldoInsuficiente':
+                    //no exites session
+                    toastr.info('Saldo Insuficiente , su saldo actual es $ '+data.saldoModenero);
                     break;
                 case 'fall':
                     //no exites session

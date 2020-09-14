@@ -41,12 +41,12 @@
                         </div>
     
                         <!-- Group of material radios - option 3 -->
-                        <!-- <div class="form-check">
+                        <div class="form-check">
                             <input type="radio" class="form-check-input" id="materialGroupExample3" name="r1" value="monedero">
                             <label class="form-check-label" for="materialGroupExample3">Monedero</label>
                             <button type="button" class="btn btn-danger btn-sm btn-rounded" data-toggle="modal" data-target="#modalPushMonedero"><i class="fas fa-info"></i></button>
 
-                        </div> -->
+                        </div>
                 </div>
             </div>
 
