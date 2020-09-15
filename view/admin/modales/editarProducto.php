@@ -14,14 +14,11 @@
                         <div class="box-body">
 
                             <div class="form-group">
-                                <label for="labelPseudo Nombre">Titulo</label>
-                                <input type="text" class="form-control" id="idInputTitulo"  required="" name="inputTitulo" >
+                                <label for="labelPseudo Nombre">Nombre del archivo (No borrar la extenciion .mp3)</label>
+                                <input type="text" class="form-control" id="idInputTitulo"  required="" name="inputTitulo" disabled>
                             </div>
 
-                            <div class="form-group">
-                                <label for="labelApellido">Artista</label>
-                                <input type="text" class="form-control" id="idInputArtista"  required="" name="inputArtista" >
-                            </div>
+               
                                
                             <div class="form-group">
                                 <label for="labelNombre">Genero</label>
@@ -35,11 +32,6 @@
                                     <?php }?>
 
                                     </select>
-                            </div>
-                                
-                            <div class="form-group">
-                                <label for="labelCorreo">Bpm</label>
-                                <input type="number" class="form-control" id="idInputBm"  required="" name="inputBpm" >
                             </div>
 
                             <div  class="row">
@@ -59,11 +51,8 @@
 
 
                             <div  class="row">
-                                <label for="labelDemoEdit" id="labelFileFormularioProducto"><i class="fa fa-file-audio-o" aria-hidden="true"></i>Preview (Calidad de 128 Kbs)</label>
+                                <label for="labelDemoEdit" id="labelFileFormularioProducto"><i class="fa fa-file-audio-o" aria-hidden="true"></i>Preview (Calidad de 128 Kbs) Es opcional si desea cambiar el archivo</label>
                                 <input type="file"  id="idInputDemo" type="audio/mp3" name="filesEditDemo" / >
-                
-                                <label for="labelDemoEdit" id="labelFileFormularioProducto"><i class="fa fa-cloud-upload" aria-hidden="true"></i>Archivo (La mejor calidad)</label>
-                                <input type="file"  type="audio/mp3" id="idInputRemixCompleto"  name="filesEditCompleto" / >
                             </div>
 
                             <div class="row fileColumna">

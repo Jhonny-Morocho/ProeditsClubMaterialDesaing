@@ -166,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
     wavesurfer.on('ready', function () {
       wavesurfer.play();
     });
+   // aqui inicia se carga automatico
   }
 
   wavesurfer.on('loading', function(status) {
@@ -196,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Switch between play and pause icon in main audio-control class
     playPauseIcon.classList.remove('fa-play');
     playPauseIcon.classList.add('fa-pause');
-
+  
     // Set title to include current song name
     currentTitle = songs[currentTrack].getAttribute('data-title');
     currentSongLength = getTimeString(songs[currentTrack].getAttribute('data-length'));
@@ -248,7 +249,9 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('play-pause').addEventListener('click', function() {
     if (wavesurfer.isPlaying() === false) {
       playNow();
+
     }
+    
   });
 
   // Load a track by index and highlight the corresponding link
@@ -417,14 +420,11 @@ function mute() {
 }
 
 // Toggle mute on click
-try {
+
   document.getElementById('mute').addEventListener('click', function() {
     mute();
   });
   
-} catch (error) {
-  console.log(error);
-}
 
 var volumeControl = document.getElementById('volume-control');
 // Prevents volume bar from hiding itself (on mouseout) if user is actively click/dragging volume bar.

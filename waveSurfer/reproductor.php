@@ -6,13 +6,17 @@
   	<!-- //=================Reproductor wave================// -->
 
 	  <link rel="stylesheet" href="../../waveSurfer/waveMain.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
-    <script src="../../waveSurfer/waveMain.js"></script>
 
-  
-    <div id="wavesurfer-player" class="row main-content col-center-block music animated  fadeInLeftBig">
-      <div class="col-sm-12 col-center-block">
-        <div class="row audio-control">
+    
+    
+    
+     <div id="waveform">
+       <div id="current-song">Stopped</div>
+       <div id="current-time">00:00</div>
+     </div>
+    <div id="wavesurfer-player" class="row main-content  music animated  fadeInLeftBig">
+      <div class="col-lg-12 black">
+        <div class="audio-control">
           <div class="left">
             <div id="previous" class="button">
               <i class="fa fa-lg fa-fast-backward fa-fw" aria-hidden="true" title="Previous Song"></i>
@@ -42,12 +46,7 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-   
-    <div id="waveform">
-      <div id="current-song">Stopped</div>
-      <div id="current-time">00:00</div>
+       </div> <!--end coliu colg-lg-12  -->
     </div>
      
 

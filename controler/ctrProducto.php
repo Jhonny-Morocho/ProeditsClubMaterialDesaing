@@ -36,7 +36,9 @@ switch (@$_POST['Producto']) {
         break;
 
         case 'editarProducto':
-
+                print_r($_POST);
+                print_r($_FILES);
+                die($_POST);
                 function subirArchivoMusica($ubicacionCarpeta,$inputFile){
                     //echo "La ubicacion de la carpeta es :[".$ubicacionCarpeta."]";
                     $directorio=$ubicacionCarpeta;// la direecion donde quiero q se guarde
@@ -59,9 +61,7 @@ switch (@$_POST['Producto']) {
 
                 //Mediante un boolean defino que archivos son los que se van actulizar
                 $actualizarArchivoDemo=true;
-                $actualizarArchivoCompleto=true;
                 ($_FILES['filesEditDemo']['name'] != null) ? $editDemo=subirArchivoMusica('../editDemos/','filesEditDemo') : $actualizarArchivoDemo=false; // 
-                ($_FILES['filesEditCompleto']['name'] != null) ? $editCompleto=subirArchivoMusica('../editCompletos/','filesEditCompleto') : $actualizarArchivoCompleto=false; // 
 
                 
                //Ahora veremos los diferentes casos

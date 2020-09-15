@@ -80,7 +80,7 @@ foreach($productos as $key=>$value){
                   
                               <form class="d-flex justify-content-left">
                                 <!-- Default input -->
-                                <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
+                                <button data-id="'.$value['id'].'" data-nombre="'.$value['url_directorio'].'" data-precio="'.$value['precio'].'"  class="buy btn btn-primary btn-md my-0 p" type="submit">Add to cart
                                   <i class="fas fa-shopping-cart ml-1"></i>
                                 </button>
                   

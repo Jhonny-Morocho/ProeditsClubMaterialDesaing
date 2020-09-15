@@ -5,6 +5,19 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+
+
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content="Plataforma de Remixes y Edits para Djs">
+	<meta property="og:title" content="Proeditsclub"/>
+	<meta property="og:description" content="Plataforma de Remixes y Edits para Djs" /> 
+   <meta property="og:image" content="../../img/2683.jpg" />      
+   <meta property="og:url" content="https://www.proeditsclub.com/" />
+
 	<title>Proeditsclub</title>
 	<!-- MDB icon -->
 	<base href="appMTD/AppMaterial/">
@@ -18,7 +31,7 @@
 	<link rel="stylesheet" href="css/mdb.min.css">
 	<!-- Your custom styles (optional) -->
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="icon" type="image/png" href="../../img/iconoProedit.ico" />
+	<link rel="icon" type="image/png" href="../../img/ICONO.jpg" />
 	<!-- =================== APP==================== -->
 	<!-- =================== APP==================== -->
 	<!-- =================== APP==================== -->
@@ -184,7 +197,7 @@
 				<a class="nav-link waves-effect navbar-brand text-uppercase border-left"  href="../../car.php">
 					<span class="badge red z-depth-1 mr-1 cart-notification">0</span>
 					<i class="fas fa-shopping-cart"></i>
-					<span class="clearfix d-none d-sm-inline-block"> Cart </span>
+					<span class="clearfix d-none d-sm-inline-block"> Car </span>
 				</a>
 
 				</div>

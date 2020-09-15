@@ -48,9 +48,9 @@ $("#idFormCarrito").on('submit',function(e){
    
   
   
-         for (var pair of datos.entries()) {
-             console.log(pair[0]+ ', ' + pair[1]); 
-         }
+        //  for (var pair of datos.entries()) {
+        //      console.log(pair[0]+ ', ' + pair[1]); 
+        //  }
 
        switch (inputOptionPago[0].value) {
 
@@ -60,10 +60,36 @@ $("#idFormCarrito").on('submit',function(e){
            break;
 
            case 'productoCompradoMembresia':
-            enviarDatosPasarelaPagoCarMembresia(datos);//enviaar Data a la pasarela de pagos
+                
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        enviarDatosPasarelaPagoCarMembresia(datos);//enviaar Data a la pasarela de pagos
+                    }
+                })
                break;
             case 'monedero':
-            enviarDatosPasarelaPagoMonedero(datos);//enviaar Data a la pasarela de pagos
+                 
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                    enviarDatosPasarelaPagoMonedero(datos);//enviaar Data a la pasarela de pagos
+                    }
+                })
                 break;
 
            default:

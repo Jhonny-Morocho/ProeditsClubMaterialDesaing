@@ -1,11 +1,9 @@
  <div id="loading-screen" style="width: 100%; display: none;">
-                    <img src="../../animacionEspera/esperaMusic.svg">
+                    <img src="../../animacionEspera/esperaCirculo.svg">
   </div>
 
   <!-- fiill se usa para cambiar el color de svg -->
-
   <style>
-
   #loading-screen {
   background-color: rgba(25,25,25,0.7);
   height: 100%;

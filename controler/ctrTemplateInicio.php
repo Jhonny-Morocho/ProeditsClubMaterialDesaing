@@ -130,6 +130,11 @@ class ControladorPlantillaInicio{
         public static function toTop(){
             require "blackTotop/toTop.php";
         }
+        public static function url_demo(){
+            
+            return "../demo.php?id_producto=";
+       
+        }
 
 
         

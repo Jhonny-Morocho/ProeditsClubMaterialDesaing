@@ -159,7 +159,7 @@ $('.editProducto').on('click',function(e){
         $(".smsEspera").html('<div class="alert alert-info alert-dismissible ">'+
         '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'+
         '<h4><i class="icon fa fa-warning"></i> Aviso !</h4>'+
-        'Espere por favor....'+
+        'Espere por favor....<i class="fa fa-refresh fa-spin"></i>'+
         '</div>');
         for (var pair of datos.entries()) {
             console.log(pair[0]+ ', ' + pair[1]); 
@@ -188,7 +188,7 @@ $('.editProducto').on('click',function(e){
             type:"post",
             data:datos,
             url:$(this).attr('action'),
-            dataType:'json',
+            dataType:'text',
             // datos asicionales
             contentType:false,
             processData:false,

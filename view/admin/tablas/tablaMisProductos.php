@@ -240,7 +240,7 @@
                               <div class="bontIconosProducto editProducto"  data-toggle="modal" data-target="#modalEditarProducto"  
                                   data-idProducto="<?php echo $row['id'] ?>"  data-idProveedor="<?php echo $row['id_proveedor'] ?>"  
                                     
-                                  data-precio="<?php echo $row['precio'] ?>" data-titulo="<?php echo $row['	url_directorio'] ?>"  >
+                                  data-precio="<?php echo $row['precio'] ?>" data-titulo="<?php echo $row['url_directorio'] ?>"  >
 
                                   <i class="fa fa-fw fa-pencil">
                                   </i>
