@@ -38,18 +38,18 @@ class ClassPlantilla{
           </thead>
           <tbody>';
           
-        $htmlPlantillaItem="";
-        $tabla="";
-          for ($i=0; $i < count($nombreProducto); $i++) { 
-            $htmlPlantillaItem= '<tr>
-                        <td class="service">'.(count($nombreProducto)-$i).'</td>
-                        <td class="desc">'.$nombreProducto[$i].'</td>
-                        <td class="unit">'.$fechaCompra[$i].'</td>
-                        <td class="qty">'.$precioVenta[$i].'</td>
-                        <td class="total">'.$metodoPago[$i].'</td>
-                      </tr>';
-            $tabla=$htmlPlantillaItem.$tabla;
-          }
+        $htmlPlantillaItem="<p>perro</p>";
+        $tabla="<p>perro</p>";
+          //for ($i=0; $i < count($nombreProducto); $i++) { 
+          //   $htmlPlantillaItem= '<tr>
+          //               <td class="service">'.(count($nombreProducto)-$i).'</td>
+          //               <td class="desc">'.$nombreProducto[$i].'</td>
+          //               <td class="unit">'.$fechaCompra[$i].'</td>
+          //               <td class="qty">'.$precioVenta[$i].'</td>
+          //               <td class="total">'.$metodoPago[$i].'</td>
+          //             </tr>';
+          //   $tabla=$htmlPlantillaItem.$tabla;
+          // }
   
 
 

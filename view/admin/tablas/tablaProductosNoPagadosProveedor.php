@@ -13,11 +13,11 @@
                 <div class="box-body ">
                     <div class="form-group col-md-4">
                         <label for="exampleInputEmail1">Fucha Inicio</label>
-                        <input type="date" class="form-control" id="exampleInputEmail1" required name="fechaInicio" value="2020-07-25">
+                        <input type="date" class="form-control" id="exampleInputEmail1" required name="fechaInicio" value="2020-09-14">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="exampleInputPassword1">Fecha Fin</label>
-                        <input type="date" class="form-control" id="exampleInputPassword1" required name="fechaFin" value="2020-07-25">
+                        <input type="date" class="form-control" id="exampleInputPassword1" required name="fechaFin" value="2020-09-14">
                     </div>
                     <div class="form-group col-md-4">
                         <input type="hidden" name="idProveedor" value="<?php echo $_GET['idProveedor'] ?>">

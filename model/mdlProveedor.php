@@ -77,15 +77,15 @@ ini_set('display_errors', 'On');
 															(
 															nombre,	apellido,
 															correo,		password,
-															img,		rol,
-															fechaRegistro, apodo,
+															img,		tipo_usuario,
+															editado, apodo,
 															estado
 															) 
 		
 														VALUES(
 															'$nombreProveedor',	'$apellidoProveedor',
 															'$correoProveedor',		'$password_hashed',
-															'$urLogoDj',			'proveedor',
+															'$urLogoDj',			'Proveedor',
 															'$fecha_actual',		'$apodo',
 															'1'
 															) 

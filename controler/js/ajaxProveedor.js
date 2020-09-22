@@ -319,7 +319,9 @@ var apodo=$(this).attr('data-apodo');
 var img=$(this).attr('data-img');
 console.log("ID :"+ id);
 //BOTON DE ALERTA
-    swal({
+
+
+    swal.fire({
         title: 'Estás seguro en eliminar a   '+apodo,
         text: "No podrass revertir esto!",
         type: 'warning',

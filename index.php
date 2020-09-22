@@ -24,8 +24,8 @@ $plantilla->ctr_header();
 $plantilla->ctr_slider();
 $plantilla->ctr_tabla_productos();
 $plantilla->reproductorAudio();
-$plantilla->redesSociales();
 $plantilla->ctr_footer();
+$plantilla->redesSociales();
 $plantilla->toTop();
 
 ?>

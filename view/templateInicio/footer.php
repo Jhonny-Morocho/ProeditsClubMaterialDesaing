@@ -91,9 +91,13 @@
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<!-- ===================== REDES SOCIALES ======================== -->
 	  <script src="../../socialNav/social.js"></script>
+
 	<!-- ======================= REPRODUCTOS DE AUDIO  WAVE ======================= -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
-    <script src="../../waveSurfer/waveMain.js"></script>
+	<script src="https://unpkg.com/wavesurfer.js"></script>
+ 	<script src="../../waveSurfer/app.js"></script>
+	  
+
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136516597-1"></script>
 		<script>

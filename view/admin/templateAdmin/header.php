@@ -27,6 +27,7 @@
   <link rel="icon" type="image/png" href="../img/ICONO.jpg" />
   <!-- =============================ESTILOS PERSONALIZADOS============================== -->
   <link rel="stylesheet" href="../view/estilos/estilos.css">
+  
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,7 +48,7 @@
     <!-- Logo -->
     <a href="../" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini">M<b>A</b>L</span>
+      <span class="logo-mini">P<b>E</b>C</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">Pro<b>Edit</b>Club.com</span>
     </a>

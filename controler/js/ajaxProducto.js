@@ -126,18 +126,20 @@ $('.editProducto').on('click',function(e){
     e.preventDefault();
     // obtenemos los atrivutos de la etiqueta , en donde se encuentran alojados los datos solo para llenar el formulario
     var idProducto=$(this).attr('data-idProducto');
+
     var dataTitulo=$(this).attr('data-titulo');
     var dataArtista=$(this).attr('data-artista');
     var dataIdProveedor=$(this).attr('data-idProveedor');
     var dataPrecio=$(this).attr('data-precio');
     var dataIdGenero=$(this).attr('data-idGenero');
-    var dataBpm=$(this).attr('data-bpm');
+    var dataLinkDescarga=$(this).attr('data-linkDescarga');
+  
 
  
     // asignamos los datos al formulario
     $('#idInputTitulo').val(dataTitulo);
     $('#idInputArtista').val(dataArtista);
-    $('#idInputBm').val(dataBpm);
+    $('#idInpuLinkDescarga').val(dataLinkDescarga);
     console.log(dataPrecio);
     // dividir cadena
     var separador=".";
@@ -153,7 +155,7 @@ $('.editProducto').on('click',function(e){
     //enviamos los datos mediante el metodo Post
     $("#idEditarPrducto").on('submit',function(e){
         e.preventDefault();
-        $(':input[type="submit"]').prop('disabled', true);
+       $(':input[type="submit"]').prop('disabled', true);
         var datos=new FormData(this);
         console.log(datos);
         $(".smsEspera").html('<div class="alert alert-info alert-dismissible ">'+
@@ -188,7 +190,7 @@ $('.editProducto').on('click',function(e){
             type:"post",
             data:datos,
             url:$(this).attr('action'),
-            dataType:'text',
+            dataType:'json',
             // datos asicionales
             contentType:false,
             processData:false,
@@ -205,7 +207,7 @@ $('.editProducto').on('click',function(e){
                         $(".smsEspera").html('<div class="alert alert-success alert-dismissible">'+
                         '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'+
                         '<h4><i class="icon fa fa-warning"></i> Aviso !</h4>'+
-                        'Datos guardos exitosamente'+
+                        'Datos guardos exitosamente <i class="fa fa-refresh fa-spin">'+
                         '</div>');
 
                         $('#idInputTitulo').val('');
@@ -251,9 +253,9 @@ $('.editProducto').on('click',function(e){
     // ================================ELIMINAR  PRODUCTO===============================
     // ================================ELIMINAR  PRODUCTO===============================
     
-    $('.deleteProducto').on('click',function(e){
+    $('.deleteProductos').on('click',function(e){
     e.preventDefault();// es para q cuando haga click no brinque 
-    
+   
     var id=$(this).attr('data-id');
     var demo=$(this).attr('data-demo');
     var remixCompleto=$(this).attr('data-remixCompleto');
@@ -261,56 +263,54 @@ $('.editProducto').on('click',function(e){
     console.log("Demo :"+ demo);
     console.log("RemixCompleto :"+ remixCompleto);
     //BOTON DE ALERTA
-        swal({
-            title: 'Estás seguro en eliminar a   '+demo,
-            text: "No podrass revertir esto!",
-            type: 'warning',
+            Swal.fire({
+            title: 'Estás seguro en eliminar a ?'+demo,
+            text: "You won't be able to revert this!",
+            icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, Eliminar!'
-          }).then((result) => {
-            if (result.value) {
-    
-                  $.ajax({
-                      type:'post',// si no hay formulario entonces seria por pos
-                      data:{
-                          //aqui envio los datos al servidor
-                          'id':id,
-                          'demo':demo,
-                          'remixCompleto':remixCompleto,
-                          'Producto':'eliminarProducto'
-    
-                      },
-                          url:'../controler/ctrProducto.php',// mando al servidor con la opcion que sea(modelo_proveedor.php)
-                          success:function(data){// si el llamado es correcto nos regresa uno datos
-                          //console.log(data);// me regresa un string y solo con convierto
-                          console.log(data);
-                          var resultado=JSON.parse(data);// lo convierto en objeto
-                          /*			console.log("EL bojeto ahora el id :"+resultado.id_eliminado);*/
-                          if(resultado.respuesta=='exito'){
-                          $('[data-id="'+id+'"]').parents('tr').remove();	
-                                Swal.fire(
-                                    'Registro Borrado',
-                                    'Your file has been deleted.',
-                                    'success'
-                                )
-    
-                          }else{// si no se puede elimnar presenta este mensaje
-                              // presenta eset mensaje si no se elimina de la base de datos
-                              Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'Something went wrong!',
-                                footer: '<a href>Why do I have this issue?</a>'
-                              })
-                          }				
-                      }
-                  });/// fin ajaxa
-               
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type:'post',// si no hay formulario entonces seria por pos
+                    data:{
+                        //aqui envio los datos al servidor
+                        'id':id,
+                        'demo':demo,
+                        'remixCompleto':remixCompleto,
+                        'Producto':'eliminarProducto'
+
+                    },
+                        url:'../controler/ctrProducto.php',// mando al servidor con la opcion que sea(modelo_proveedor.php)
+                        success:function(data){// si el llamado es correcto nos regresa uno datos
+                        //console.log(data);// me regresa un string y solo con convierto
+                        console.log(data);
+                        var resultado=JSON.parse(data);// lo convierto en objeto
+                        /*			console.log("EL bojeto ahora el id :"+resultado.id_eliminado);*/
+                        if(resultado.respuesta=='exito'){
+                        $('[data-id="'+id+'"]').parents('tr').remove();	
+                            Swal.fire(
+                                'Registro Borrado',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+
+                        }else{// si no se puede elimnar presenta este mensaje
+                            // presenta eset mensaje si no se elimina de la base de datos
+                            Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong!',
+                            footer: '<a href>Why do I have this issue?</a>'
+                            })
+                        }				
+                    }
+                });/// fin ajaxa
             }
-          })        
-        
+            })
+
     });
     
     

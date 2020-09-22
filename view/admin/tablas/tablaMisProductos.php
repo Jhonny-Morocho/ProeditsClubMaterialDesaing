@@ -232,12 +232,12 @@
                           <td ><?php echo $row['genero']?></td>
                           <td><?php echo $row['apodo']?></td>
                           <td><span>$<?php echo $row['precio']?></span></td>
-                          <td><a download  href="../editCompletos/<?php echo $row['remixCompleto']?>" class="bontIconosProducto"><i class="fa fa-fw fa-cloud-download"></i></a></td>
+                          <td><a  target="alt" href="<?php echo $row['url_descarga']?>" class="bontIconosProducto"><i class="fa fa-fw fa-cloud-download"></i></a></td>
                           <td>
                               <div class="bontIconosProducto reproducirContenedor" data-demo="../biblioteca/<?php echo $row ['url_directorio'] ?>" ><i class="fa fa-fw fa-play-circle"></i></div>
                           </td>
                           <td>
-                              <div class="bontIconosProducto editProducto"  data-toggle="modal" data-target="#modalEditarProducto"  
+                              <div class="bontIconosProducto editProducto"  data-toggle="modal" data-target="#modalEditarProducto"  data-linkDescarga="<?php echo $row['url_descarga']?>"
                                   data-idProducto="<?php echo $row['id'] ?>"  data-idProveedor="<?php echo $row['id_proveedor'] ?>"  
                                     
                                   data-precio="<?php echo $row['precio'] ?>" data-titulo="<?php echo $row['url_directorio'] ?>"  >

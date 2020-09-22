@@ -4,7 +4,8 @@
  require'../../controler/controlerTemplateAdmin.php';
  require'../../model/conexion.php';
  require'../../model/mdlProducto.php';
- require'modales/editarProducto.php';
+ require'../../model/mdlGenero.php';
+
  //require'../../model/mdlGenero.php';
  //require'../../controler/crtGenero.php';
 
@@ -20,6 +21,7 @@ require'../../controler/ctrPaginacion.php';
  $plantilla= new controlerPlantillaAdmin();
  $plantilla->usuario_autentificado();
  $plantilla->ctr_header();
+ require'modales/editarProducto.php';
  $plantilla->ctr_navegador_Izquierda();
  $plantilla->ctr_tabla_mis_productos();
  $plantilla->ctr_footer();

@@ -9,8 +9,8 @@ linGrad.addColorStop(0.5, 'rgba(183, 183, 183, 1.000)');
 document.addEventListener('DOMContentLoaded', function () {
   wavesurfer.init({
     container: '#waveform',
-    waveColor: 'rgba(0, 2, 5, 0.25)',
-    progressColor: 'black',
+    waveColor: '#fff',
+    progressColor: '#fff',
     cursorColor: '#fff',
     normalize: true,
     barHeight:5,
@@ -313,7 +313,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Go to the next track on finish
   wavesurfer.on('finish', function () {
-    gotoNextSong();
+    // ================================ comente esta liena de codigo para que no pase al siguiente
+    //gotoNextSong();
   });
 
   // Go to next track when next button is clicked

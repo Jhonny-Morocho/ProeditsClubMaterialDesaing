@@ -13,19 +13,22 @@
                       <form role="form"  method="post" id="idEditarPrducto" name="FormAddProducto" action="../controler/ctrProducto.php" enctype="multipart/form-data">
                         <div class="box-body">
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="labelPseudo Nombre">Nombre del archivo (No borrar la extenciion .mp3)</label>
                                 <input type="text" class="form-control" id="idInputTitulo"  required="" name="inputTitulo" disabled>
-                            </div>
+                            </div> -->
 
-               
+                            <div class="form-group">
+                                <label for="labelPseudo Nombre">Link de descarga</label>
+                                <input type="text" class="form-control" id="idInpuLinkDescarga"  required="" name="inputLinkDescarga" >
+                            </div>
                                
                             <div class="form-group">
                                 <label for="labelNombre">Genero</label>
                                 <select  required=""  class="form-control show-tick ms select2" data-placeholder="Select"  name="id_genero">
                                         <option value="">Seleciona un genero musical</option>
                                     <?
-                                        require'../../model/mdlGenero.php';
+                                  
                                         $genero=ModeloGenero::sql_lisartar_genero();
                                         foreach($genero as $key=>$value){ ?>
                                             <option value=" <?php echo$value['id'] ?> " > <?php echo$value['genero'] ?> </option>
@@ -76,6 +79,7 @@
                                     </div>
                                 </div>
                             <input type="hidden" name="Producto" value="editarProducto">
+                            <input type="hidden" name="inputTitulo" id="idInputTitulo">
                             <!-- <input type="hidden" name="id_proveedor" id="idProveedor"> -->
                             <input type="hidden" name="id_producto" id="idProducto">
 

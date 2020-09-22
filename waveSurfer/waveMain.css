@@ -263,7 +263,7 @@ background-image:('../img/payment.png') ;
 .project-description {
   text-align: center;
   margin: 5px;
-  color: #fff; !important
+  color: #fff; 
   font-size: 1em;
   display: none;
 }

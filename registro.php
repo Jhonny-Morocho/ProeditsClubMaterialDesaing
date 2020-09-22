@@ -14,6 +14,7 @@ require_once 'controler/ctrTemplateInicio.php';
 $plantilla= new ControladorPlantillaInicio();
 $plantilla->ctr_header();
 $plantilla->formRegistroCliente();
+$plantilla->redesSociales();
 $plantilla->ctr_footer();
 $plantilla->toTop();
 

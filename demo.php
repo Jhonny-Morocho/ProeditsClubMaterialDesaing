@@ -59,26 +59,27 @@ foreach($productos as $key=>$value){
 
 
                               <!-- list  productos  music-->
-                              <div id="playlistContainer" class="row playlist">
+                              <div id="demo" class="row ">
                                   <div class="row center album-name">
-                                      
                                       <ul class="list-group" id="playlist">
-                                                  <li data-src="../../biblioteca/'.$value['url_directorio'].'" data-title="'.$value['url_directorio'].'" data-length="194" class="song-row">
-                                                      <div class="left">
-                                                          <i class="fa fa-play play-song button" aria-hidden="true"></i>               
-                                                      </div>
-                                                      <div class="middle">            
-                                                          <span class="song"'.$value['url_directorio'].' </span>
-                                                          <span class="length">'.$value['genero'].'</span>
-                                                          <span class="length">'.$value['fecha_producto'].'</span>
-                                                      </div>
-                                                  </li>
-                                              
-                                              </ul>
+                                        <a href="../../biblioteca/'.$value['url_directorio'].' " class="list-group-item black ">'.
+                                        $value['url_directorio'].'
+                                          <div class="left"  id="playPause">
+                                              <span id="play" style="font-size:25px">
+                                                  <i class="fa fa-play-circle glyphicon glyphicon-play" aria-hidden="true"></i>
+                                              </span>
+                                              <span id="pause" style="display: none;font-size:25px" >
+                                                    <i class="far fa-pause-circle  glyphicon glyphicon-pause"></i>
+                                              </span>
+                            
+                                          </div>
+                                        </a>
+                                          
+                                      </ul>
                                   </div>
               
                   
-                              <form class="d-flex justify-content-left">
+                              <form class="d-flex justify-content-left ">
                                 <!-- Default input -->
                                 <button data-id="'.$value['id'].'" data-nombre="'.$value['url_directorio'].'" data-precio="'.$value['precio'].'"  class="buy btn btn-primary btn-md my-0 p" type="submit">Add to cart
                                   <i class="fas fa-shopping-cart ml-1"></i>
@@ -114,6 +115,7 @@ foreach($productos as $key=>$value){
 
 
 $plantilla->reproductorAudio();
+$plantilla->redesSociales();
 $plantilla->ctr_footer();
 $plantilla->toTop();
 

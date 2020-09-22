@@ -1,4 +1,4 @@
-<div id="playlistContainer" class="row playlist">
+ <!-- <div id="playlistContainer" class="row playlist">
     <div class="row center album-name">
         <ul class="list-group" id="playlist">
             <?php foreach (Pagination::show_rows("id") as $row): ?>
@@ -23,7 +23,6 @@
                             <div class="dropdown">
                                 <i class="fa fa-lg fa-ellipsis-v button song-menu" aria-hidden="true" data-toggle="dropdown"></i>
                                 <ul class="dropdown-menu pull-right">
-                                    <!-- <li><a href="#"><i class="fa fa-fw fa-download" aria-hidden="true"></i> Download</a></li> -->
                                     <li><a  target="alt" href="../<?php echo ControladorPlantillaInicio::url_demo().$row['id'] ?>"><i class="fa fa-fw fa-share" aria-hidden="true"></i> Share</a></li>
                                 </ul>
                             </div>
@@ -38,4 +37,38 @@
             <?php endforeach; ?>
                 </ul>
     </div>
+</div>  -->
+
+
+
+<div id="demo" >
+    <div class="list-group mb-2 ml-2 mr-2" id="playlist">
+    <?php foreach (Pagination::show_rows("id") as $row): ?>
+        <?php  $banderaError=false; if( $row['apodo']!== 'Error: vacío' ){ ?>
+            <div class="row black ">
+                <div class="black agregar-carrito buy " title="Add to car : <?php echo $row['url_directorio']?>" data-id="<?php echo $row['id']?>" data-nombre="<?php echo $row['url_directorio']?>" data-precio="<?php echo $row['precio']?>" >
+                    <i class="fas fa-cart-plus ml-1"></i>
+                    <span style="color: #FFF; font-size:12px">$<?php echo $row['precio']?></span>
+                </div>
+                
+                <div class="col-lg-8 listaReproduccion">
+                    <a href="../../biblioteca/<?php echo $row['url_directorio']?> " class="list-group-item black ">
+                    <i class="fa fa-play-circle" aria-hidden="true"></i>
+                        <?php echo $row['url_directorio']?> 
+                        
+                    </a>
+                </div>
+                <div class="col-lg-2 " style="color: #FFF; font-size:12px">
+                    <?php echo $row['genero']?>
+                </div>
+            </div>
+        <?php }else{
+                        echo '<div class="alert alert-primary" role="alert">
+                                No existe resultado para la cadena de busqueda 
+                            </div>';
+                        $banderaError=true;
+                    } ?>	
+            <?php endforeach; ?>
+    </div>
 </div>
+

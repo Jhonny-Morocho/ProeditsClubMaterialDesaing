@@ -292,7 +292,7 @@
                           </td>
                           <td>
                               <div class="bontIconosProductos editProducto"  data-toggle="modal" data-target="#modalEditarProducto"  
-                                  data-idProductos="<?php echo $row['id'] ?>"  data-idProveedor="<?php echo $row['id_proveedor'] ?>"  
+                                  data-idProducto="<?php echo $row['id'] ?>"  data-idProveedor="<?php echo $row['id_proveedor'] ?>"   data-linkDescarga="<?php echo $row['url_descarga']?>"
                                   data-idGenero="<?php echo $row['id_biblioteca'] ?>"    
                                   data-precio="<?php echo $row['precio'] ?>" data-titulo="<?php echo $row['url_directorio'] ?>"  >
 

@@ -263,6 +263,24 @@ background: #ff00007d!important;
     font-size: 1em;
     line-height: 15.1px;
   }
+  .border-right {
+    border-right: none !important; 
+  } 
+  .border-left {
+    border-left: none !important; 
+  }
+
+  img.img-fluid.animated.bounce.slower {
+    width: 100%;
+}
+.main-header {
+  margin-top: 4px;
+}
+iframe {
+ 
+  margin-left: 60px;
+ 
+}
 }
 
 @media only screen and (max-width: 768px) {
@@ -281,6 +299,25 @@ background: #ff00007d!important;
     font-size: 1em;
     line-height: 15.1px;
   }
+
+  img.img-fluid.animated.bounce.slower {
+    width: 100%;
+  }
+
+  .border-right {
+    border-right: none !important; 
+  } 
+  .border-left {
+    border-left: none !important; 
+  }
+  .main-header {
+    margin-top: 4px;
+}
+iframe {
+ 
+  margin-left: 60px;
+ 
+}
 }
 @media only screen and (max-width: 480px) {
   .contentGenero{
@@ -298,8 +335,24 @@ background: #ff00007d!important;
   i.fas.fa-cart-plus.agregar-carrito.buy {
     margin-left: 140px;
   }
+  .border-right {
+    border-right: none !important; 
+  } 
+  .border-left {
+    border-left: none !important; 
+  }
+  img.img-fluid.animated.bounce.slower {
+    width: 100%;
+}
+.main-header {
+  margin-top: 4px;
+}
+iframe {
+ 
+  margin-left: 60px;
+ 
+}
 }
 
 
-/* =================== UNDERLINE ====================================== */
-/* =================== UNDERLINE ====================================== */
+

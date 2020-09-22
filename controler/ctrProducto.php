@@ -36,12 +36,28 @@ switch (@$_POST['Producto']) {
         break;
 
         case 'editarProducto':
-                print_r($_POST);
-                print_r($_FILES);
-                die($_POST);
+      
+                // primero borro el archivo viejo y despues actualizo x uno nuevo
+                if ($_FILES['filesEditDemo']['name'] != null) {
+                    
+                    $archivoAbierto = fopen('../biblioteca/'.$_POST['inputTitulo'], 'r');//encontrar el archivo
+                    fclose($archivoAbierto); 
+                    
+                        $dir='../biblioteca/'.$_POST['inputTitulo']; //puedes usar dobles comillas si quieres 
+                        
+                        $bandera_borrar=false;
+                        if(file_exists($dir)) 
+                        { 
+                            if(unlink($dir)) 
+                            $bandera_borrar=true; 
+                        }
+                }
+
                 function subirArchivoMusica($ubicacionCarpeta,$inputFile){
                     //echo "La ubicacion de la carpeta es :[".$ubicacionCarpeta."]";
                     $directorio=$ubicacionCarpeta;// la direecion donde quiero q se guarde
+
+                    
                     if(move_uploaded_file($_FILES[$inputFile]['tmp_name'], $directorio.$_FILES[$inputFile]['name'])){
                         // para acceder al archiv q se alamceno con el siguiente comando
                         $respuesta=array(
@@ -58,21 +74,19 @@ switch (@$_POST['Producto']) {
                     }//end File
                     
                 }
-
+       
                 //Mediante un boolean defino que archivos son los que se van actulizar
                 $actualizarArchivoDemo=true;
-                ($_FILES['filesEditDemo']['name'] != null) ? $editDemo=subirArchivoMusica('../editDemos/','filesEditDemo') : $actualizarArchivoDemo=false; // 
+
+                ($_FILES['filesEditDemo']['name'] != null) ? $editDemo=subirArchivoMusica('../biblioteca/','filesEditDemo') : $actualizarArchivoDemo=false; // 
 
                 
                //Ahora veremos los diferentes casos
                //1.No actuliza ningun archivo solo los datos ambas deben ser false, solo datos 
-               ($actualizarArchivoDemo==false &&  $actualizarArchivoCompleto==false ) ? $respuesta=ModeloProducto::sql_editar_Producto(@$_POST,"soloDatos","","") : $smmActualizar="SoloDatos"; // 
+               ($actualizarArchivoDemo==false  ) ? $respuesta=ModeloProducto::sql_editar_Producto(@$_POST,"soloDatos","","") : $smmActualizar="SoloDatos"; // 
                //2.Se actuliza solo el archivo demo 
-               ($actualizarArchivoDemo==true && $actualizarArchivoCompleto==false ) ? $respuesta=ModeloProducto::sql_editar_Producto(@$_POST,"achivoDemo",$editDemo['urlUbicacion'],"") : $smmActualizar="SoloDemo"; // 
-               //3.Se actuliza solo el archivo completo 
-               ($actualizarArchivoCompleto==true  && $actualizarArchivoDemo==false ) ? $respuesta=ModeloProducto::sql_editar_Producto(@$_POST,"achivoCompleto","",$editCompleto['urlUbicacion']) : $smmActualizar="SoloRemixCompleto"; // 
-               //4. Se actuliza los dos archivos 
-               ($actualizarArchivoCompleto==true  && $actualizarArchivoDemo==true ) ? $respuesta=ModeloProducto::sql_editar_Producto(@$_POST,"todosLosArchivos",$editDemo['urlUbicacion'],$editCompleto['urlUbicacion']) : $smmActualizar="SoloRemixCompleto"; // 
+               ($actualizarArchivoDemo==true) ? $respuesta=ModeloProducto::sql_editar_Producto(@$_POST,"achivoDemo",$editDemo['urlUbicacion'],"") : $smmActualizar="SoloDemo"; // 
+           
                
                 die(json_encode($respuesta));
                 break;
@@ -80,7 +94,6 @@ switch (@$_POST['Producto']) {
 
             //1. Debo borrar los archivos
         
-
 
            
             function EliminarArchivos($ubicacionCarpeta,$titulo_arhivo){

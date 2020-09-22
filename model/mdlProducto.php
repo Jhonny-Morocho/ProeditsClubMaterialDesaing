@@ -114,52 +114,43 @@ ini_set('display_errors', 'On');
 		//============================EDITAR PRODUCTO========================================//
 		public static function sql_editar_Producto($arrayDatosProducto,$casoActulizar,$ubicacionDemo,$ubicacionCompleto){
 			$db=new Conexion();
-		
-				//echo"soy modelo";
-				//die(json_encode($arrayDatosProducto));
-				try {
+	
+				try {	
+						
 						//$idProveedor=$arrayDatosProducto['id_proveedor'];
 						$idProducto=$arrayDatosProducto['id_producto'];
-						$tituloProducto=$arrayDatosProducto['inputTitulo'];
-						$artistaProducto=$arrayDatosProducto['inputArtista'];
+						$urlDescarga=$arrayDatosProducto['inputLinkDescarga'];
 						$generoProducto=$arrayDatosProducto['id_genero'];
-						$bpmProducto=$arrayDatosProducto['inputBpm'];
 						$precioProducto=$arrayDatosProducto['inputDolares'].".".$arrayDatosProducto['inputCentavos'];
 
 						date_default_timezone_set('America/Guayaquil');
 						$fecha_actual=date("Y-m-d");
-						
+						$tabla="productos";
 						switch ($casoActulizar) {
 							case 'soloDatos':
-								$stmt= $db->conectar()->prepare("UPDATE producto SET 
-																	artista='$artistaProducto',
-																	nombrePista='$tituloProducto', fecha='$fecha_actual',
-																	bpm='$bpmProducto', idGenero='$generoProducto', precio='$precioProducto'
-																WHERE id='$idProducto' ");
+								$stmt= $db->conectar()->prepare("UPDATE $tabla SET 
+																url_descarga=:linkDescarga,
+																id_biblioteca=:idBiblioteca,
+																precio=:precio
+																WHERE id=:idProducto ");
+								$stmt->bindParam(':linkDescarga',$urlDescarga);
+								$stmt->bindParam(':idBiblioteca',$generoProducto);
+								$stmt->bindParam(':precio',$precioProducto);
+								$stmt->bindParam(':idProducto',$idProducto);
 								break;
 							case 'achivoDemo':
-								$stmt= $db->conectar()->prepare("UPDATE producto SET 
-																	artista='$artistaProducto',demo='$ubicacionDemo',
-																	nombrePista='$tituloProducto', fecha='$fecha_actual',
-																	bpm='$bpmProducto', idGenero='$generoProducto', precio='$precioProducto'
-																WHERE id='$idProducto' ");
-								break;
-							
-							case 'achivoCompleto':
-								$stmt= $db->conectar()->prepare("UPDATE producto SET 
-																	artista='$artistaProducto',remixCompleto='$ubicacionCompleto',
-																	nombrePista='$tituloProducto', fecha='$fecha_actual',
-																	bpm='$bpmProducto', idGenero='$generoProducto', precio='$precioProducto'
-																WHERE id='$idProducto' ");
-								break;
-								
-							case 'todosLosArchivos':
-							$stmt= $db->conectar()->prepare("UPDATE producto SET 
-																artista='$artistaProducto',remixCompleto='$ubicacionCompleto',demo='$ubicacionDemo',
-																nombrePista='$tituloProducto', fecha='$fecha_actual',
-																bpm='$bpmProducto', idGenero='$generoProducto', precio='$precioProducto'
-															WHERE id='$idProducto' ");
-							break;
+								echo $ubicacionDemo;
+								die(json_encode($arrayDatosProducto));
+								$stmt= $db->conectar()->prepare("UPDATE $tabla SET 
+																	url_descarga=:linkDescarga,
+																	id_biblioteca=:idBiblioteca,
+																	precio=:precio,url_directorio=:archivoDemo
+																	WHERE id=:idProducto ");
+								$stmt->bindParam(':linkDescarga',$urlDescarga);
+								$stmt->bindParam(':idBiblioteca',$generoProducto);
+								$stmt->bindParam(':precio',$precioProducto);
+								$stmt->bindParam(':archivoDemo',$ubicacionDemo);
+								$stmt->bindParam(':idProducto',$idProducto);
 						
 							default:
 								# code...
@@ -182,7 +173,8 @@ ini_set('display_errors', 'On');
 						return $respuesta;
 				}else{
 					$respuesta=array(
-						'respuesta'=>'false'
+						'respuesta'=>'false',
+						'error'=>$e
 						);
 						return $respuesta;
 				}
@@ -201,8 +193,8 @@ ini_set('display_errors', 'On');
 		
 			try {
 			$idProducto=$arrayProducto['id'];
-			$stmt= $db->conectar()->prepare("UPDATE producto SET 
-													estado='0'
+			$stmt= $db->conectar()->prepare("UPDATE productos SET 
+														activo='0'
 												WHERE id='$idProducto' ");
 
 			} catch (Exception $e) {

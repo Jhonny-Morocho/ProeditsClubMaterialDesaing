@@ -35,7 +35,7 @@ switch (@$_POST['Proveedor']) {
         break;
 
         case 'editProveedor':
-       
+            
            
             $respuesta=ModeloProveedor::sql_individual_editar(@$_POST);
             die(json_encode($respuesta));

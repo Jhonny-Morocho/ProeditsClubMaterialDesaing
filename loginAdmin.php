@@ -15,6 +15,7 @@ $plantilla= new ControladorPlantillaInicio();
 $plantilla->ctr_header();
 $plantilla->formLoginProveedor();
 $plantilla->ctr_footer();
+$plantilla->redesSociales();
 $plantilla->toTop();
 
 ?>
