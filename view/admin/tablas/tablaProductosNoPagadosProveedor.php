@@ -11,18 +11,20 @@
         <!-- form start -->
             <form role="form" class="" method="post" action="../controler/ctrPagosProveedor.php" id="idFiltrarFechaPago">
                 <div class="box-body ">
-                    <div class="form-group col-md-4">
-                        <label for="exampleInputEmail1">Fucha Inicio</label>
-                        <input type="date" class="form-control" id="exampleInputEmail1" required name="fechaInicio" value="2020-09-14">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="exampleInputPassword1">Fecha Fin</label>
-                        <input type="date" class="form-control" id="exampleInputPassword1" required name="fechaFin" value="2020-09-14">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <input type="hidden" name="idProveedor" value="<?php echo $_GET['idProveedor'] ?>">
-                        <input type="hidden" name="FiltroPagoProveedor" value="FiltrarFechas">
-                        <button type="submit" class="btn bg-purple btn-flat margin" title="Filtrar"><i class="fa fa-fw fa-search"></i></button>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="exampleInputEmail1">Fucha Inicio</label>
+                            <input type="date" class="form-control" id="idFechaInicio" required name="fechaInicio" value="2020-09-14">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="exampleInputPassword1">Fecha Fin</label>
+                            <input type="date" class="form-control" id="idFechaFin" required name="fechaFin" value="2020-09-14">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input type="hidden" name="idProveedor" value="<?php echo $_GET['idProveedor'] ?>">
+                            <input type="hidden" name="FiltroPagoProveedor" value="FiltrarFechas">
+                            <button type="submit" class="btn bg-purple btn-flat margin" title="Filtrar"><i class="fa fa-fw fa-search"></i></button>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -33,6 +35,7 @@
                             <label for="exampleInputEmail1">Comision %</label>
                             <input type="number" class="form-control" id="exampleInputEmail1" required name="comision" value="60">
                             <input type="hidden" name="FiltroPagoProveedor" value="GenerarPdf">
+                            <input type="hidden" name="idProveedor" value="<?php echo $_GET['idProveedor'] ?>">
                             <input type="hidden" name="nombreDj" value="<?php echo $_GET['nombreProveedor']?>">
                         <button type="submit" class="btn bg-navy margin" title="Generar Reporte PDF"><i class="fa fa-fw fa-file-pdf-o"></i></button> 
                     </div>

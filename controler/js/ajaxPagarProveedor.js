@@ -21,7 +21,7 @@ $(document).ready(function(){
               url:$(this).attr('action'),
               dataType:'json',//json
               success:function(data){
-                  console.log(JSON.stringify(data));//el usuario si existe
+                  //console.log(JSON.stringify(data));//el usuario si existe
                   
                   $('.cuerpoTabla tr').remove(); // si existe la tabla ya filtrada entonces q la borre para q no se repita
                   console.log(data.length);
@@ -36,7 +36,7 @@ $(document).ready(function(){
                             TD='<tr >'+
                             '<td >'+(i+1)+'</td>'+
                             '<td class="idClienteProducto">'+data[i]['id']+'</td>'+
-                            '<td>'+data[i]['idFactura']+'</td>'+
+                            '<td>'+data[i]['id_factura']+'</td>'+
                             '<td class="nombrePista">'+data[i]['url_directorio']+'</td>'+
                             '<td class="metodoCompra">'+data[i]['metodo_compra']+'</td>'+
                             '<td class="precioCompra">$'+data[i]['precio_compra']+'</td>'+
@@ -218,7 +218,7 @@ $(document).ready(function(){
 });
 
   $('#idGenerarPdf').on('submit',function(e){
-    e.preventDefault();
+   e.preventDefault();
 
     // obtnemos los datos del formulario
     var datos=$(this).serializeArray();
@@ -247,27 +247,46 @@ $(document).ready(function(){
         arrayNodosPrecioCompra[index]=nodoPrecioCompra[index].innerText;
         
     }
-   
+
+    //guadar todos los datos en un solo array
+    var dataPagosProveedor=new FormData();
+    dataPagosProveedor.append('idProductos',arrayNodosConValorId);
+    dataPagosProveedor.append('nombrePista',arrayNodosNombrePista);
+    dataPagosProveedor.append('fechaCompra',arrayNodosfechaCompra);
+    dataPagosProveedor.append('precioCompra',arrayNodosPrecioCompra);
+    dataPagosProveedor.append('FiltroPagoProveedor','GenerarPdf');
+    // window.location='../domPdf/reporte.php?idProducto='+arrayNodosConValorId;
     // comprobar si existen datos para enviar caso contrario monstramos mensaje
+    var fechaInicio=$('#idFechaInicio').val();
+    var fechaFin=$('#idFechaFin').val();
+    console.log(fechaInicio);
+    console.log(fechaFin);
+    
 
-      animacion();
-      $.ajax({
-        type:$(this).attr('method'),
+  
+    Swal.fire({
+      title: 'Se realizar el reporte de ventas de ' +datos[3].value+" con el "+datos[0].value + "% de comisión",
+      text: "Se tomara en cuenta la fecha de "+fechaInicio +" hasta "+fechaFin,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.isConfirmed) {
 
-        data:{'idProductos':arrayNodosConValorId, 
-          'nombrePista':arrayNodosNombrePista,
-          'metodoCompra':arrayNodosMetodoCompra,
-          'fechaCompra':arrayNodosfechaCompra,
-          'precioCompra':arrayNodosPrecioCompra,
-          'FiltroPagoProveedor':'GenerarPdf','nombreDj':datos[2].value,'subTotal':subTotal,'comision':datos[0].value},
-        url:$(this).attr('action'),
-        dataType:'text',//json
-        
-        success:function(data){
-          console.log(data);
- 
-        }
-    });    
+        window.location=$(this).attr('action')+'?idProveedor='+datos[2].value+
+                                                                            '&fechaInicio='+fechaInicio+
+                                                                            '&FiltroPagoProveedor='+'GenerarPdf'+
+                                                                            '&nombreProveedor='+datos[3].value+
+                                                                            '&comision='+datos[0].value+
+                                                                            '&FechaFin='+fechaFin;
+      }
+    })
+
+    // voy enviar a un liknk los datos para imprimir desde la base datos
+    //window.location='../generarReportePdf/plantillaReporte/plantilla.php?idProveedor=&fechaInicio=&FechaFin';
+    
 });
 
 

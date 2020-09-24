@@ -1,13 +1,17 @@
 <?php
 class ClassPlantilla{
   
-  public static function funcionPlantilla($nombreProducto,$fechaCompra,$precioVenta,$metodoPago,$nombreDj,$subTotal,$comision){
+  public static function funcionPlantilla($filtroFechaProductos,$nombreDj,$comision){
 
     $nombreDueño="Ing. Jhonny Morocho";
     date_default_timezone_set('America/Guayaquil');
     $fecha_actual=date("Y-m-d");
     $empresa="WWW.PROEDITSCLUB.COM";
-    
+     //print_r($filtroFechaProductos[0]['url_directorio']);
+    // echo $nombreDj;
+    // echo "--------------------------------------";
+    // die(json_encode($filtroFechaProductos));
+
     $htmlPlantilla1='<body id="content">
       <header class="clearfix">
         <div id="logo">
@@ -38,18 +42,20 @@ class ClassPlantilla{
           </thead>
           <tbody>';
           
-        $htmlPlantillaItem="<p>perro</p>";
-        $tabla="<p>perro</p>";
-          //for ($i=0; $i < count($nombreProducto); $i++) { 
-          //   $htmlPlantillaItem= '<tr>
-          //               <td class="service">'.(count($nombreProducto)-$i).'</td>
-          //               <td class="desc">'.$nombreProducto[$i].'</td>
-          //               <td class="unit">'.$fechaCompra[$i].'</td>
-          //               <td class="qty">'.$precioVenta[$i].'</td>
-          //               <td class="total">'.$metodoPago[$i].'</td>
-          //             </tr>';
-          //   $tabla=$htmlPlantillaItem.$tabla;
-          // }
+
+        $tabla="";
+        $subTotal=0;
+          for ($i=0; $i < count($filtroFechaProductos); $i++) { 
+             $tabla.= '<tr>
+                        <td class="service">'.(count($filtroFechaProductos)-$i).'</td>
+                        <td class="desc">'.$filtroFechaProductos[$i]['url_directorio'].'</td>
+                         <td class="unit">'.$filtroFechaProductos[$i]['fecha_compra'].'</td>
+                        <td class="qty">'.$filtroFechaProductos[$i]['precio_compra'].'</td>
+                        <td class="total">'.$filtroFechaProductos[$i]['metodo_compra'].'</td>
+                     </tr>';
+                     $subTotal+=$filtroFechaProductos[$i]['precio_compra'];
+              
+           }
   
 
 
