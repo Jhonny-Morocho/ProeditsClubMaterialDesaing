@@ -58,18 +58,18 @@
     </div>
 </div>
 <div class="row">
-     <div class="col ">
-          <ul class="nav  lighten-4 btnReproducir">
+     <div class="col">
+          <ul class="nav  lighten-4 controlesReproductor">
             <li class="nav-item" id="playPause">
               <span id="play" class="iconoPlayList" title="play">
                     <i class="fa fa-play-circle glyphicon glyphicon-play" aria-hidden="true"></i>
                 </span>
-                <span id="pause" style="display: none" class="iconoPlayList" title="pause">
+                <span id="pause" style="display: none" class="iconoPlayList mr-1" title="pause">
                       <i class="far fa-pause-circle  glyphicon glyphicon-pause"></i>
                 </span>
             </li>
             <li class="nav-item">
-                <span class="iconoPlayList stopIcon" title="stop">
+                <span class="iconoPlayList stopIcon ml-1" title="stop">
                   <i class="fas fa-stop"></i>
                 </span>
             </li>
@@ -90,11 +90,14 @@
 
 
   <style>
-            .btnReproducir{
+    .controlesReproductor{
     background-color: #262626 ;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    color: white;
+    padding: 8px;
+}
 
+.controlesReproductor i{
+  font-size: 20px;
 }
 
 
@@ -110,7 +113,7 @@
 
 .reproducir{
 
-clear: both;
+    clear: both;
     width: 100%;
     left: 15px;
     position: fixed;
@@ -119,76 +122,56 @@ clear: both;
     z-index: 9999;
 }
 
-.list-group-item.active {
-
-    background-color: #fd0002 !important;
-    border-color: #fd0002 !important;
- 
-}
-
-
-#playlist a:hover {
+.filaItemProducto:hover {
     background-color: red !important;
     color: white;
     font-family: 'Lato', sans-serif;
 }
-#playlist a {
-
+.filaItemProducto{
+  color: white;
+  font-size: 15px;
+}
+.producto a{
     display: inline-block;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     max-width: 100%;
     vertical-align: middle;
-    font-size: 12px;
-    background-color: black;
-
-  
     color: white !important;
     font-family: 'Lato', sans-serif;
 }
-.iconoPlayList{
-
-  cursor: pointer;
-  color: white;
-    margin-left: 20px;
-    font-size: 25px;
- 
+.genero span{
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+    vertical-align: middle;
+    color: white !important;
+    font-family: 'Lato', sans-serif;
 }
 
-/* .volume-control{
-    visibility: hidden;
-    background-color: #2c3e50;
-    color: #fff;
-    width: 42px;
-    height: 42px;
-    text-align: center;
-    line-height: 38px;
-    position: fixed;
-    bottom: 120px;
-    right: 20px;
-    z-index: 90;
-    cursor: pointer;
-    opacity: 0;
-    border-radius: 3px;
-    -webkit-transform: translateZ(0);
-    transition: all .4s;
-    } */
-#demo i.fas.fa-cart-plus {
-    color: white;
-    font-size: 12px;
+
+/* ==== activar el hover cuando haga click en el producto=============== */
+.row.filaItemProducto.black.active {
+  background-color: red !important;
 }
 
+
+/* =================== REPRODUCTOR DE AUDIO ESTILOS =============== */
+/* =================== REPRODUCTOR DE AUDIO ESTILOS =============== */
+/* =================== REPRODUCTOR DE AUDIO ESTILOS =============== */
 .mute{
   position:absolute;
-   top: 14px;
+
     right: 50px;
     height:20px;
 }
 
 span#mute {
     position: absolute;
-    top: 7px;
+
     right: 260px;
   }
 
@@ -196,11 +179,10 @@ span#mute {
     position:absolute;
     cursor:pointer;
     width: 200px;
-    top: 14px;
+
     right: 50px;
     height:20px;
     background-color:white;
-    /* opacity: 0; */
     transition: opacity 1s;
     z-index: 8;
 }

@@ -107,8 +107,10 @@ $(document).ready(function(){
         // ========================añadir productos al carrito================================//
         // ========================añadir productos al carrito================================//
         $('.buy').on('click',function(e){// 
-        e.preventDefault();// 
-        
+        e.preventDefault();//
+         
+        $(this).html('<i class="fas fa-check  ml-1 mr-1" style="color:#39ff14"></i>');
+        $(this).removeClass('buy');
         //1.//Añadir al carrito
         var idProducto=$(this).attr("data-id");
         var nombreProducto=$(this).attr("data-nombre");

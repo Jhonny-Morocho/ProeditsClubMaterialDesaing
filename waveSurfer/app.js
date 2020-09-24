@@ -38,13 +38,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // The playlist links
     var links = document.querySelectorAll('#playlist a');
+    var filaItemProducto=document.querySelectorAll('#playlist .filaItemProducto');
+    console.log(filaItemProducto);
     var currentTrack = 0;
 
     // Load a track by index and highlight the corresponding link
     var setCurrentSong = function(index) {
-        links[currentTrack].classList.remove('active');
+      filaItemProducto[currentTrack].classList.remove('active');
         currentTrack = index;
-        links[currentTrack].classList.add('active');
+        filaItemProducto[currentTrack].classList.add('active');
         wavesurfer.load(links[currentTrack].href);
     };
 
