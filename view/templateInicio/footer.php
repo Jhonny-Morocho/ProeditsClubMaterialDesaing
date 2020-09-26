@@ -93,7 +93,9 @@
 	  <script src="../../socialNav/social.js"></script>
 
 	<!-- ======================= REPRODUCTOS DE AUDIO  WAVE ======================= -->
-	<script src="https://unpkg.com/wavesurfer.js"></script>
+	<!-- <script src="https://unpkg.com/wavesurfer.js"></script> -->
+	<script src="../../waveSurfer/wavesurfer.min.js"></script>
+
  	<script src="../../waveSurfer/app.js"></script>
 	  
 

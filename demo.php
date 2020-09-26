@@ -54,22 +54,22 @@ foreach($productos as $key=>$value){
                   
                               <p class="lead font-weight-bold" >Track Name</p>
                   
-                              <p >'.($value['url_directorio']).'</p>
+             
 
 
 
                               <!-- list  productos  music-->
                               <div id="demo" class="row ">
-                                  <div class="row center album-name">
-                                      <ul class="list-group" id="playlist">
-                                        <a href="../../biblioteca/'.$value['url_directorio'].' " class="list-group-item black ">'.
+                                  <div class="row center album-name" id="playlist">
+                                      <ul class="list-group filaItemProducto red mb-2" >
+                                        <a href="../../biblioteca/'.$value['url_directorio'].' " class="list-group-item">'.
                                         $value['url_directorio'].'
                                           <div class="left"  id="playPause">
                                               <span id="play" style="font-size:25px">
-                                                  <i class="fa fa-play-circle glyphicon glyphicon-play" aria-hidden="true"></i>
+                                                  <i class="fa fa-play-circle glyphicon glyphicon-play" style="font-size:35px" aria-hidden="true"></i>
                                               </span>
                                               <span id="pause" style="display: none;font-size:25px" >
-                                                    <i class="far fa-pause-circle  glyphicon glyphicon-pause"></i>
+                                                    <i class="far fa-pause-circle  glyphicon glyphicon-pause" style="font-size:35px" ></i>
                                               </span>
                             
                                           </div>

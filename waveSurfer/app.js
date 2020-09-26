@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         progressColor: '#43a047',
         cursorColor: '#fff',
         barWidth:0,
-        barHeight:1.8,
+        barHeight:1.5,
         height: 50
     });
 });
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Bind controls
 document.addEventListener('DOMContentLoaded', function() {
       // 100% volume to start
+
 
     
     var playPause = document.querySelector('#playPause');
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Toggle play/pause text
     wavesurfer.on('play', function() {
-        hideStickyPlayer();
+     
 
         document.querySelector('#play').style.display = 'none';
         document.querySelector('#pause').style.display = '';
@@ -40,8 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var links = document.querySelectorAll('#playlist a');
     var filaItemProducto=document.querySelectorAll('#playlist .filaItemProducto');
     console.log(filaItemProducto);
+    console.log(filaItemProducto);
     var currentTrack = 0;
 
+    // ================== CARGANDO TRACK ====================
+    // ================== CARGANDO TRACK ====================
+    // ================== CARGANDO TRACK ====================
     // Load a track by index and highlight the corresponding link
     var setCurrentSong = function(index) {
       filaItemProducto[currentTrack].classList.remove('active');
@@ -49,6 +54,31 @@ document.addEventListener('DOMContentLoaded', function() {
         filaItemProducto[currentTrack].classList.add('active');
         wavesurfer.load(links[currentTrack].href);
     };
+
+    wavesurfer.on('loading', function(X, evt) {
+     
+      UpdateLoadingFlag(X);
+    });
+
+    function UpdateLoadingFlag(Percentage) {
+      hideStickyPlayer();
+      if (document.getElementById("loading_flag")) {
+        document.getElementById("loading_flag").innerText = "Loading " + Percentage + "%";
+        if (Percentage >= 100) {
+          document.getElementById("loading_flag").style.display = "none";
+        } else {
+          document.getElementById("loading_flag").style.display = "block";
+        }
+      }
+    }
+    // clean up etc., when wavesurfer fires the "ready" event
+  wavesurfer.on('ready', function() {
+    console.log("ready fired");
+    document.getElementById("loading_flag").style.display = "none";
+    //document.getElementById("loading_flag").style.opacity = "0";
+  });
+
+  // ================== END TRACK ====================
 
     // Load the track on click
     Array.prototype.forEach.call(links, function(link, index) {
@@ -63,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
     wavesurfer.on('ready', function() {
       
         wavesurfer.play();
+        console.log(wavesurfer.getDuration());// segundos
     });
 
     wavesurfer.on('error', function(e) {

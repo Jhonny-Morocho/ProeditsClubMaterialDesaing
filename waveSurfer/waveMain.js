@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  // show progress while loading sound
+
+
   // 100% volume to start
   wavesurfer.setVolume(1);
 

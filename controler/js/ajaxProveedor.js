@@ -1,6 +1,6 @@
 
 
-$(document).ready(function(){
+//$(document).ready(function(){
 
 
 
@@ -364,4 +364,4 @@ console.log("ID :"+ id);
 
 
 
-});// fin document
+//});// fin document

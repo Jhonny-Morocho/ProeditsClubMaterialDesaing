@@ -105,7 +105,7 @@
 												echo '<a class="dropdown-item" href="../../adminCliente.php"">Hola: '.$_SESSION['usuario'].'</a>';
 											break;
 										case 'Proveedor':  
-												echo ' <a class="dropdown-item " href="../..view/admin/index_admin.php"> Bienvenido : '.$_SESSION['usuario'].'</a>';
+												echo ' <a class="dropdown-item " href="../../view/admin/index_admin.php"> Bienvenido : '.$_SESSION['usuario'].'</a>';
 											break;
 										case 'Admin':
 												echo ' <div class="dropdown header-top-dropdown">

@@ -1,7 +1,7 @@
  <!-- <div id="playlistContainer" class="row playlist">
     <div class="row center album-name">
         <ul class="list-group" id="playlist">
-            <?php foreach (Pagination::show_rows("id") as $row): ?>
+        <?php foreach (Pagination::show_rows("id") as $row): ?>
                 <?php  $banderaError=false; if( $row['apodo']!== 'Error: vacío' ){ ?>
                     <div class="row" title="Add to car : <?php echo $row['url_directorio']?>" >
                         <div class="col-lg-1 ">
@@ -42,17 +42,17 @@
 
 
 <div id="demo" >
-    <div class="list-group  mr-1 ml-1" id="playlist">
+    <div class="list-group " id="playlist">
     <?php foreach (Pagination::show_rows("id") as $row): ?>
         <?php  $banderaError=false; if( $row['apodo']!== 'Error: vacío' ){ ?>
-            <div class="row  filaItemProducto black pt-3 pb-3">
+            <div class="row  filaItemProducto black pt-2 pb-2">
                 <div class="col-lg-2 no-padding agregar-carrito buy " data-toggle="tooltip" data-placement="top"
                                                                         title="Add to car : <?php echo $row['url_directorio']?>" data-id="<?php echo $row['id']?>" data-nombre="<?php echo $row['url_directorio']?>" data-precio="<?php echo $row['precio']?>" >
                     <i class="fas fa-cart-plus ml-1"></i>
                     <span >$<?php echo $row['precio']?></span>
                 </div>
                 
-                <div class="col-lg-6 producto" >
+                <div class="col-lg-7 producto" >
                     <a href="../../biblioteca/<?php echo $row['url_directorio']?>"  >
                     <i class="fa fa-play-circle" aria-hidden="true" style="font-size: 18px !important;" ></i>
                         <?php echo $row['url_directorio']?> 
@@ -60,12 +60,12 @@
                     </a>
                 </div>
 
-                <div class="col-lg-2 genero no-no-padding" data-toggle="tooltip" data-placement="top" title="<?php echo $row['genero']?>">
+                <div class="col-lg-1 genero" data-toggle="tooltip" data-placement="top" title="<?php echo $row['genero']?>">
                     <span >
                         <?php echo $row['genero']?>
                     </span>
                 </div>
-                <div  class="col-lg-2 fecha no-padding">
+                <div  class="col-lg-2 fecha">
                     <span class="">
                        <?php echo $row['fecha_producto']?>
                     </span>

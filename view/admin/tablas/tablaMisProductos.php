@@ -220,6 +220,7 @@
                     <th>Descarga</th>
                     <th>Play</th>
                     <th>Editar</th>
+                    <th>Borrar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -244,6 +245,12 @@
 
                                   <i class="fa fa-fw fa-pencil">
                                   </i>
+                              </div>
+                          </td>
+                          <td><div class="bontIconosProductos deleteProductos"  data-id="<?php echo $row['id'] ?>"   
+                                                                data-demo="<?php echo $row['url_directorio']?> "   
+                                                                data-remixCompleto="<?php echo  $row['url_descarga'] ?> " >
+                                  <i class="fa fa-fw fa-trash"></i>
                               </div>
                           </td>
                     <?php }else{
