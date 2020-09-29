@@ -101,9 +101,20 @@
                                             <div class="row">
 
                                                 <?php
-
+                                                    date_default_timezone_set('America/Guayaquil');
+                                                    $fecha_actual=date("Y-m-d");
                                                 if (count($mebresiasCliente)>0) {
                                                     foreach ($mebresiasCliente as $key => $value) {
+                                                        $date1 = new DateTime($value['fecha_inicio']);
+                                                        $date2 = new DateTime($fecha_actual);
+                                                        $diff = $date1->diff($date2);
+                                                        $spanEstad="";
+                                                        if ($diff->days<1) {
+                                                            # code...
+                                                            $spanEstad=' <span class="badge badge-pill badge-success">Activa</span>';
+                                                        }else{
+                                                            $spanEstad=' <span class="badge badge-pill badge-danger">Caducada</span>';
+                                                        }
                                                         # code...
                                                         echo'<!-- Grid column -->
                                                         <div class="col-lg-4 col-md-6 mb-4">
@@ -116,6 +127,7 @@
                                                                     <h4 class="card-title">'.$value['tipo'].'</h4>
                                                                     <p class="card-text">Fecha Adquisicion : '.$value['fecha_inicio'].'</p>
                                                                     <p class="card-text">Fecha Expira : '.$value['fecha_culminacion'].'</p>
+                                                                    <p class="card-text">Estado '.$spanEstad.'</p>
                                                                 </div>
                                                                 <div class="card-footer text-muted success-color white-text">
                                                                     <p class="mb-0">Descargas : '.$value['rango'].'</p>

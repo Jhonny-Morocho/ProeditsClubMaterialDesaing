@@ -18,29 +18,44 @@
     <div class="carousel-item active">
       <img class="d-block w-100 animated  fadeInLeftBig" src="../../img/carrosul/portada-antony.jpg"
         alt="First slide">
+        <div class="carousel-caption">
+        <span class="badge badge-danger"> <h3 class="h3-responsive descunto">Light mask</h3> </span>
+        </div>
     </div>
     <!--/First slide-->
     <!--Second slide-->
     <div class="carousel-item">
       <img class="d-block w-100 " src="../../img/carrosul/4170808.jpg"
         alt="Second slide">
+        <div class="carousel-caption">
+        <span class="badge badge-danger"> <h3 class="h3-responsive descunto">Light mask</h3> </span>
+        </div>
     </div>
     <!--/Second slide-->
     <!--Third slide-->
     <div class="carousel-item">
       <img class="d-block w-100 " src="../../img/carrosul/Membresias 2020.png"
         alt="Third slide">
+        <div class="carousel-caption">
+        <span class="badge badge-danger"> <h3 class="h3-responsive descunto">Light mask</h3> </span>
+        </div>
 	</div>
 	  <!--Third slide-->
 	  <div class="carousel-item">
       <img class="d-block w-100 " src="../../img/carrosul/monendero2020.jpeg"
         alt="Third slide">
+        <div class="carousel-caption">
+          <span class="badge badge-danger"> <h3 class="h3-responsive descunto">Light mask</h3> </span>
+        </div>
 	</div>
 	
 
 	<div class="carousel-item">
       <img class="d-block w-100 " src="../../img/carrosul/octubreNew.jpeg"
         alt="Third slide">
+        <div class="carousel-caption">
+          <span class="badge badge-danger"> <h3 class="h3-responsive descunto">Light mask</h3> </span>
+        </div>
 	</div>
     <!--/Third slide-->
   </div>

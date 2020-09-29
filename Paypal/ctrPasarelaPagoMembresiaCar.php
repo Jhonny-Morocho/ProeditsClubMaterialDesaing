@@ -31,9 +31,16 @@ $descripcionProducto="";
         $nombreMembresia="";
         $banderaNumeroDescargas=false;
 
+        date_default_timezone_set('America/Guayaquil');
+        $fecha_actual=date("Y-m-d");
         foreach ($membresiaCliente as $key => $value) {
             #si el numero de descargas es mayor a cero etonces puede comprar
-            if($value['rango']>0){
+            $date1 = new DateTime($value['fecha_inicio']);
+            $date2 = new DateTime($fecha_actual);
+            $diff = $date1->diff($date2);
+            // comprobar caducidad 
+            // si resto los 30 dias me va a dar 0 , x por lo tanto caduca en <1
+            if($value['rango']>0 && $diff->days<1){
                 $idMembresia=$value['id'];
                 $rangoDescargas=$value['rango'];
                 $fechaCompra=$value['fecha_inicio'];

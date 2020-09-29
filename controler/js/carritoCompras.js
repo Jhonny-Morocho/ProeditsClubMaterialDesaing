@@ -10,7 +10,7 @@ $(document).ready(function(){
         limite=respuesta[0].limite_productos;
         console.log("descuento",descuento);
         console.log("limite",limite);
-
+        $('.descunto').html(respuesta[0].sms_promocion);
         //INICIALIZAR VARIABBLES GLOBALES
         var  listaCarritoProductos,precioUnitarioProducto;
         // localStorage.setItem('demo','cartuche');

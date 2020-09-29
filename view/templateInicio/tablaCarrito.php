@@ -1,6 +1,5 @@
 
-
-<!--Main Layout-->
+<!--Section: Author Box-->
 
 <div class="container card mb-5">
         <form action="../../Paypal/ctrPasarelaPago.php" id="idFormCarrito" method="post">
@@ -23,7 +22,11 @@
                     </div>  
                 </div>
             </div>
+
       
+            <div class="alert alert-primary descunto justify-content-center text-center animated bounce infinite" role="alert">
+                A simple primary alert—check it out!
+            </div>
             <div class="row d-flex justify-content-center">
                 <div class="opciones_pago">
                     <!-- Group of material radios - option 1 -->

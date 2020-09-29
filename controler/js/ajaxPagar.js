@@ -163,7 +163,7 @@ function enviarDatosPasarelaPagoCarMembresia(datos){
                     break;
                 case 'numInferiorDescargas':
                     //no exites session
-                    toastr.info('El numero de productos selecionados es inferior al numero de descargas disponibles');
+                    toastr.warning('El numero de productos selecionados es inferior al numero de descargas disponibles o su membresia a caducado');
                     break;
                 case 'fall':
                     //no exites session
