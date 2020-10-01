@@ -46,10 +46,10 @@ ini_set('display_errors', 'On');
              $stmt->bindParam(':dateCompra',$fechaActual);
              $stmt->bindParam(':dateExperiracion',$fechaAddDays);
              $stmt->bindParam(':numDescargas',$arraDatosMembresia['get']['numDescargas']);
-             $stmt->bindParam(':idCliente',intval($arraDatosMembresia['get']['idCliente'])); 
-             $stmt->bindParam(':precio',floatval($arraDatosMembresia['precioProducto'][0])); 
+             $stmt->bindParam(':idCliente',($arraDatosMembresia['get']['idCliente'])); 
+             $stmt->bindParam(':precio',($arraDatosMembresia['precioProducto'][0])); 
              $stmt->bindParam(':metodoPago',$metodoPago);
-             $stmt->bindParam(':precioUnidad',floatval($precioUnidad));
+             $stmt->bindParam(':precioUnidad',($precioUnidad));
              //settype($arraDatosMembresia['precioProducto'][0], 'float'); 
             } catch (Exception $e) {
                 //echo "Error".$e->getMessage();

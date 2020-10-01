@@ -40,7 +40,7 @@ $descripcionProducto="";
             $diff = $date1->diff($date2);
             // comprobar caducidad 
             // si resto los 30 dias me va a dar 0 , x por lo tanto caduca en <1
-            if($value['rango']>0 && $diff->days<1){
+            if($value['rango']>0 && $diff->days<=30){
                 $idMembresia=$value['id'];
                 $rangoDescargas=$value['rango'];
                 $fechaCompra=$value['fecha_inicio'];

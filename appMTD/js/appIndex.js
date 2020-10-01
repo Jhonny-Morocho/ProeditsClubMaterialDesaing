@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
 	
-    new WOW().init();
+    // new WOW().init();
 
-    // Material Select Initialization
-    $('.mdb-select').materialSelect();
+    // // Material Select Initialization
+    // $('.mdb-select').materialSelect();
     // Tooltips Initialization
 });
 
