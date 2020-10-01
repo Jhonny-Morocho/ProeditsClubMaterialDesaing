@@ -225,47 +225,45 @@ ini_set('display_errors', 'On');
 				$stmt->close();
 		}
 
-		//============================ELIMINAR LOGICAMENTE  AL PROVEEDOR PROVEEDOR========================================//
-	// public static function sql_individual_eliminar($arrayProveedorImg){
-	// 		$db=new Conexion();
-	// 		//1. Debo borrar el archivo anterior antes de actulizar el nuevo
-	// 		$dir='../img/proveedores/'.$arrayProveedorImg['img'];
-	// 		$bandera_borrar=false;
-	// 		if(file_exists($dir)){
-	// 			if(unlink($dir)){
-	// 				$bandera_borrar=true; 
-	// 			}
-	// 		}
-			 	
-	// 		try {
-	// 		$idProveedor=$arrayProveedorImg['id'];
-	// 		$stmt= $db->conectar()->prepare("UPDATE proveedor SET 
-	// 												estado='0'
-	// 											WHERE id='$idProveedor' ");
-
-	// 		} catch (Exception $e) {
-	// 			echo "Error".$e->getMessage();
-	// 		}
-		
+		//============================EDITAR CONTRASEÑA DEL CLIENTE========================================//
+		public static function sqlEditarPasswordCliente($arrayDatos){
+			$db=new Conexion();
+			//========datos del formuarlio================
+			$idCliente=$arrayDatos['datosBdCliente']['id'];
+			$password=$arrayDatos['passwordNuevo'];
 			
-	// 		$stmt->execute();
+			try {
+			$opciones=array(
+				'cost'=>12
+			);
 
-	// 		if($stmt){
-	// 			//si se realizo la inserccion
-	// 			$respuesta=array(
-	// 				'respuesta'=>'exito'
-	// 				);
-	// 				return $respuesta;
-	// 		}else{
-	// 			$respuesta=array(
-	// 				'respuesta'=>'false'
-	// 				);
-	// 				return $respuesta;
-	// 		}
-		
-	// 		//si alguna fila se modifico entonces si se edito
-	// 		$stmt->close();
-	// 	}
+			$hash_password=password_hash($password,
+							PASSWORD_BCRYPT,$opciones);
+			$stmt=$db->conectar()->prepare(" UPDATE cliente  SET 
+													password='$hash_password'
+											WHERE id='$idCliente' ");
+				
+			} catch (Exception $e) {
+				echo "Error".$e->getMessage();
+			}
+				$stmt->execute();
+				if($stmt){
+					//si se realizo la inserccion
+					$respuesta=array(
+						'respuesta'=>'exito'
+						);
+						return $respuesta;
+				}else{
+					$respuesta=array(
+						'respuesta'=>'false'
+						);
+						return $respuesta;
+				}
+
+				//si alguna fila se modifico entonces si se edito
+
+			$stmt->close();
+		}
 
 	}
 
