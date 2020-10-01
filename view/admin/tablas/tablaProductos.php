@@ -274,6 +274,7 @@
               <th>Play</th>
               <th>Editar</th>
               <th>Eliminar</th>
+              <th>Compartir</th>
             </tr>
             </thead>
             <tbody>
@@ -307,6 +308,11 @@
                                   <i class="fa fa-fw fa-trash"></i>
                               </div>
                           </td>
+                          <td>
+                                <a href="https://www.proeditsclub.com/demo.php?id_producto=<?php echo $row['id'] ?>" target="_blank""> 
+                                    <i class="fa fa-fw fa-share-alt"></i>
+                                </a> 
+                           </td>
                     <?php }else{
                           echo '<div class="alert alert-primary" role="alert">
                                   No existe resultado para la cadena de busqueda 
