@@ -320,6 +320,39 @@ iframe {
 }
 }
 @media only screen and (max-width: 480px) {
+
+  /* ============== play list ============= */
+  img.d-block {
+    height: 160px !important;
+  }
+  .col-lg-2.mt-2.mb-2.no-padding.agregar-carrito.buy {
+    text-align: center;
+  }
+
+  .col-lg-7.mt-2.mb-2.producto {
+    text-align: center;
+    margin-left: 20px;
+}
+
+.col-lg-1.mt-2.mb-2.genero {
+  text-align: center;
+}
+
+.col-lg-2.mt-2.mb-2.fecha {
+  text-align: center;
+}
+
+.row.filaItemProducto.black.pt-2.pb-2 {
+  margin-bottom: 1px;
+}
+
+/* =========== top ============ */
+div#back-to-top {
+  margin-right: 20px;
+}
+
+
+  
   .contentGenero{
     display: none;
   }

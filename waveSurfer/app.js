@@ -5,10 +5,10 @@ var wavesurfer;
 document.addEventListener('DOMContentLoaded', function() {
     wavesurfer = WaveSurfer.create({
         container: '#waveform',
-        waveColor: '#c8e6c9 ',
-        progressColor: '#43a047',
-        cursorColor: '#fff',
-        barWidth:0,
+        waveColor: '#9e9595 ',
+        progressColor: 'black',
+        cursorColor: 'black',
+        barWidth:1,
         barHeight:1.5,
         height: 50
     });

@@ -50,9 +50,7 @@
 }
 
 
-.ondaMusica{
-    background-color: black;
-}
+
 
 /* ==================== CUANDO HAYA PLAY EL RERPODUCTOR APARECE ============== */
 .reproducir {
@@ -64,7 +62,6 @@
 
     clear: both;
     width: 100%;
-    left: 15px;
     position: fixed;
     overflow: hidden;
     bottom: -6px; 
@@ -101,6 +98,9 @@
     font-family: 'Lato', sans-serif;
 }
 
+div#waveform {
+    background: white;
+}
 
 /* ==== activar el hover cuando haga click en el producto=============== */
 .row.filaItemProducto.black.active {
@@ -177,18 +177,30 @@ span#mute {
 
 #loading_flag {
   position: absolute;
-    display: none ;
+    /* display: none ; */
     top: 63%;
-    left: 10%;
+    left: 20%;
     width: auto;
-    background-color: #84ea0e;
+    background-color: red;
     text-align: center;
     font-family: Verdana, Geneva, sans-serif;
     height: auto;
 }
+
+@media only screen and (max-width: 480px) {
+
+  span#mute {
+    position: absolute;
+    margin-top: 4px;
+    right: 130px;
+    }
+
+}
+
+
         </style>
 
 
 <div id="loading_flag">
-  <!-- content set by JS  -->			
+			
 </div>

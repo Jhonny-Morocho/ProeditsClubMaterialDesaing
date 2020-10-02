@@ -19,7 +19,7 @@
       <img class="d-block w-100 animated  fadeInLeftBig" src="../../img/carrosul/portada-antony.jpg"
         alt="First slide">
         <div class="carousel-caption">
-        <span class="badge badge-danger"> <h3 class="h3-responsive descunto">Light mask</h3> </span>
+          <p> <span class="badge badge-danger descunto">  </span></p>
         </div>
     </div>
     <!--/First slide-->
@@ -28,7 +28,8 @@
       <img class="d-block w-100 " src="../../img/carrosul/4170808.jpg"
         alt="Second slide">
         <div class="carousel-caption">
-        <span class="badge badge-danger"> <h3 class="h3-responsive descunto">Light mask</h3> </span>
+      
+        <p> <span class="badge badge-danger descunto">  </span></p>
         </div>
     </div>
     <!--/Second slide-->
@@ -37,7 +38,7 @@
       <img class="d-block w-100 " src="../../img/carrosul/Membresias 2020.png"
         alt="Third slide">
         <div class="carousel-caption">
-        <span class="badge badge-danger"> <h3 class="h3-responsive descunto">Light mask</h3> </span>
+        <p> <span class="badge badge-danger descunto">  </span></p>
         </div>
 	</div>
 	  <!--Third slide-->
@@ -45,7 +46,7 @@
       <img class="d-block w-100 " src="../../img/carrosul/monendero2020.jpeg"
         alt="Third slide">
         <div class="carousel-caption">
-          <span class="badge badge-danger"> <h3 class="h3-responsive descunto">Light mask</h3> </span>
+        <p> <span class="badge badge-danger descunto">  </span></p>
         </div>
 	</div>
 	
@@ -54,7 +55,7 @@
       <img class="d-block w-100 " src="../../img/carrosul/octubreNew.jpeg"
         alt="Third slide">
         <div class="carousel-caption">
-          <span class="badge badge-danger"> <h3 class="h3-responsive descunto">Light mask</h3> </span>
+        <p> <span class="badge badge-danger descunto">  </span></p>
         </div>
 	</div>
     <!--/Third slide-->
