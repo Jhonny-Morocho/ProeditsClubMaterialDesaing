@@ -99,7 +99,7 @@
 }
 
 div#waveform {
-    background: white;
+    background: black;
 }
 
 /* ==== activar el hover cuando haga click en el producto=============== */
@@ -181,7 +181,7 @@ span#mute {
     top: 63%;
     left: 20%;
     width: auto;
-    background-color: red;
+    background-color: #00c28d;
     text-align: center;
     font-family: Verdana, Geneva, sans-serif;
     height: auto;
