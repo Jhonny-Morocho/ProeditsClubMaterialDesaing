@@ -296,5 +296,18 @@ function archivo(evt) {
 </script>
 
 
+<!-- ===================== cargando pagina efecto ====================== -->
+<div class="loader-page"></div>
+<script>
+  $(window).on('load', function () {
+      setTimeout(function () {
+    $(".loader-page").css({visibility:"hidden",opacity:"0"})
+  }, 2000);
+     
+});
+</script>
+
+
+
 </body>
 </html>

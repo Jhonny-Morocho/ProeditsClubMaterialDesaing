@@ -22,6 +22,13 @@
                   <i class="fas fa-stop"></i>
                 </span>
             </li>
+
+            <li class="nav-item">
+              <span class="badge  animated  pulse  trackName ml-5">
+            </span>
+        
+            </li>
+
             <li class="nav-item">
               <div id="volume-control" class="right">
                 <span id="mute" class="button iconoPlayList">
@@ -204,3 +211,4 @@ span#mute {
 <div id="loading_flag">
 			
 </div>
+
