@@ -43,6 +43,7 @@ $formatoFechaActual=$añoActual."-".$mesActual."-01";
 <section class="content">
 
 <div class="row">
+<?php if($_SESSION['tipo_usuario']=="Admin"){ ?>
       <div class="col-lg-4 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-aqua">
@@ -88,6 +89,7 @@ $formatoFechaActual=$añoActual."-".$mesActual."-01";
         </div>
       </div>
       <!-- ./col -->
+      <?php } ?>
     </div>
 </section>
 <!-- /.content -->
