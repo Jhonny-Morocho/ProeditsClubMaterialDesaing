@@ -35,13 +35,30 @@
 	<!-- =================== APP==================== -->
 	<!-- =================== APP==================== -->
 	<!-- =================== APP==================== -->
-	<link rel="stylesheet" href="../css/appIndex.css">
+	<link rel="stylesheet" href="../css/appIndex.css?V=2.1">
 	<link rel="stylesheet" href="../../socialNav/social.css">
+
 
 
 </head>
 
 <body class="">
+	<STyle>
+	
+
+/*Loading page*/
+.jm-loadingpage {
+ position: fixed;
+ left: 0px;
+ top: 0px;
+ width: 100%;
+ height: 100%;
+ z-index: 999999999;
+ background: url(https://media1.tenor.com/images/b18603537d3dbdd776f2907e3187a5c4/tenor.gif?itemid=11580546) center no-repeat #fff;
+}
+/*Loading page*/
+	</STyle>
+<div class="jm-loadingpage"></div>
 
 <header class="">
 	<div class=" ">
@@ -136,7 +153,7 @@
 											if($contProveedor<$numTotalProveedor){
 												
 												echo'<li>
-															<a class="menu-item pl-0" href="'.(ControladorPlantillaInicio::url_dj_productos()).$proveedores[$contProveedor]['id'].'">
+												<a class="menu-item pl-0" href="'.(ControladorPlantillaInicio::url_dj_productos()).$proveedores[$contProveedor]['id'].'&remixer='.$proveedores[$contProveedor]['apodo'].'">
 																<i class="fas fa-caret-right pl-1 pr-3"></i>'.$proveedores[$contProveedor]['apodo'].'
 															</a>
 													</li>';

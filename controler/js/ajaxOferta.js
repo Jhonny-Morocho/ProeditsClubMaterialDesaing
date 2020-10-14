@@ -5,7 +5,7 @@ $(document).ready(function(){
 ///////////////////////////////////EDITAR CUPON/////////////////////////////////////////
 ///////////////////////////////////EDITAR CUPON/////////////////////////////////////////
 
-	$('#idFormEditarCupon').on('submit',function(e){
+	$('#idFormEditarOferta').on('submit',function(e){
         e.preventDefault();
         var datos=$(this).serializeArray();
         console.log(datos);

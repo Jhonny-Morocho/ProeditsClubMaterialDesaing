@@ -42,7 +42,7 @@
 
 
 <div id="demo" >
-    <div class="list-group " id="playlist">
+    <div class="list-group no-padding" id="playlist">
     <?php foreach (Pagination::show_rows("id") as $row): ?>
         <?php  $banderaError=false; if( $row['apodo']!== 'Error: vacío' ){ ?>
             <div class="row  filaItemProducto black pt-2 pb-2">
@@ -52,12 +52,23 @@
                     <span >$<?php echo $row['precio']?></span>
                 </div>
                 
-                <div class="col-lg-7  mt-2 mb-2 producto" >
+                <div class="col-lg-9  mt-2 mb-2 producto" >
                     <a href="../../biblioteca/<?php echo $row['url_directorio']?>"  >
+                    <?php  
+                        date_default_timezone_set('America/Guayaquil');
+                        $fecha_actual=date("Y-m-d");
+                        $date1 = new DateTime($row['fecha_producto']);
+                        $date2 = new DateTime($fecha_actual);
+                        $diff = $date1->diff($date2);
+                            if ($diff->days<31) {
+                            echo '<span class="badge badge-primary">New</span>';
+                            }
+                    ?>
                     <i class="fa fa-play-circle" aria-hidden="true" style="font-size: 18px !important;" ></i>
                         <?php echo $row['url_directorio']?> 
                         
                     </a>
+                    
                 </div>
 
                 <div class="col-lg-1 mt-2 mb-2 genero" data-toggle="tooltip" data-placement="top" title="<?php echo $row['genero']?>">
@@ -65,11 +76,11 @@
                         <?php echo $row['genero']?>
                     </span>
                 </div>
-                <div  class="col-lg-2 mt-2 mb-2 fecha">
+                <!-- <div  class="col-lg-2 mt-2 mb-2 fecha">
                     <span class="">
-                       <?php echo $row['fecha_producto']?>
+                       <?php echo $row['apodo']?>
                     </span>
-                </div>
+                </div> -->
             </div>
         <?php }else{
                         echo '<div class="alert alert-primary" role="alert">

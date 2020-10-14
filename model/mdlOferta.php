@@ -22,36 +22,32 @@ ini_set('display_errors', 'On');
         public static  function sql_editar_Oferta($arrayOferta){
 	
 			$db=new Conexion();
-
-			//die(json_encode($arrayOferta));
-
-			 $descuento=$arrayOferta['descuento'];
-			 $limite_productos=$arrayOferta['limiteProductos'];
-			 $sms_promocion=$arrayOferta['smsPromocion'];
-			 $idOferta=$arrayOferta['idOferta'];
-			 $fecha_inicio=$arrayOferta['inicioOferta'];
-			 $fecha_fin=$arrayOferta['finOferta'];
-			// $arrayOferta
+			$limiteProductos=$arrayOferta["inputLimite"];
+			$mensaje=$arrayOferta["inputSms"];
+			$id=$arrayOferta["idOferta"];
+			$descuento=$arrayOferta['inputDescuento'];
 			try {
 				//code...
 				$stmt= $db->conectar()->prepare("UPDATE  oferta SET
-															descuento='$descuento',
-															limite_productos='$limite_productos',
-															sms_promocion='$sms_promocion',
-															fecha_inicio=' $fecha_inicio',
-															fecha_fin='$fecha_fin'
-														WHERE id='$idOferta'
+															descuento=:bindDecuento,
+															limite_productos=:bindLimite,
+															sms_promocion=:bindSms
+												
+														WHERE id=:binId
 														
 														");
 				
+				$stmt->bindParam(':bindDecuento',$descuento);
+				$stmt->bindParam(':bindLimite',$limiteProductos);
+				$stmt->bindParam(':bindSms',$mensaje);
+				$stmt->bindParam(':binId',$id);
 				$stmt->execute();
 			} catch (Exception $e) {
-				echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+				//echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+				$respuesta=array(
+					'respuesta'=>'error'
+					);
 			}
-
-		   
-		
-		   
 
 		   //si se afecto alguna columna entonces si se realizo actulizo los datos
 		   if($stmt->rowCount()>0){
@@ -63,7 +59,7 @@ ini_set('display_errors', 'On');
 				  
 		   }else{
 			   $respuesta=array(
-				   'respuesta'=>'false'
+				   'respuesta'=>'noExisteCambios'
 				   );
 				 
 		   }

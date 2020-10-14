@@ -236,7 +236,7 @@
 <script src="../controler/js/ajaxProveedor.js"></script>
 <script src="../controler/js/ajaxProducto.js"></script>
 <script src="../controler/js/ajaxCliente.js"></script>
-<script src="../controler/js/ajaxCupon.js"></script>
+<script src="../controler/js/ajaxOferta.js"></script>
 <script src="../controler/js/ajaxPagarProveedor.js"></script>
 <script src="../controler/js/ajaxMembresia.js"></script>
 

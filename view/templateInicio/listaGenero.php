@@ -10,7 +10,7 @@
         <?php 
             $biblioteca=ModeloGenero::sql_lisartar_genero();
             foreach($biblioteca as $key=>$value){
-                echo'<a class="nav-link" href="'.(ControladorPlantillaInicio::url_biblioteca_productos()).$value['id'].'">  <i class="fa fa-music" aria-hidden="true"></i> '.$value['genero'].'</a>';
+                echo'<a class="nav-link" href="'.(ControladorPlantillaInicio::url_biblioteca_productos()).$value['id'].'&genero='.$value['genero'].'">  <i class="fa fa-music" aria-hidden="true"></i> '.$value['genero'].'</a>';
             }
         ?>
     </nav>

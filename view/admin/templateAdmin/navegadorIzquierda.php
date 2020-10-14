@@ -94,6 +94,8 @@
           </ul>
         </li>
 
+        <li><a href="../view/admin/formOferta.php"><i class="fa fa-circle-o text-aqua"></i> <span>Ofertas</span></a></li>
+
         </li>
           <?php } //end if admin solo puede ver ?>
           <li class="treeview">
