@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load a track by index and highlight the corresponding link
     var setCurrentSong = function(index) {
       filaItemProducto[currentTrack].classList.remove('active');
+      console.log(filaItemProducto[currentTrack]);
         currentTrack = index;
         filaItemProducto[currentTrack].classList.add('active');
         wavesurfer.load(links[currentTrack].href);

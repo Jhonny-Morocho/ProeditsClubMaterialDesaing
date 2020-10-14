@@ -78,20 +78,17 @@
 .filaItemProducto:hover {
     background-color: red !important;
     color: white;
-    font-family: 'Lato', sans-serif;
 }
 .filaItemProducto{
   color: white;
   font-size: 15px;
 }
 .producto a{
-    display: inline-block;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 100%;
-    vertical-align: middle;
-    color: white !important;
+
+    
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
     font-family: 'Lato', sans-serif;
 }
 .genero span{
@@ -110,7 +107,7 @@ div#waveform {
 }
 
 /* ==== activar el hover cuando haga click en el producto=============== */
-.row.filaItemProducto.black.active {
+.filaItemProducto.active {
   background-color: red !important;
 }
 
