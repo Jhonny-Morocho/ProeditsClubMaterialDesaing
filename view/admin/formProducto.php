@@ -67,12 +67,18 @@ $plantilla->ctr_navegador_Izquierda();
 
 
                             <div  class="row">
-                                <div class="col-lg-6 fileColumna">
-                              
-                                        <label for="labelDemoEdit" id="labelFileFormularioProducto"><i class="fa fa-file-audio-o" aria-hidden="true"></i> Preview (Calidad de 128 Kbs)</label>
-                                        <input type="file" required=""  id="idInputDemo" type="audio/mp3" name="filesEditDemo" / >
-                                
+                                <div class="col-lg-6 fileColumna ">
+                                    <label for="labelDemoEdit" id="labelFileFormularioProducto"><i class="fa fa-file-audio-o" aria-hidden="true"></i> Preview (Calidad de 128 Kbs)</label>
+                                    <input type="file" required=""  id="idInputDemo"  type="audio/mp3" name="filesEditDemo" />
                                 </div>                                
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6  mt-3">
+                                    <label for="labelLogo"><i class="fa fa-fw fa-image" style="font-size: 20px;"></i> Caratula (Campo no obligatorio)</label>
+                                    <input type="file" id="files"   accept="image/*"  name="fileCaratula" / >
+                                    <output id="list"  class="rounded mx-auto d-block"></output>
+                                </div>
                             </div>
 
                             <div class="row fileColumna">

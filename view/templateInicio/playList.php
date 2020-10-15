@@ -9,11 +9,22 @@
                     <section>
 
                         <div class="media  px-1">
-                        <img class="card-img-100  d-flex z-depth-1 mr-3" src="../../img/proveedores/<?php echo $row['img']?>"
-                            alt="Generic placeholder image">
+                        <?php  
+                            //caratula o logos
+                            $imagen="";
+                            if ($row['caratula']=="") {
+                            echo'<img class="card-img-100  d-flex z-depth-1 mr-3" src="../../img/proveedores/'.$row["img"].'"
+                                alt="Generic placeholder image">';
+                            }else{
+                                echo'<img class="card-img-100  d-flex z-depth-1 mr-3" src="../../img/caratulas/'.$row["caratula"].'"
+                                alt="Generic placeholder image">';
+                            }
+                        ?>
+                       
                             <div class="media-body">
                                 <a href="../../biblioteca/<?php echo $row['url_directorio']?>"  >
                                     <?php  
+                                        //equitea nuevo
                                         date_default_timezone_set('America/Guayaquil');
                                         $fecha_actual=date("Y-m-d");
                                         $date1 = new DateTime($row['fecha_producto']);

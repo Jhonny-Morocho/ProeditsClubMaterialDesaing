@@ -13,64 +13,61 @@ ini_set('display_errors', 'On');
         
         
 
-		public static  function sql__agrgar_prodcuto($arrayProductos,$demo){
-		$db=new Conexion();
-			
-		//========datos del formuarlio===============
+		public static  function sql__agrgar_prodcuto($arrayProductos,$demo,$caratula){
+			$db=new Conexion();
+				
+			//========datos del formuarlio===============
+			$tituloProducto=$demo;
+			$estado=1;
+			$idProveedor=$_POST['id_proveedor'];
+			$inputLinkDescarga=$_POST['inputLinkDescarga'];
+			$generoProducto=$arrayProductos['id_genero'];
+			$precioProducto=$arrayProductos['inputDolares'].".".$arrayProductos['inputCentavos'];
+			date_default_timezone_set('America/Guayaquil');
+			$fecha_actual=date("Y-m-d");
 
-		$tituloProducto=$demo;
-		$estado=1;
-		$idProveedor=$_POST['id_proveedor'];
-		$inputLinkDescarga=$_POST['inputLinkDescarga'];
-		$generoProducto=$arrayProductos['id_genero'];
-        $precioProducto=$arrayProductos['inputDolares'].".".$arrayProductos['inputCentavos'];
-        date_default_timezone_set('America/Guayaquil');
-        $fecha_actual=date("Y-m-d");
+			$stmt= $db->conectar()->prepare("INSERT INTO productos
+													(
+													id_proveedor,url_directorio, fecha_producto,
+													id_biblioteca, precio,
+													activo, url_descarga,caratula ) 
 
-        $stmt= $db->conectar()->prepare("INSERT INTO productos
-                                                (
-                                                id_proveedor,url_directorio, fecha_producto,
-												id_biblioteca, precio,
-                                                activo, url_descarga
-                                                ) 
+												VALUES(
+													:idProveedor,:url_directorio,:fecha_actual,
+													:id_biblioteca,:precio,
+													:activo, :url_descarga, :caratulaTema
+													) 
+											");
+			$stmt->bindParam(':idProveedor',$idProveedor);
+			$stmt->bindParam(':url_directorio',$tituloProducto);
+			$stmt->bindParam(':fecha_actual',$fecha_actual);
+			$stmt->bindParam(':id_biblioteca',$generoProducto);
+			$stmt->bindParam(':precio',$precioProducto);
+			$stmt->bindParam(':activo',$estado);
+			$stmt->bindParam(':url_descarga',$inputLinkDescarga);
+			$stmt->bindParam(':caratulaTema',$caratula);
 
-                                            VALUES(
-                                                :idProveedor,:url_directorio,:fecha_actual,
-                                                :id_biblioteca,:precio,
-                                                :activo, :url_descarga
-                                                ) 
-                                        ");
-		$stmt->bindParam(':idProveedor',$idProveedor);
-		$stmt->bindParam(':url_directorio',$tituloProducto);
-		$stmt->bindParam(':fecha_actual',$fecha_actual);
-		$stmt->bindParam(':id_biblioteca',$generoProducto);
-		$stmt->bindParam(':precio',$precioProducto);
-		$stmt->bindParam(':activo',$estado);
-		$stmt->bindParam(':url_descarga',$inputLinkDescarga);
+				$stmt->execute();
+				$id=$db->lastInsertId();
+				if ( $stmt->rowCount() > 0) {
+					//Se grabo bien en la base de datos
+					$respuesta=array(
+						'respuesta'=>'exitoRegistroBd'
+						);
+				
+					}else{
+					$respuesta=array(
+						'respuesta'=>'fallidoRegistroBd'
+						);
+					
+					}
+				
+							
+		
 
-            $stmt->execute();
-            $id=$db->lastInsertId();
-            if ( $stmt->rowCount() > 0) {
-                //Se grabo bien en la base de datos
-                $respuesta=array(
-                    'respuesta'=>'exitoRegistroBd'
-                    );
-            
-                }else{
-                $respuesta=array(
-                    'respuesta'=>'fallidoRegistroBd'
-                    );
-                
-                }
-			
-						
-	
-
-		//
-		return $respuesta;//regrso la respuesta 
-		$stmt->close();
-    
-
+			//
+			return $respuesta;//regrso la respuesta 
+			$stmt->close();
 		}
 
 
@@ -186,7 +183,41 @@ ini_set('display_errors', 'On');
 		}
 
 	
+	//============================ACTUALIZAR O EDITAR PRODUCTO IMG========================================//
+	public static function sqlEditarCaratulaProducto($urlCaratulaProducto,$idProducto){
+		$db=new Conexion();
+	
+			try {
+				
+					$stmt= $db->conectar()->prepare("UPDATE productos SET 
+																caratula='$urlCaratulaProducto'
+															WHERE id='$idProducto' ");
+					
+			} catch (Exception $e) {
+				echo "Error".$e->getMessage();
+			}
+		
+			$stmt->execute();
 
+			if($stmt){
+				//si se realizo la inserccion
+				$respuesta=array(
+					'respuesta'=>'exito',
+					'img'=>$urlCaratulaProducto
+					);
+					return $respuesta;
+			}else{
+				$respuesta=array(
+					'respuesta'=>'false'
+					);
+					return $respuesta;
+			}
+		
+
+			//si alguna fila se modifico entonces si se edito
+
+			$stmt->close();
+	}
 	//============================ELIMINAR LOGICAMENTE  AL PRDICTO========================================//
 	public static function sqlEliminarProducto($arrayProducto){
 			$db=new Conexion();

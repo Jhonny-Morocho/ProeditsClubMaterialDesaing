@@ -28,6 +28,7 @@ class PaginationModel {
             productos.precio, 
             productos.id_proveedor, 
             productos.id ,
+			productos.caratula,
             productos.id_biblioteca,
 			
             biblioteca.genero,

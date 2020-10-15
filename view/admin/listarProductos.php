@@ -26,6 +26,7 @@
  $plantilla->ctr_navegador_Izquierda();
  $plantilla->ctr_tabla_productos();
  require'modales/editarProducto.php';
+ require'modales/editarCaratulaProducto.php';
   $plantilla->ctr_footer();
 $plantilla->toTop();
 ?>

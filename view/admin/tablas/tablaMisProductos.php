@@ -37,16 +37,16 @@
         $whereDemoGenero=" where productos.id_proveedor=proveedor.id and
         productos.id_biblioteca=biblioteca.id and 
         productos.activo=1  and 
-                                biblioteca.id=".intval(@$_GET['genero'])." and   producto.demo LIKE '%".@$_GET['busqueda']."%'   ";
+                                biblioteca.id=".intval(@$_GET['genero'])." and   productos.url_directorio LIKE '%".@$_GET['busqueda']."%'   ";
                                 
         $whereDemoGeneroRemixer=" where productos.id_proveedor=proveedor.id and
         productos.id_biblioteca=biblioteca.id and 
         productos.activo=1  and 
-                                biblioteca.id=".intval(@$_GET['genero'])." and   proveedor.id=".intval(@$_SESSION['id_proveedor'])." and   producto.demo LIKE '%".@$_GET['busqueda']."%'   ";
+                                biblioteca.id=".intval(@$_GET['genero'])." and   proveedor.id=".intval(@$_SESSION['id_proveedor'])." and   productos.url_directorio LIKE '%".@$_GET['busqueda']."%'   ";
         $whereDemoRemixer=" where productos.id_proveedor=proveedor.id and
         productos.id_biblioteca=biblioteca.id and 
         productos.activo=1  and 
-                             proveedor.id=".intval(@$_SESSION['id_proveedor'])." and   producto.demo LIKE '%".@$_GET['busqueda']."%'   ";
+                             proveedor.id=".intval(@$_SESSION['id_proveedor'])." and   productos.url_directorio LIKE '%".@$_GET['busqueda']."%'   ";
 
 
         $numeroFilas=30;
@@ -213,6 +213,7 @@
                 <thead>
                   <tr>
                     <th>Fecha</th>
+                    <th>Img</th>
                     <th>Titulo</th>
                     <th>Genero</th>
                     <th>Editor</th>
@@ -230,6 +231,14 @@
                     <?php  $banderaError=false; if( $row['apodo']!== 'Error: vacío' ){ ?>
                         <tr>
                           <th><?php echo $row['fecha_producto']?></th>
+                          <td>
+                            <div class="attachment-block ">
+                              <img class="attachment-img" src="../img/caratulas/<?php echo $row['caratula']?>" alt="Image">
+                                <span class="editProductoImg" aria-hidden="true" data-toggle="modal" data-target="#modalEditarCaratulaProducto" data-name="<?php echo $row['caratula']?>" data-id="<?php echo $row['id']?>">
+                                  <i class="fa fa-fw fa-pencil-square-o"></i>
+                                </span>
+                            </div>
+                          </td>
                           <td><?php echo $row['url_directorio']?></td>
                           <td ><?php echo $row['genero']?></td>
                           <td><?php echo $row['apodo']?></td>
@@ -306,3 +315,5 @@
     </div> <!-- end .col-12 -->
   </div>  <!-- end .row -->
 </section> <!-- end section -->
+
+

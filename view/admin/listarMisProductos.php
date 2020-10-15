@@ -22,6 +22,7 @@ require'../../controler/ctrPaginacion.php';
  $plantilla->usuario_autentificado();
  $plantilla->ctr_header();
  require'modales/editarProducto.php';
+ require'modales/editarCaratulaProducto.php';
  $plantilla->ctr_navegador_Izquierda();
  $plantilla->ctr_tabla_mis_productos();
  $plantilla->ctr_footer();

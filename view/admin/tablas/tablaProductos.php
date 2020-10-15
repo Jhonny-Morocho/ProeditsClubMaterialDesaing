@@ -266,6 +266,7 @@
             <thead>
             <tr>
               <th>Fecha</th>
+              <th>Caratula</th>
               <th>Titulo</th>
               <th>Genero</th>
               <th>Editor</th>
@@ -283,6 +284,14 @@
                     <?php  $banderaError=false; if( $row['apodo']!== 'Error: vacío' ){ ?>
                         <tr>
                           <th><?php echo $row['fecha_producto']?></th>
+                          <td>
+                            <div class="attachment-block ">
+                              <img class="attachment-img" src="../img/caratulas/<?php echo $row['caratula']?>" alt="Image">
+                                <span class="editProductoImg" aria-hidden="true" data-toggle="modal" data-target="#modalEditarCaratulaProducto" data-name="<?php echo $row['caratula']?>" data-id="<?php echo $row['id']?>">
+                                  <i class="fa fa-fw fa-pencil-square-o"></i>
+                                </span>
+                            </div>
+                          </td>
                           <td><?php echo $row['url_directorio']?></td>
                           <td ><?php echo $row['genero']?></td>
                           <td><?php echo $row['apodo']?></td>
