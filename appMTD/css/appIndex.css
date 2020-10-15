@@ -1,19 +1,19 @@
 
 /* ========================Navegador ============== */
 .special-color-red{
-    background-color: #FD0002; 
-    border-radius: 18px;
-     margin-bottom: 10px;
+  background-color: #FD0002; 
+  border-radius: 18px;
+   margin-bottom: 10px;
 }
 
 .main-header  nav a{
-    margin-left: 40px;
-    font-size: 16px;
-    font-weight: bold;
-    
+  margin-left: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  
 }
 .border-right{
-  padding-right: 20px !important;
+padding-right: 20px !important;
 }
 
 /* ========================== ESTILOS DEL LOGIN =====================
@@ -24,37 +24,37 @@ html,
 body,
 
 .view {
-  height: 100%;
+height: 100%;
 }
 
 @media (max-width: 740px) {
-  html,
-  body,
- 
-  .view {
-    height: 1000px;
-  }
+html,
+body,
+
+.view {
+  height: 1000px;
+}
 }
 @media (min-width: 800px) and (max-width: 850px) {
-  html,
-  body,
+html,
+body,
 
-  .view {
-    height: 650px;
-  }
+.view {
+  height: 650px;
+}
 }
 
 .rgba-gradient {
-  background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%);
+background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%);
 }
 
 
 .md-form label {
-  color: #ffffff;
+color: #ffffff;
 }
 
 h6 {
-  line-height: 1.7;
+line-height: 1.7;
 }
 
 
@@ -64,28 +64,28 @@ h6 {
 /* ========================= PANEL DEL CLIENTE =============== */
 /* ========================= PANEL DEL CLIENTE =============== */
 .myaccount-tab-menu a {
-    border: 1px solid #ccc;
-    border-bottom: none;
-    color:black;
-    font-weight: 500;
-    font-size: 13px;
-    display: block;
-    padding: 10px 15px;
-    text-transform: uppercase;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  color:black;
+  font-weight: 500;
+  font-size: 13px;
+  display: block;
+  padding: 10px 15px;
+  text-transform: uppercase;
 }
 .myaccount-tab-menu a:hover {
-  background-color: #FD0002;
+background-color: #FD0002;
 }
 
 .myaccount-tab-menu {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .myaccount-tab-menu  .active{
-    background-color: #FD0002 ;
+  background-color: #FD0002 ;
 }
 
 
@@ -93,58 +93,58 @@ h6 {
 /* //======================ESTILOS DEL GENERO ===========================// */
 /* //======================ESTILOS DEL GENERO ===========================// */
 .blue.lighten-5 {
-    background-color: black !important;
+  background-color: black !important;
 }
 
 .descripcionNav {
-    color: white;
-    background: red;
-    height: 45px;
-    border-radius: 12px;
-    text-align: center;
-    text-transform: uppercase;
-    padding-top: 10px;
-    font-weight: bold;
- }
+  color: white;
+  background: red;
+  height: 45px;
+  border-radius: 12px;
+  text-align: center;
+  
+  text-transform: uppercase;
+  padding-top: 10px;
+  font-weight: bold;
+}
 
 .navGenero a{
-   color: white;
-   margin-top: 15px;
-   padding: 15px;
+ color: white;
+ margin-top: 15px;
+ padding: 15px;
+ text-transform: uppercase;
 }
 
 .navGenero a:hover{
-    background-color: #FD0002 !important;
-    border-radius: 16px !important;
-    padding: 15px;
+  background-color: #FD0002 !important;
+  border-radius: 16px !important;
+  padding: 15px;
 }
 
 
 .playlist{
-    background: black;
+  background: black;
 }
 
 .playlist ul {
-  color: white;
+color: white;
 }
 .playlist span {
-    color: white;
-  }
+  color: white;
+}
 
 .topDescripcionProducto{
-    background: black;
-    color: white;
+  background: black;
+  color: white;
 }
 
 .topDescripcionProducto .topNombreTema{
-    color: white !important;
-    font-size:12px !important;
+  color: white !important;
+  font-size:12px !important;
 }
 
 
-footer.page-footer {
-    height: 320px !important;
-}
+
 
 
 /* ====================carrito de compras ============= */
@@ -152,17 +152,17 @@ footer.page-footer {
 ====================carrito de compras ============= */
 
 .buy:hover{
-   cursor: pointer;
+ cursor: pointer;
 }
 .deleItemCar:hover{
-  cursor: pointer;
-  color: red;
+cursor: pointer;
+color: red;
 }
 .deleItemCar{
-  font-size: 22px;
+font-size: 22px;
 }
 tr td{
-  text-align: center;
+text-align: center;
 }
 
 
@@ -170,45 +170,45 @@ tr td{
 /* ====================OFERTA CARRUSEL =============
 ====================OFERTA CARRUSEL ============= */
 .oferta {
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 32px;
-    text-transform: uppercase;
-    background-color: #fd0002;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 32px;
+  text-transform: uppercase;
+  background-color: #fd0002;
 }
 
 /* ====================HEADER GENERO MUSICAL  ============= */
 /* ====================HEADER GENERO MUSICAL  =============
 ====================HEADER GENERO MUSICAL  ============= */
- .special-color {
-    background-color: #252222  !important;
+.special-color {
+  background-color: #252222  !important;
 } 
 
 .navbar .mega-dropdown .dropdown-menu.mega-menu .sub-menu ul li a:hover {
-    background-color:  #fd0002 !important;
+  background-color:  #fd0002 !important;
 
 }
 
 .navbar .dropdown-menu a:not(.active) {
-    color: white !important;
+  color: white !important;
 }
 
 .dropdown .dropdown-menu.dropdown-primary .dropdown-item:hover{
-    background-color:  #fd0002 !important;
+  background-color:  #fd0002 !important;
 }
 
 /* .navbar.navbar-dark .breadcrumb .nav-item.active>.nav-link, .navbar.navbar-dark .navbar-nav .nav-item.active>.nav-link {
-  background-color: #dc3545 !important;
+background-color: #dc3545 !important;
 } */
 
 .navMenu a:hover{
-  background-color: black !important;
+background-color: black !important;
 }
 
 .btn-ins {
 
-  background-color: #fd668c !important;
+background-color: #fd668c !important;
 }
 
 
@@ -219,21 +219,22 @@ background: #ff00007d!important;
 
 .btn-indigo {
 
-  background-color: red !important;
+background-color: red !important;
 }
 
 .rgba-gradient {
-  background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), #9f191e73 100%);
+background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), #9f191e73 100%);
 }
 
 
 .itemTop15:hover{
-  background-color: #FD0002 !important;
-    
+background-color: #FD0002 !important;
+  
 }
 .topSonf{
-  color:#fff;
-  font-size: 12px;
+color:#fff;
+font-size: 12px;
+text-transform: uppercase;
 }
 
 
@@ -244,146 +245,146 @@ background: #ff00007d!important;
 
 }
 @media only screen and (max-width: 1366px) {
- 
+
 }
 @media only screen and (max-width: 1024px) {
- 
-  
+
+
 }
 @media only screen and (max-width: 990px) {
- 
-  .contentGenero{
-    display: none;
-  }
-  .btn-floating.btn-lg {
-    width: 43.1px;
-    height: 43.1px;
-  }
-  .btn-floating.btn-lg i {
-    font-size: 1em;
-    line-height: 15.1px;
-  }
-  .border-right {
-    border-right: none !important; 
-  } 
-  .border-left {
-    border-left: none !important; 
-  }
 
-  img.img-fluid.animated.bounce.slower {
-    width: 100%;
+.contentGenero{
+  display: none;
+}
+.btn-floating.btn-lg {
+  width: 43.1px;
+  height: 43.1px;
+}
+.btn-floating.btn-lg i {
+  font-size: 1em;
+  line-height: 15.1px;
+}
+.border-right {
+  border-right: none !important; 
+} 
+.border-left {
+  border-left: none !important; 
+}
+
+img.img-fluid.animated.bounce.slower {
+  width: 100%;
 }
 .main-header {
-  margin-top: 4px;
+margin-top: 4px;
 }
 iframe {
- 
-  margin-left: 60px;
- 
+
+margin-left: 60px;
+
 }
 }
 
 @media only screen and (max-width: 768px) {
-  .contentGenero{
-    display: none;
-  }
-  
-  i.fas.fa-cart-plus.agregar-carrito.buy {
-    margin-left: 140px;
-  }
-  .btn-floating.btn-lg {
-    width: 43.1px;
-    height: 43.1px;
-  }
-  .btn-floating.btn-lg i {
-    font-size: 1em;
-    line-height: 15.1px;
-  }
-
-  img.img-fluid.animated.bounce.slower {
-    width: 100%;
-  }
-
-  .border-right {
-    border-right: none !important; 
-  } 
-  .border-left {
-    border-left: none !important; 
-  }
-  .main-header {
-    margin-top: 4px;
-}
-iframe {
- 
-  margin-left: 60px;
- 
-}
-}
-@media only screen and (max-width: 480px) {
-
-  /* ============== play list ============= */
-  img.d-block {
-    height: 160px !important;
-  }
-  .col-lg-2.mt-2.mb-2.no-padding.agregar-carrito.buy {
-    text-align: center;
-  }
-
-  .col-lg-7.mt-2.mb-2.producto {
-    text-align: center;
-    margin-left: 20px;
+.contentGenero{
+  display: none;
 }
 
-.col-lg-1.mt-2.mb-2.genero {
-  text-align: center;
+i.fas.fa-cart-plus.agregar-carrito.buy {
+  margin-left: 140px;
+}
+.btn-floating.btn-lg {
+  width: 43.1px;
+  height: 43.1px;
+}
+.btn-floating.btn-lg i {
+  font-size: 1em;
+  line-height: 15.1px;
 }
 
-.col-lg-2.mt-2.mb-2.fecha {
-  text-align: center;
+img.img-fluid.animated.bounce.slower {
+  width: 100%;
 }
 
-.row.filaItemProducto.black.pt-2.pb-2 {
-  margin-bottom: 1px;
-}
-
-/* =========== top ============ */
-div#back-to-top {
-  margin-right: 20px;
-}
-
-
-  
-  .contentGenero{
-    display: none;
-  }
-  .btn-floating.btn-lg {
-    width: 43.1px;
-    height: 43.1px;
-  }
-  .btn-floating.btn-lg i {
-    font-size: 1em;
-    line-height: 15.1px;
-  }
-  
-  i.fas.fa-cart-plus.agregar-carrito.buy {
-    margin-left: 140px;
-  }
-  .border-right {
-    border-right: none !important; 
-  } 
-  .border-left {
-    border-left: none !important; 
-  }
-  img.img-fluid.animated.bounce.slower {
-    width: 100%;
+.border-right {
+  border-right: none !important; 
+} 
+.border-left {
+  border-left: none !important; 
 }
 .main-header {
   margin-top: 4px;
 }
 iframe {
- 
-  margin-left: 60px;
- 
+
+margin-left: 60px;
+
+}
+}
+@media only screen and (max-width: 480px) {
+
+/* ============== play list ============= */
+img.d-block {
+  height: 160px !important;
+}
+.col-lg-2.mt-2.mb-2.no-padding.agregar-carrito.buy {
+  text-align: center;
+}
+
+.col-lg-7.mt-2.mb-2.producto {
+  text-align: center;
+  margin-left: 20px;
+}
+
+.col-lg-1.mt-2.mb-2.genero {
+text-align: center;
+}
+
+.col-lg-2.mt-2.mb-2.fecha {
+text-align: center;
+}
+
+.row.filaItemProducto.black.pt-2.pb-2 {
+margin-bottom: 1px;
+}
+
+/* =========== top ============ */
+div#back-to-top {
+margin-right: 20px;
+}
+
+
+
+.contentGenero{
+  display: none;
+}
+.btn-floating.btn-lg {
+  width: 43.1px;
+  height: 43.1px;
+}
+.btn-floating.btn-lg i {
+  font-size: 1em;
+  line-height: 15.1px;
+}
+
+i.fas.fa-cart-plus.agregar-carrito.buy {
+  margin-left: 140px;
+}
+.border-right {
+  border-right: none !important; 
+} 
+.border-left {
+  border-left: none !important; 
+}
+img.img-fluid.animated.bounce.slower {
+  width: 100%;
+}
+.main-header {
+margin-top: 4px;
+}
+iframe {
+
+margin-left: 60px;
+
 }
 }
 

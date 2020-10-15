@@ -108,7 +108,7 @@ div#waveform {
 
 /* ==== activar el hover cuando haga click en el producto=============== */
 .filaItemProducto.active {
-  background-color: red !important;
+  background-color: #18161642  !important;
 }
 
 
