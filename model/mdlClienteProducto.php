@@ -22,6 +22,7 @@ class ModeloClienteProducto {
 						proveedor.apodo,
 						productos.id_proveedor,
 						productos.id,
+                        productos.caratula,
 						productos.fecha_producto,
 						productos.precio
 						
@@ -130,7 +131,6 @@ class ModeloClienteProducto {
      //saber los productos vendidos por el proveedor fitlro
      public static function sqlListarProductosVendidosProveedorFiltroFecha($idProveedor,$fechaInicio,$fechaFin){
         $db=new Conexion();
-      
         try {
             $stmt= $db->conectar()->prepare("SELECT
                                                         cliente_producto.id_producto,

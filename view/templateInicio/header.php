@@ -54,7 +54,7 @@
  width: 100%;
  height: 100%;
  z-index: 999999999;
- background: url(https://media1.tenor.com/images/b18603537d3dbdd776f2907e3187a5c4/tenor.gif?itemid=11580546) center no-repeat #fff;
+ /* background: url(https://media1.tenor.com/images/b18603537d3dbdd776f2907e3187a5c4/tenor.gif?itemid=11580546) center no-repeat #fff; */
 }
 /*Loading page*/
 	</STyle>

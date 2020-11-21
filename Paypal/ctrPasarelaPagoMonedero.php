@@ -32,7 +32,7 @@ $descripcionProducto="";
 
         
         //validacion para realizar la compra
-        if ($banderaEncontradoCliente==true && $saldoMonedero>$_POST['totalCancelar']) {
+        if ($banderaEncontradoCliente==true && $saldoMonedero>=$_POST['totalCancelar']) {
             # code...
            
             try {

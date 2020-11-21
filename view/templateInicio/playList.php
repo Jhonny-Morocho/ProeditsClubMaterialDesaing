@@ -13,16 +13,16 @@
                             //caratula o logos
                             $imagen="";
                             if ($row['caratula']=="") {
-                            echo'<img class="card-img-100  d-flex z-depth-1 mr-3" src="../../img/proveedores/'.$row["img"].'"
+                            echo'<img class="card-img-100  d-flex z-depth-1 mr-3 rounded mb-0" src="../../img/proveedores/'.$row["img"].'"
                                 alt="Generic placeholder image">';
                             }else{
-                                echo'<img class="card-img-100  d-flex z-depth-1 mr-3" src="../../img/caratulas/'.$row["caratula"].'"
+                                echo'<img class="card-img-100  d-flex z-depth-1 mr-3 rounded mb-0" src="../../img/caratulas/'.$row["caratula"].'"
                                 alt="Generic placeholder image">';
                             }
                         ?>
                        
                             <div class="media-body">
-                                <a href="../../biblioteca/<?php echo $row['url_directorio']?>"  >
+                                <a href="../../biblioteca/<?php echo $row['url_directorio']?>" style="font-size: 13px;">
                                     <?php  
                                         //equitea nuevo
                                         date_default_timezone_set('America/Guayaquil');
@@ -41,11 +41,12 @@
                                     <h6 class="sub-title text-uppercase font-weight-bold white-text" style="border-top: 1px solid;width: 100%; color: black!important;" >
                                     <div class="row mt-1">
                                             <div class="col-4">
-                                                <span class="badge badge-danger">Genero </span><span style="color: black; font-size: 15px;" class="ml-1"><?php echo $row['genero']?></span> 
+                                                <span class="badge badge-danger">Genero </span> <span style="color: black; font-size: 12px;" class="ml-1"><?php echo $row['genero']?></span> 
 
                                             </div>
                                             <div class="col-4">
-                                                <span class="badge badge-danger">Precio</span><span style="color: black;" class="m-1">$<?php echo $row['precio']?></span> 
+                                                <span class="badge badge-danger">Precio</span><span style="color: black;" class="m-1"><del>$<?php echo $row['precio']?></del></span> 
+                                                $<?php  echo round((($row['precio']*0.50)),2) ?>
 
                                             </div>
                                             <div class="col-4">
